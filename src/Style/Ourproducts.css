@@ -1,0 +1,462 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Sora:wght@400;600;700&display=swap');
+
+/* ── Section ── */
+.products-section {
+  background: #E6F3FF;
+  padding: 2rem;
+}
+
+.products-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  color: #0a0c12;
+  letter-spacing: 0.05em;
+  margin-bottom: 0;
+}
+
+/* ── Grid ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  justify-content: center;
+  gap: 18px;
+  padding: 2rem 0;
+}
+
+/* ── Card Wrapper (dark card + info below) ── */
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Dark Card — unchanged ── */
+.dark-card {
+  background: #0a0c12;
+  border-radius: 22px;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  height: 350px;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Fan Area — unchanged ── */
+.fan-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* ── Mini Card — unchanged ── */
+.mini-card {
+  position: absolute;
+  width: 110px;
+  height: 140px;
+  background: #f0efec;
+  border-radius: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 9px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+.mini-card-label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 9.5px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.mini-card-img {
+  width: 84px;
+  height: 90px;
+  background: #d0cfcc;
+  border-radius: 5px;
+}
+
+/* ── Card positions — unchanged ── */
+.fc-daily {
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%) rotate(0deg);
+  z-index: 1;
+}
+
+.fc-updates {
+  top: 50px;
+  left: 20px;
+  transform: rotate(-12deg);
+  z-index: 2;
+}
+
+.fc-astro {
+  top: 70px;
+  right: 40px;
+  transform: rotate(12deg);
+  z-index: 3;
+}
+
+/* ── Folder Overlay — unchanged ── */
+.folder-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  z-index: 10;
+}
+
+.folder-overlay svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Folder Title — unchanged ── */
+.folder-title {
+  position: absolute;
+  top: 40px;
+  left: 16px;
+  font-family: 'Sora', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  z-index: 11;
+}
+
+/* ── Folder Year — unchanged ── */
+.folder-year {
+  position: absolute;
+  top: 62px;
+  left: 16px;
+  font-family: 'Sora', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #6b7a99;
+  z-index: 11;
+}
+
+/* ── Folder Users — unchanged ── */
+.folder-users {
+  position: absolute;
+  top: 160px;
+  left: 16px;
+  z-index: 11;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.folder-users-count {
+  font-family: 'Sora', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.folder-users-label {
+  font-family: 'Sora', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #6b7a99;
+}
+
+/* ── Folder Icon — unchanged ── */
+.folder-icon {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 11;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.folder-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Info Section Below Card ── */
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 4px;
+}
+
+.card-info-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color:#082F6E;
+;
+  margin: 0;
+}
+
+.card-info-desc {
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #6b7a99;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.card-info-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #0a0c12;
+  background: none;
+  border: none;
+  padding: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.card-info-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid #1a6cf6;
+  color: #1a6cf6;
+  font-size: 11px;
+}
+
+/* ── Hover Animation ── */
+
+/* White mini cards lift UP on hover */
+.dark-card:hover .fc-daily {
+  transform: translateX(-50%) translateY(-20px);
+}
+
+.dark-card:hover .fc-updates {
+  transform: rotate(-20deg) translateY(-20px);
+}
+
+.dark-card:hover .fc-astro {
+  transform: rotate(20deg) translateY(-20px);
+}
+
+.mini-card {
+  transition: transform 0.4s ease;
+}
+
+/* Folder overlay slides DOWN on hover */
+.folder-overlay {
+  transition: transform 0.4s ease;
+}
+
+.dark-card:hover .folder-overlay {
+  transform: translateY(12px);
+}
+
+/* ============================= */
+/* ✅ 1024px */
+/* ============================= */
+@media (max-width: 1024px) {
+
+  .products-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .products-title {
+    font-size: 26px;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 300px);
+    gap: 24px;
+  }
+}
+
+
+/* ============================= */
+/* ✅ 768px */
+/* ============================= */
+@media (max-width: 768px) {
+
+  .products-section {
+    padding: 1.8rem 1rem;
+  }
+
+  .products-title {
+    font-size: 24px;
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(1, minmax(280px, 320px));
+    gap: 28px;
+    padding: 1.5rem 0;
+  }
+
+  .dark-card {
+    height: 320px;
+    border-radius: 18px;
+  }
+
+  .mini-card {
+    width: 95px;
+    height: 125px;
+    padding: 8px;
+  }
+
+  .mini-card-img {
+    width: 72px;
+    height: 78px;
+  }
+
+  .folder-title {
+    font-size: 15px;
+  }
+
+  .folder-year {
+    font-size: 11px;
+  }
+
+  .folder-users-count {
+    font-size: 22px;
+  }
+
+  .folder-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .card-info-title {
+    font-size: 14px;
+  }
+
+  .card-info-desc {
+    font-size: 12px;
+  }
+}
+
+
+/* ============================= */
+/* ✅ 420px */
+/* ============================= */
+@media (max-width: 420px) {
+
+  .products-section {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .products-title {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 1rem 0;
+  }
+
+  .dark-card {
+    height: 280px;
+    border-radius: 16px;
+  }
+
+  .mini-card {
+    width: 82px;
+    height: 110px;
+    border-radius: 10px;
+    padding: 7px;
+  }
+
+  .mini-card-label {
+    font-size: 8px;
+  }
+
+  .mini-card-img {
+    width: 62px;
+    height: 65px;
+  }
+
+  .fc-daily {
+    top: 12px;
+  }
+
+  .fc-updates {
+    top: 42px;
+    left: 16px;
+  }
+
+  .fc-astro {
+    top: 58px;
+    right: 22px;
+  }
+
+  .folder-title {
+    top: 28px;
+    left: 12px;
+    font-size: 14px;
+  }
+
+  .folder-year {
+    top: 48px;
+    left: 12px;
+    font-size: 10px;
+  }
+
+  .folder-users {
+    top: 130px;
+    left: 12px;
+  }
+
+  .folder-users-count {
+    font-size: 18px;
+  }
+
+  .folder-users-label {
+    font-size: 10px;
+  }
+
+  .folder-icon {
+    width: 40px;
+    height: 40px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .card-info {
+    gap: 6px;
+    padding: 0 2px;
+  }
+
+  .card-info-title {
+    font-size: 13px;
+  }
+
+  .card-info-desc {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .card-info-more {
+    font-size: 12px;
+  }
+
+  .card-info-arrow {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+  }
+}

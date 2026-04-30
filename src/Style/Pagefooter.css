@@ -1,0 +1,150 @@
+/* PageFooter.css */
+
+.pf-footer {
+  position: relative;
+  width: 100%;
+  background-color: #000;
+  overflow: hidden;
+  padding: 52px 60px 0;
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* ── Top section: logo + tagline ── */
+.pf-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pf-top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 56px;
+}
+
+.pf-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pf-logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.pf-brand {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+}
+
+.pf-tagline {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.02em;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* ── Social icons ── */
+.pf-socials {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 0;
+}
+
+.pf-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.pf-social-btn svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.pf-social-btn:hover {
+  background-color: #d0d0d0;
+  transform: translateY(-2px);
+}
+
+/* ── Watermark: big dark logo + text at bottom ── */
+.pf-watermark {
+  position: absolute;
+  bottom: -30px;
+  left: 30px;
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.pf-watermark-icon {
+  height: 240px;
+  width: auto;
+  object-fit: contain;
+  /* Strip color, render dark gray */
+  filter: brightness(0) invert(0.18);
+  opacity: 0.75;
+}
+
+.pf-watermark-text {
+  font-size: clamp(100px, 14vw, 200px);
+  font-weight: 700;
+  color: #1e1e1e;
+  letter-spacing: -4px;
+  line-height: 1;
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .pf-footer {
+    padding: 40px 28px 0;
+    min-height: 380px;
+  }
+
+  .pf-watermark-icon {
+    height: 160px;
+  }
+
+  .pf-watermark-text {
+    font-size: clamp(60px, 18vw, 120px);
+  }
+
+  .pf-social-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .pf-social-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+}

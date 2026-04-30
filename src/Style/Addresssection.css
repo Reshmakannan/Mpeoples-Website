@@ -1,0 +1,152 @@
+/* ── Section ── */
+.address-section {
+  background-color: #f0f4f8;
+  padding: 60px 60px; /* reduced padding */
+  box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Grid (compact & centered) ── */
+.address-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 40px; /* reduced gap */
+  max-width: 700px; /* reduced width */
+  margin: 0 auto;
+}
+
+/* ── Card ── */
+.address-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ── Image (smaller & premium) ── */
+.card-img-wrap {
+  width: 100%;
+  max-width: 260px; /* reduced */
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  box-shadow: 0 3px 16px rgba(0, 0, 0, 0.08);
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.address-card:hover .card-img {
+  transform: scale(1.05);
+}
+
+/* ── Title ── */
+.card-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px; /* reduced */
+  font-weight: 700;
+  color: #1a3a8f;
+  margin-bottom: 10px;
+}
+
+/* ── Address ── */
+.card-address {
+  font-size: 13.5px; /* slightly smaller */
+  color: #666;
+  line-height: 1.6;
+  max-width: 260px;
+}
+
+/* ============================= */
+/* ✅ 1024px */
+/* ============================= */
+@media (max-width: 1024px) {
+
+  .address-section {
+    padding: 50px 40px;
+  }
+
+  .address-grid {
+    max-width: 650px;
+    gap: 26px 30px;
+  }
+
+  .card-img-wrap {
+    max-width: 240px;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .card-address {
+    font-size: 13px;
+  }
+}
+
+
+/* ============================= */
+/* ✅ 768px */
+/* ============================= */
+@media (max-width: 768px) {
+
+  .address-section {
+    padding: 40px 24px;
+  }
+
+  .address-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    gap: 28px;
+  }
+
+  .card-img-wrap {
+    max-width: 100%;
+  }
+
+  .card-title {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .card-address {
+    font-size: 13px;
+    max-width: 100%;
+  }
+}
+
+
+/* ============================= */
+/* ✅ 420px */
+/* ============================= */
+@media (max-width: 420px) {
+
+  .address-section {
+    padding: 30px 16px;
+  }
+
+  .address-grid {
+    max-width: 100%;
+    gap: 22px;
+  }
+
+  .card-img-wrap {
+    border-radius: 10px;
+    margin-bottom: 14px;
+  }
+
+  .card-title {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .card-address {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}

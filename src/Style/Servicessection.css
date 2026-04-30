@@ -1,0 +1,493 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* ── Outer container ── */
+.rs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 55px 40px 0px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Title ── */
+.rs-title {
+  font-size: 38px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #111827;
+}
+
+/* ── Row ── */
+.rs-row {
+  display: flex;
+  gap: 55px;
+  width: 100%;
+  height: calc(100vh - 160px);
+  min-height: 600px;
+}
+
+/* ════════════════════════════
+   LEFT — sticky inside the row
+════════════════════════════ */
+.rs-left {
+  flex: 1;
+  position: sticky;
+  top: 80px;
+  align-self: flex-start;
+  height: fit-content;
+}
+
+.rs-list { width: 100%; }
+
+.rs-item {
+  display: flex;
+  gap: 18px;
+  cursor: pointer;
+}
+
+.rs-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.rs-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #d1d5db;
+  border: 3px solid #e0e7ff;
+  margin-top: 6px;
+  flex-shrink: 0;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.rs-item--active .rs-dot {
+  background: #5b5ce2;
+  border-color: #c7d2fe;
+  transform: scale(1.15);
+}
+
+.rs-line {
+  width: 2px;
+  height: 38px;
+  background: #e5e7eb;
+  margin: 4px 0;
+}
+
+.rs-label {
+  font-size: 17px;
+  font-weight: 500;
+  padding-bottom: 38px;
+  color: #9ca3af;
+  transition: color 0.3s;
+}
+
+.rs-item--active .rs-label {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* ════════════════════════════
+   RIGHT — scrollable, clipped
+════════════════════════════ */
+.rs-right {
+  flex: 2;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  border-radius: 20px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.rs-right::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Card — hidden by default, animates in when .rs-card--visible added ── */
+.rs-card {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  height: 100%;
+  background: #f8fafc;
+  border-radius: 20px;
+  padding: 28px;
+  box-sizing: border-box;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  /* start hidden — slides up when visible */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* First card visible immediately on load */
+.rs-card:first-child {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* When JS adds this class → card slides up into view */
+.rs-card.rs-card--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rs-card:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Header ── */
+.rs-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+}
+
+.rs-logo { width: 34px; }
+
+.rs-heading {
+  font-size: 22px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* ── Image ── */
+.rs-image-wrap {
+  height: 220px;
+  background: #dbeafe;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.rs-image {
+  width: 88%;
+  height: 88%;
+  object-fit: contain;
+}
+
+/* ── Description ── */
+.rs-desc {
+  flex: 1;
+}
+
+.rs-desc p {
+  margin: 0 0 8px 0;
+}
+
+.rs-desc p:first-child {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.rs-desc p:not(:first-child) {
+  font-size: 15px;
+  color: #6b7280;
+  line-height: 1.7;
+}
+
+/* ── Bottom row ── */
+.rs-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* ── Tags ── */
+.rs-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.rs-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.rs-dot-sm {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.rs-tag1 { background: #e8f0ff; color: #2563eb; border-color: #c7d2fe; }
+.rs-tag1 .rs-dot-sm { background: #2563eb; }
+
+.rs-tag2 { background: #fff4e5; color: #d97706; border-color: #fde68a; }
+.rs-tag2 .rs-dot-sm { background: #d97706; }
+
+.rs-tag3 { background: #f1ecff; color: #7c3aed; border-color: #ddd6fe; }
+.rs-tag3 .rs-dot-sm { background: #7c3aed; }
+
+.rs-tag4 { background: #e8fbef; color: #16a34a; border-color: #bbf7d0; }
+.rs-tag4 .rs-dot-sm { background: #16a34a; }
+
+.rs-tag5 { background: #e6f7f9; color: #0ea5a4; border-color: #a5f3fc; }
+.rs-tag5 .rs-dot-sm { background: #0ea5a4; }
+
+/* ── Arrow ── */
+.rs-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb, #0ea5a4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rs-arrow img {
+  width: 12px;
+  filter: brightness(0) invert(1);
+}
+
+.rs-arrow:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================= */
+/* ✅ 1024px */
+/* ============================= */
+@media (max-width: 1024px) {
+
+  .rs-container {
+    padding: 50px 30px 0;
+  }
+
+  .rs-title {
+    font-size: 32px;
+  }
+
+  .rs-row {
+    gap: 35px;
+    min-height: 550px;
+  }
+
+  .rs-heading {
+    font-size: 20px;
+  }
+
+  .rs-image-wrap {
+    height: 190px;
+  }
+
+  .rs-desc p:first-child {
+    font-size: 18px;
+  }
+
+  .rs-desc p:not(:first-child) {
+    font-size: 14px;
+  }
+}
+
+
+/* ============================= */
+/* ✅ 768px */
+/* ============================= */
+@media (max-width: 768px) {
+
+  .rs-container {
+    padding: 40px 20px 0;
+  }
+
+  .rs-title {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .rs-row {
+    flex-direction: column;
+    height: auto;
+    min-height: auto;
+    gap: 25px;
+  }
+
+  .rs-left {
+    position: relative;
+    top: 0;
+    width: 100%;
+  }
+
+  .rs-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+
+  .rs-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .rs-item {
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+    gap: 8px;
+  }
+
+  .rs-indicator {
+    flex-direction: row;
+  }
+
+  .rs-line {
+    display: none;
+  }
+
+  .rs-label {
+    padding-bottom: 0;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .rs-right {
+    flex: none;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .rs-card {
+    height: auto;
+    min-height: auto;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .rs-header {
+    margin-bottom: 14px;
+  }
+
+  .rs-heading {
+    font-size: 18px;
+  }
+
+  .rs-image-wrap {
+    height: 180px;
+  }
+
+  .rs-bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+/* ============================= */
+/* ✅ 420px */
+/* ============================= */
+@media (max-width: 420px) {
+
+  .rs-container {
+    padding: 35px 16px 0;
+  }
+
+  .rs-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .rs-row {
+    gap: 20px;
+  }
+
+  .rs-list {
+    gap: 14px;
+  }
+
+  .rs-item {
+    min-width: 80px;
+  }
+
+  .rs-dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .rs-label {
+    font-size: 12px;
+  }
+
+  .rs-card {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .rs-logo {
+    width: 28px;
+  }
+
+  .rs-heading {
+    font-size: 16px;
+  }
+
+  .rs-image-wrap {
+    height: 150px;
+    border-radius: 12px;
+  }
+
+  .rs-desc p:first-child {
+    font-size: 16px;
+  }
+
+  .rs-desc p:not(:first-child) {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .rs-tags {
+    gap: 8px;
+  }
+
+  .rs-tag {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+
+  .rs-arrow {
+    width: 32px;
+    height: 32px;
+    align-self: flex-end;
+  }
+
+  .rs-arrow img {
+    width: 10px;
+  }
+}

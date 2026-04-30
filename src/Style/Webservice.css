@@ -1,0 +1,172 @@
+/* ============================================
+   Uiuxservice.css — Scoped to .services-section
+   NO global resets — won't affect other sections
+   ============================================ */
+
+/* ── Section wrapper ── */
+.services-section {
+  background-color: #edf3f5;
+  padding: 52px 60px 60px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* ── Heading ── */
+.services-heading {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 800;
+  color: #1a2b3c;
+  line-height: 1.2;
+  margin: 0 0 18px 0;
+  padding: 0;
+  max-width: 780px;
+  letter-spacing: -0.5px;
+  box-sizing: border-box;
+}
+
+/* ── Subtext ── */
+.services-subtext {
+  text-align: center;
+  font-size: 14.5px;
+  color: #6b7a8d;
+  line-height: 1.75;
+  max-width: 780px;
+  margin: 0 0 40px 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Grid ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+  max-width: 1020px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Card ── */
+.service-card {
+  background: #f8fafb;
+  border: 1px solid #c8d8e2;
+  border-radius: 14px;
+  padding: 22px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 240px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* ── Icon grey box ── */
+.service-icon-wrap {
+  width: 48px;
+  height: 48px;
+  background: #e2eaee;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 14px 0;
+  padding: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.service-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ── Card title ── */
+.service-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1565c0;
+  margin: 0 0 10px 0;
+  padding: 0;
+  line-height: 1.3;
+  box-sizing: border-box;
+}
+
+/* ── Card description ── */
+.service-card p {
+  font-size: 12.5px;
+  color: #7a8a96;
+  line-height: 1.65;
+  margin: 0 0 16px 0;
+  padding: 0;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+/* ── Tags container ── */
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: auto 0 0 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+/* ── Tag pill ── */
+.service-tags span {
+  font-size: 10.5px;
+  color: #5a6a78;
+  background: #ffffff;
+  border: 1px solid #cdd8e0;
+  border-radius: 999px;
+  padding: 4px 10px;
+  white-space: nowrap;
+  line-height: 1.4;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+/* ── Responsive: 2 columns ── */
+@media (max-width: 1024px) {
+  .services-section {
+    padding: 44px 32px 50px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
+  }
+
+  .services-heading {
+    font-size: 30px;
+  }
+}
+
+/* ── Responsive: 1 column ── */
+@media (max-width: 640px) {
+  .services-section {
+    padding: 36px 20px 40px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+
+  .services-heading {
+    font-size: 24px;
+  }
+
+  .services-subtext {
+    font-size: 13.5px;
+  }
+}

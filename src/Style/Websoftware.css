@@ -1,0 +1,136 @@
+.ws-section *,
+.ws-section *::before,
+.ws-section *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.ws-section {
+  min-height: 100vh;
+  background: #020c2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.ws-container {
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 40px;
+  text-align: center;
+}
+.ws-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #6aa0f8;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.ws-subtitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 56px;
+}
+.ws-cards {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin-bottom: 56px;
+  padding-top: 14px;
+}
+.ws-outer {
+  position: relative;
+  width: 300px;
+  background: #d0e4f5;
+  border-radius: 18px;
+  border: 1.5px solid #b8d2ea;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+}
+.ws-dot {
+  position: absolute;
+  top: -9px;
+  left: calc(50% - 9px);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #1a46cc;
+  box-shadow:
+    0 0 0 3px #d0e4f5,
+    0 0 0 5px #1a46cc;
+  z-index: 3;
+}
+.ws-corner-img {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  z-index: 2;
+}
+.ws-inner {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #dce8f5;
+  padding: 20px 18px 26px 18px;
+  text-align: left;
+  flex: 1;
+  min-height: 260px;
+}
+.ws-num {
+  display: block;
+  font-size: 15px;
+  color: #8899bb;
+  margin-bottom: 8px;
+}
+.ws-card-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: #1540a0;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.ws-card-text {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #6b7a8d;
+}
+.ws-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.ws-btn {
+  background: linear-gradient(90deg, #0a2a80, #1a88dd);
+  color: #ffffff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.ws-consult {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+}
+.ws-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(160deg, #0a2a80, #1a88dd);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 18px;
+}

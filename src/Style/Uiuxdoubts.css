@@ -1,0 +1,153 @@
+.uiuxdoubt-section {
+  width: 100%;
+  height: 100vh;
+  background: #eef2f5;
+  padding: 20px 50px;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uiuxdoubt-container {
+  max-width: 1200px;
+  width: 100%;
+  transform: scale(0.92);
+  transform-origin: top center;
+}
+
+.uiuxdoubt-title {
+  text-align: center;
+  font-size: clamp(34px, 4vw, 60px);
+  font-weight: 700;
+  color: #1f2a37;
+  margin-bottom: 28px;
+}
+
+.uiuxdoubt-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.uiuxdoubt-faq-item {
+  border-bottom: 1px solid #d9d9d9;
+  padding: 12px 0;
+}
+
+.uiuxdoubt-faq-question-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.uiuxdoubt-faq-question {
+  font-size: clamp(18px, 1.5vw, 34px);
+  font-weight: 700;
+  color: #222b45;
+  margin: 0;
+}
+
+.uiuxdoubt-faq-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.uiuxdoubt-faq-icon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.uiuxdoubt-faq-icon.rotate {
+  transform: rotate(180deg);
+}
+
+.uiuxdoubt-faq-answer-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.45s ease;
+}
+
+.uiuxdoubt-faq-answer-wrapper.show {
+  max-height: 80px;
+  opacity: 1;
+  margin-top: 10px;
+}
+
+.uiuxdoubt-faq-answer {
+  font-size: clamp(14px, 1vw, 17px);
+  line-height: 1.7;
+  color: #5f6673;
+  margin: 0;
+  max-width: 92%;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .uiuxdoubt-section {
+    height: auto;
+    min-height: auto;
+    padding: 40px 30px;
+  }
+
+  .uiuxdoubt-container {
+    transform: scale(1);
+  }
+
+  .uiuxdoubt-title {
+    margin-bottom: 35px;
+  }
+
+  .uiuxdoubt-faq-question {
+    font-size: 20px;
+  }
+
+  .uiuxdoubt-faq-answer-wrapper.show {
+    max-height: 120px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .uiuxdoubt-section {
+    height: auto;
+    min-height: auto;
+    padding: 35px 20px;
+  }
+
+  .uiuxdoubt-title {
+    font-size: 34px;
+    margin-bottom: 30px;
+  }
+
+  .uiuxdoubt-faq-question {
+    font-size: 16px;
+    max-width: 80%;
+  }
+
+  .uiuxdoubt-faq-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .uiuxdoubt-faq-answer {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .uiuxdoubt-faq-answer-wrapper.show {
+    max-height: 150px;
+  }
+}

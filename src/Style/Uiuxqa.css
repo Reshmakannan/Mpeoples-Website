@@ -1,0 +1,154 @@
+/* ════════════════════════════════════════════════════════════
+   UI/UX FAQ SECTION — Uiuxqa.css
+   ════════════════════════════════════════════════════════════ */
+
+.qa-section {
+  background: #F8FDFF;
+
+  width: 100%;
+  padding: 60px 60px 64px;
+  box-sizing: border-box;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ── Title ── */
+.qa-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 800;
+  color: #0d1b3e;
+  margin: 0 0 48px;
+  line-height: 1.2;
+}
+
+/* ── Body: 2-col grid ── */
+.qa-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  max-width: 1060px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* ── Left image: sticky so it never moves when accordion expands ── */
+.qa-image-wrap {
+  position: sticky;
+  top: 80px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  height: 480px;
+}
+
+.qa-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ── Right FAQ list ── */
+.qa-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Each FAQ item ── */
+.qa-item {
+  background: transparent;
+}
+
+/* ── Question row ── */
+.qa-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  padding: 16px 0;
+  cursor: pointer;
+  gap: 12px;
+  text-align: left;
+}
+
+.qa-question-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0d1b3e;
+  line-height: 1.4;
+  flex: 1;
+}
+
+/* ── Icon ── */
+.qa-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ════════════════════════════════════════════════
+   SMOOTH SLIDE ANIMATION using grid-template-rows
+   The inner <p> must be wrapped in a div for this
+   to work — see JSX update below.
+   ════════════════════════════════════════════════ */
+.qa-answer-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease;
+  opacity: 0;
+}
+
+.qa-answer-wrap--open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+/* This inner div clips the content during animation */
+.qa-answer-inner {
+  overflow: hidden;
+}
+
+.qa-answer {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: #4a5568;
+  margin: 0 0 14px;
+  padding-right: 36px;
+}
+
+/* ── Divider line ── */
+.qa-divider {
+  height: 1px;
+  background: #cbd5e0;
+  width: 100%;
+}
+
+.qa-item:last-child .qa-divider {
+  display: none;
+}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════ */
+@media (max-width: 860px) {
+  .qa-section { padding: 44px 24px 48px; }
+  .qa-body    { grid-template-columns: 1fr; gap: 32px; }
+  .qa-title   { font-size: 28px; }
+
+  .qa-image-wrap {
+    position: relative;
+    top: auto;
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .qa-title         { font-size: 22px; }
+  .qa-question-text { font-size: 14px; }
+  .qa-image-wrap    { height: 250px; }
+}

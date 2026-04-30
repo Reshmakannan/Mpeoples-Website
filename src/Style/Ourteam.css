@@ -1,0 +1,220 @@
+.mt-section {
+  width: 100%;
+  min-height: 100vh;
+  background: #1e2130;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Gilroy', sans-serif;
+  box-sizing: border-box;
+  padding: 60px 60px;
+}
+
+.mt-inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* ── Left: Image ── */
+.mt-left {
+  flex: 0 0 440px;
+  height: 460px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.mt-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
+
+/* ── Divider ── */
+.mt-divider {
+  width: 1px;
+  height: 380px;
+  background: #3a3f55;
+  margin: 0 50px;
+  flex-shrink: 0;
+}
+
+/* ── Right: Content ── */
+.mt-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.mt-heading {
+  font-size: 38px;
+  font-weight: 700;
+  color: #6ec6f5;
+  margin: 0;
+  font-family: 'Gilroy', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* ── Quote block ── */
+.mt-quote-block {
+  position: relative;
+  padding-left: 10px;
+}
+
+.mt-quote-open {
+  font-size: 52px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 0.6;
+  display: block;
+  margin-bottom: 10px;
+  font-family: Georgia, serif;
+}
+
+.mt-quote-close {
+  font-size: 52px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 0.6;
+  display: block;
+  text-align: right;
+  margin-top: 10px;
+  font-family: Georgia, serif;
+}
+
+.mt-quote-text {
+  font-size: 16px;
+  color: #c8ccd8;
+  line-height: 1.75;
+  margin: 0;
+  font-family: 'Gilroy', sans-serif;
+}
+
+.mt-highlight-orange {
+  color: #e8824a;
+  font-family: 'Gilroy', sans-serif;
+}
+
+.mt-highlight-blue {
+  color: #e8824a;
+  font-family: 'Gilroy', sans-serif;
+}
+
+.mt-highlight-green {
+  color: #6ec6a0;
+  font-family: 'Gilroy', sans-serif;
+}
+
+/* ── CTA ── */
+.mt-cta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.mt-cta-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  font-family: 'Gilroy', sans-serif;
+}
+
+.mt-cta-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #2e6de0;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.mt-cta-btn:hover {
+  background: #1a55c0;
+  transform: scale(1.08);
+}
+
+.mt-arrow {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  filter: brightness(10);
+}
+
+/* ── Watermark ── */
+.mt-watermark {
+  position: absolute;
+  bottom: -10px;
+  right: 20px;
+  font-size: 120px;
+  color: rgba(255, 255, 255, 0.06);
+  font-weight: 900;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .mt-left {
+    flex: 0 0 360px;
+    height: 380px;
+  }
+
+  .mt-heading {
+    font-size: 30px;
+  }
+
+  .mt-quote-text {
+    font-size: 14px;
+  }
+
+  .mt-divider {
+    margin: 0 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mt-section {
+    padding: 50px 24px;
+  }
+
+  .mt-inner {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .mt-left {
+    flex: unset;
+    width: 100%;
+    height: 260px;
+  }
+
+  .mt-divider {
+    display: none;
+  }
+
+  .mt-heading {
+    font-size: 26px;
+  }
+
+  .mt-quote-text {
+    font-size: 13px;
+  }
+
+  .mt-quote-open,
+  .mt-quote-close {
+    font-size: 36px;
+  }
+}
