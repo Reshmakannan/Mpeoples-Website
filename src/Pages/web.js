@@ -4,11 +4,19 @@ import "../Style/web.css";
 import mpeoplesLogo from "../assets/Vector.png";
 import bgImage from "../assets/uiuxbg.png";
 
+import trapLeft from "../assets/left-corner.png";   
+import trapRight from "../assets/right-corner.png"; 
+
 import ServicesSection from "../components/Webservice";
 import SoftwareSection from "../components/Websoftware";
 import ProcessSection from "../components/Webprocess";
 import FutureSection from "../components/Webfuture";
 import StackSection from "../components/Webstack";
+import PlatformSection from "../components/Webplatforms";
+import FormSection from "../components/Forms";
+import DoubtsSection from "../components/Webdoubts";
+import ClientSection from "../components/Clientfeedback";
+import Pagefooter from "../components/Pagefooter";
 
 
 function WebPage() {
@@ -17,8 +25,10 @@ function WebPage() {
       {/* Hero Section */}
       <section
         className="uiux-page"
-        style={{ backgroundImage: `url(${bgImage})` }}
-      >
+        style={{ backgroundImage: `url(${bgImage})` }}>
+        <img src={trapLeft} alt="" className="trap-left" />
+        <img src={trapRight} alt="" className="trap-right" />
+        
         <div className="uiux-overlay">
           <img src={mpeoplesLogo} alt="MPeoples Logo" className="uiux-logo" />
 
@@ -42,6 +52,11 @@ function WebPage() {
       <ProcessSection />
       <FutureSection />
       <StackSection />
+      <PlatformSection />
+      <FormSection />
+      <DoubtsSection />
+      <ClientSection />
+      <Pagefooter />
       
     </>
   );

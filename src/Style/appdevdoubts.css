@@ -1,0 +1,200 @@
+.appdoubts-section {
+  width: 100%;
+  height: 100vh;
+  background-color: #F8FDFF !important;
+  padding: 20px 50px;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.appdoubts-container {
+  max-width: 1200px;
+  width: 100%;
+  transform: scale(0.92);
+  transform-origin: top center;
+}
+
+.appdoubts-title {
+  text-align: center;
+  font-size: clamp(34px, 4vw, 60px);
+  font-weight: 700;
+  color: #1f2a37;
+  margin-bottom: 28px;
+}
+
+.appdoubts-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.appdoubts-faq-item {
+  border-bottom: 1px solid #d9d9d9;
+  padding: 12px 0;
+}
+
+.appdoubts-faq-question-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.appdoubts-faq-question {
+  font-size: clamp(18px, 1.5vw, 34px);
+  font-weight: 700;
+  color: #222b45;
+  margin: 0;
+}
+
+.appdoubts-faq-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.appdoubts-faq-icon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.appdoubts-faq-icon.rotate {
+  transform: rotate(180deg);
+}
+
+.appdoubts-faq-answer-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.45s ease;
+}
+
+.appdoubts-faq-answer-wrapper.show {
+  max-height: 80px;
+  opacity: 1;
+  margin-top: 10px;
+}
+
+.appdoubts-faq-answer {
+  font-size: clamp(14px, 1vw, 17px);
+  line-height: 1.7;
+  color: #5f6673;
+  margin: 0;
+  max-width: 92%;
+}
+
+/* Tablet */
+
+@media (max-width: 1024px) {
+
+  .appdoubts-section {
+    height: auto;               /* 🔥 important fix */
+    min-height: auto;
+    padding: 45px 40px;
+  }
+
+  .appdoubts-container {
+    max-width: 900px;
+    transform: scale(0.96);     /* slight scale instead of full */
+  }
+
+  .appdoubts-title {
+    font-size: 42px;
+    margin-bottom: 32px;
+  }
+
+  .appdoubts-faq-item {
+    padding: 14px 0;
+  }
+
+  .appdoubts-faq-question {
+    font-size: 19px;
+  }
+
+  .appdoubts-faq-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .appdoubts-faq-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .appdoubts-faq-answer {
+    font-size: 15px;
+    max-width: 95%;
+  }
+
+  .appdoubts-faq-answer-wrapper.show {
+    max-height: 110px; /* slightly more space */
+  }
+}
+
+@media (max-width: 992px) {
+  .appdoubts-section {
+    height: auto;
+    min-height: auto;
+    padding: 40px 30px;
+  }
+
+  .appdoubts-container {
+    transform: scale(1);
+  }
+
+  .appdoubts-title {
+    margin-bottom: 35px;
+  }
+
+  .appdoubts-faq-question {
+    font-size: 20px;
+  }
+
+  .appdoubts-faq-answer-wrapper.show {
+    max-height: 120px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .appdoubts-section {
+    height: auto;
+    min-height: auto;
+    padding: 35px 20px;
+  }
+
+  .appdoubts-title {
+    font-size: 34px;
+    margin-bottom: 30px;
+  }
+
+  .appdoubts-faq-question {
+    font-size: 16px;
+    max-width: 80%;
+  }
+
+  .appdoubts-faq-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .appdoubts-faq-answer {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .appdoubts-faq-answer-wrapper.show {
+    max-height: 150px;
+  }
+}

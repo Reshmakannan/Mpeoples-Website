@@ -1,6 +1,6 @@
 /* Uiuxfuture.css */
 
-.uxfuture-main-section {
+.webfuture-main-section {
   width: 100%;
   min-height: 100vh;
   background: #F8FDFF;
@@ -14,7 +14,7 @@
   overflow: hidden;
 }
 
-.uxfuture-main-container {
+.webfuture-main-container {
   max-width: 1200px;
   width: 100%;
   transform: scale(0.92);
@@ -22,7 +22,7 @@
 }
 
 /* Heading */
-.uxfuture-main-title {
+.webfuture-main-title {
   text-align: center;
   font-size: clamp(32px, 4vw, 54px);
   font-weight: 700;
@@ -32,7 +32,7 @@
 }
 
 /* Subtitle */
-.uxfuture-subtitle-label {
+.webfuture-subtitle-label {
   font-size: clamp(18px, 1.7vw, 22px);
   font-weight: 700;
   color: #0f3b82;
@@ -40,7 +40,7 @@
 }
 
 /* Description */
-.uxfuture-main-description {
+.webfuture-main-description {
   max-width: 1000px;
   font-size: clamp(14px, 1.3vw, 18px);
   line-height: 1.7;
@@ -49,7 +49,7 @@
 }
 
 /* Grid */
-.uxfuture-card-grid {
+.webfuture-card-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 0;
@@ -57,55 +57,55 @@
 }
 
 /* Common Card */
-.uxfuture-service-card {
+.webfuture-service-card {
   padding: 18px 14px;
   box-sizing: border-box;
   min-height: 135px;
 }
 
 /* Top row */
-.uxfuture-service-card:nth-child(1) {
+.webfuture-service-card:nth-child(1) {
   grid-column: span 2;
   border-right: 1px solid #9ca3af;
   border-bottom: 1px solid #9ca3af;
 }
 
-.uxfuture-service-card:nth-child(2) {
+.webfuture-service-card:nth-child(2) {
   grid-column: span 2;
   border-right: 1px solid #9ca3af;
   border-bottom: 1px solid #9ca3af;
 }
 
-.uxfuture-service-card:nth-child(3) {
+.webfuture-service-card:nth-child(3) {
   grid-column: span 2;
   border-bottom: 1px solid #9ca3af;
 }
 
 /* Bottom row */
-.uxfuture-card-bottom-left {
+.webfuture-card-bottom-left {
   grid-column: 2 / span 2;
   border-right: 1px solid #9ca3af;
 }
 
-.uxfuture-card-bottom-right {
+.webfuture-card-bottom-right {
   grid-column: 4 / span 2;
 }
 
 /* Header */
-.uxfuture-card-header {
+.webfuture-card-header {
   display: flex;
   align-items: flex-start;
   gap: 12px;
   margin-bottom: 14px;
 }
 
-.uxfuture-card-icon {
+.webfuture-card-icon {
   width: 38px;
   height: 38px;
   object-fit: contain;
 }
 
-.uxfuture-card-title {
+.webfuture-card-title {
   font-size: clamp(18px, 1.5vw, 22px);
   font-weight: 700;
   color: #222b35;
@@ -113,46 +113,125 @@
   line-height: 1.3;
 }
 
-.uxfuture-card-text {
+.webfuture-card-text {
   font-size: clamp(13px, 1vw, 16px);
   line-height: 1.6;
   color: #7b7f86;
   margin: 0;
 }
 
-/* Tablet */
-@media (max-width: 992px) {
-  .uxfuture-main-section {
-    height: auto;
+/* ===============================
+   🔹 1024px
+================================= */
+/* ===============================
+   🔹 1024px (HEIGHT + SPACING FIX)
+================================= */
+@media (max-width: 1024px) {
+
+  .webfuture-main-section {
+    padding: 30px 30px 20px;
     min-height: auto;
-    padding: 50px 30px;
   }
 
-  .uxfuture-card-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .webfuture-main-container {
+    transform: scale(1);
+    max-width: 900px;
+  }
+
+  .webfuture-main-description {
+    max-width: 800px;
+  }
+
+  /* 🔥 USE 6-COLUMN GRID (KEY FIX) */
+  .webfuture-card-grid {
+    grid-template-columns: repeat(6, 1fr);
     gap: 20px;
   }
 
-  .uxfuture-service-card,
-  .uxfuture-service-card:nth-child(1),
-  .uxfuture-service-card:nth-child(2),
-  .uxfuture-service-card:nth-child(3),
-  .uxfuture-card-bottom-left,
-  .uxfuture-card-bottom-right {
-    grid-column: auto;
-    border: 1px solid #d1d5db;
+  /* 🔥 COMMON CARD RESET */
+  .webfuture-service-card {
+    grid-column: span 2;
+    border: 1px solid #e5e7eb;
+    padding: 20px;
+    min-height: auto;
+  }
+
+  /* 🔥 TOP ROW (3 CARDS) */
+  .webfuture-service-card:nth-child(1),
+  .webfuture-service-card:nth-child(2),
+  .webfuture-service-card:nth-child(3) {
+    grid-column: span 2;
+  }
+
+  /* 🔥 BOTTOM ROW (PERFECTLY CENTERED) */
+  .webfuture-card-bottom-left {
+    grid-column: 2 / span 2;   /* center-left */
+  }
+
+  .webfuture-card-bottom-right {
+    grid-column: 4 / span 2;   /* center-right */
+  }
+
+  /* 🔹 Typography */
+  .webfuture-card-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .webfuture-card-title {
+    font-size: 18px;
+  }
+
+  .webfuture-card-text {
+    font-size: 14px;
   }
 }
-
-/* Mobile */
+/* ===============================
+   🔹 768px
+================================= */
 @media (max-width: 768px) {
-  .uxfuture-main-section {
-    height: auto;
-    min-height: auto;
-    padding: 40px 20px;
+
+  .webfuture-main-section {
+    padding: 30px 20px;
   }
 
-  .uxfuture-card-grid {
+  .webfuture-main-title {
+    font-size: 28px;
+  }
+
+  .webfuture-subtitle-label {
+    font-size: 16px;
+  }
+
+  .webfuture-main-description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* 🔥 STACK EVERYTHING */
+  .webfuture-card-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .webfuture-service-card {
+    padding: 18px;
+  }
+
+  .webfuture-card-header {
+    gap: 10px;
+  }
+
+  .webfuture-card-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .webfuture-card-title {
+    font-size: 16px;
+  }
+
+  .webfuture-card-text {
+    font-size: 13px;
   }
 }

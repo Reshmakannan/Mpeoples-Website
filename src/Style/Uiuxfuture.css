@@ -120,39 +120,124 @@
   margin: 0;
 }
 
-/* Tablet */
-@media (max-width: 992px) {
+
+/* ===============================
+   🔹 1024px
+================================= */
+/* ===============================
+   🔹 1024px (FIXED LAYOUT)
+================================= */
+@media (max-width: 1024px) {
+
   .uxfuture-main-section {
-    height: auto;
+    padding: 30px 30px 20px;
     min-height: auto;
-    padding: 50px 30px;
   }
 
+  .uxfuture-main-container {
+    transform: scale(1); /* remove scaling */
+  }
+
+  .uxfuture-main-description {
+    max-width: 800px;
+  }
+
+  /* 🔥 GRID: 3 columns */
   .uxfuture-card-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
 
-  .uxfuture-service-card,
+  /* 🔥 TOP ROW (3 cards) */
   .uxfuture-service-card:nth-child(1),
   .uxfuture-service-card:nth-child(2),
-  .uxfuture-service-card:nth-child(3),
-  .uxfuture-card-bottom-left,
+  .uxfuture-service-card:nth-child(3) {
+    grid-column: span 1;
+    border: 1px solid #e5e7eb;
+  }
+
+  /* 🔥 BOTTOM ROW (2 cards centered) */
+  .uxfuture-card-bottom-left {
+    grid-column: 1 / span 1;
+    border: 1px solid #e5e7eb;
+  }
+
   .uxfuture-card-bottom-right {
-    grid-column: auto;
-    border: 1px solid #d1d5db;
+    grid-column: 3 / span 1;
+    border: 1px solid #e5e7eb;
+  }
+
+  /* 🔥 EMPTY CENTER SPACE (visual balance) */
+  .uxfuture-card-grid::after {
+    content: "";
+    display: block;
+  }
+
+  /* 🔹 Card styling */
+  .uxfuture-service-card {
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .uxfuture-card-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .uxfuture-card-title {
+    font-size: 18px;
+  }
+
+  .uxfuture-card-text {
+    font-size: 14px;
   }
 }
-
-/* Mobile */
+/* ===============================
+   🔹 768px
+================================= */
 @media (max-width: 768px) {
+
   .uxfuture-main-section {
-    height: auto;
-    min-height: auto;
-    padding: 40px 20px;
+    padding: 25px 20px;
   }
 
+  .uxfuture-main-title {
+    font-size: 28px;
+  }
+
+  .uxfuture-subtitle-label {
+    font-size: 16px;
+  }
+
+  .uxfuture-main-description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* 🔥 Stack cards (1 column) */
   .uxfuture-card-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .uxfuture-service-card {
+    padding: 18px;
+  }
+
+  .uxfuture-card-header {
+    gap: 10px;
+  }
+
+  .uxfuture-card-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .uxfuture-card-title {
+    font-size: 16px;
+  }
+
+  .uxfuture-card-text {
+    font-size: 13px;
   }
 }

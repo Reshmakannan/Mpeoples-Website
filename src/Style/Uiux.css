@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Public+Sans:wght@300;400;500;600&display=swap');
 .uiux-page {
   width: 100%;
   height: 100vh;
@@ -31,22 +32,24 @@
 
 /* heading */
 .uiux-title {
-  font-family: "Polysans", sans-serif;
+  font-family: "Inter", sans-serif;  /* changed */
   font-size: 40px;
   font-weight: 600;
   line-height: 1.15;
   letter-spacing: -1px;
-  color: #082f6e;
+  color: #082F6E;
+
   margin: 0 0 34px 0;
 }
 
 /* paragraph */
 .uiux-description {
-  font-family: "Inter", sans-serif;
+  font-family: "Public Sans", sans-serif;  /* changed */
   font-size: 20px;
   font-weight: 400;
   line-height: 1.9;
-  color: #555555;
+  color:#444444;
+
   max-width: 920px;
   margin: 0 auto;
 }
@@ -92,56 +95,154 @@
   height: 22px;
 }
 
-/* Tablet */
-@media (max-width: 768px) {
-  .uiux-logo {
-    width: 130px;
-  }
+/* Trapezoid decorations */
+.trap-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 180px;
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+}
 
-  .uiux-title {
-    font-size: 38px;
-  }
+.trap-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 180px;
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+}
 
-  .uiux-description {
-    font-size: 17px;
-    line-height: 1.7;
-  }
-
-  .uiux-btn {
-    width: 190px;
-    height: 50px;
-    font-size: 15px;
+/* Hide on mobile */
+@media (max-width: 420px) {
+  .trap-left,
+  .trap-right {
+    display: none;
   }
 }
 
-/* Mobile */
-@media (max-width: 420px) {
+/* ===============================
+   🔹 1024px (Tablet / Small Laptop)
+================================= */
+/* ===============================
+   🔹 1024px (Tablet / Small Laptop)
+================================= */
+/* ===============================
+   🔹 1024px (Balanced Height Fix)
+================================= */
+@media (max-width: 1024px) {
+
+  .uiux-page {
+    min-height: 85vh;          /* ✅ keeps section tall enough */
+    padding: 70px 30px;        /* ✅ balanced top-bottom spacing */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+  }
+
   .uiux-overlay {
-    margin-top: 10px;
+    max-width: 780px;
+    margin-top: 0;
   }
 
   .uiux-logo {
-    width: 100px;
+    width: 140px;
+    margin-bottom: 24px;
   }
 
   .uiux-title {
-    font-size: 28px;
-    line-height: 1.3;
+    font-size: 34px;           /* ✅ slightly bigger for presence */
+    line-height: 1.25;
+    margin-bottom: 26px;
   }
 
   .uiux-description {
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 700px;
   }
 
   .uiux-btn {
-    width: 170px;
-    height: 46px;
-    font-size: 14px;
+    width: 220px;
+    height: 54px;
+    font-size: 16px;
+    margin-top: 32px;
   }
 
-  .uiux-page::before,
-  .uiux-page::after {
-    display: none;
+  /* ✅ trapezoids balanced */
+  .trap-left,
+  .trap-right {
+    width: 150px;
+    opacity: 0.95;
   }
-}                         
+
+  .trap-left {
+    left: -5px;
+    bottom: 0;
+  }
+
+  .trap-right {
+    right: -5px;
+    bottom: 0;
+  }
+}
+/* ===============================
+   🔹 768px (Tablet / Mobile)
+================================= */
+@media (max-width: 768px) {
+  .uiux-page {
+    padding: 60px 16px;
+    height: auto; /* VERY IMPORTANT */
+  }
+
+  .uiux-overlay {
+    margin-top: 0;
+    max-width: 100%;
+  }
+
+  .uiux-logo {
+    width: 120px;
+    margin-bottom: 20px;
+  }
+
+  .uiux-title {
+    font-size: 26px;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+  }
+
+  .uiux-description {
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .uiux-btn {
+    width: 200px;
+    height: 50px;
+    font-size: 15px;
+    margin-top: 24px;
+  }
+
+  .service-icon-wrap {
+    width: 36px;
+    height: 36px;
+  }
+
+  .service-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .trap-left,
+  .trap-right {
+    width: 90px;
+  }
+}

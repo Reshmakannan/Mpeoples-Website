@@ -1,24 +1,20 @@
-/* ════════════════════════════════════════════════════════════
-   UI/UX FAQ SECTION — Uiuxqa.css
-   ════════════════════════════════════════════════════════════ */
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Public+Sans:wght@300;400;500;600&display=swap');
 .qa-section {
   background: #F8FDFF;
-
   width: 100%;
   padding: 60px 60px 64px;
   box-sizing: border-box;
-  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
 /* ── Title ── */
 .qa-title {
   text-align: center;
   font-size: 36px;
-  font-weight: 800;
+  font-weight: 600;
   color: #0d1b3e;
   margin: 0 0 48px;
   line-height: 1.2;
+  font-family: "Inter", sans-serif;
 }
 
 /* ── Body: 2-col grid ── */
@@ -80,6 +76,7 @@
   color: #0d1b3e;
   line-height: 1.4;
   flex: 1;
+  font-family: "Public Sans", sans-serif;
 }
 
 /* ── Icon ── */
@@ -119,6 +116,7 @@
   color: #4a5568;
   margin: 0 0 14px;
   padding-right: 36px;
+  font-family: "Public Sans", sans-serif;
 }
 
 /* ── Divider line ── */
@@ -132,23 +130,86 @@
   display: none;
 }
 
-/* ════════════════════════════════════════════════
-   RESPONSIVE
-   ════════════════════════════════════════════════ */
-@media (max-width: 860px) {
-  .qa-section { padding: 44px 24px 48px; }
-  .qa-body    { grid-template-columns: 1fr; gap: 32px; }
-  .qa-title   { font-size: 28px; }
+/* ===============================
+   🔹 1024px
+================================= */
+@media (max-width: 1024px) {
 
+  .qa-section {
+    padding: 50px 30px 50px;
+  }
+
+  .qa-title {
+    font-size: 30px;
+    margin-bottom: 36px;
+  }
+
+  .qa-body {
+    gap: 32px;
+    max-width: 900px;
+  }
+
+  /* 🔥 Reduce image height */
   .qa-image-wrap {
-    position: relative;
-    top: auto;
-    height: 350px;
+    height: 420px;
+    top: 60px;
+  }
+
+  .qa-question-text {
+    font-size: 14px;
+  }
+
+  .qa-answer {
+    font-size: 13px;
+    line-height: 1.7;
   }
 }
 
-@media (max-width: 480px) {
-  .qa-title         { font-size: 22px; }
-  .qa-question-text { font-size: 14px; }
-  .qa-image-wrap    { height: 250px; }
+/* ===============================
+   🔹 768px
+================================= */
+@media (max-width: 768px) {
+
+  .qa-section {
+    padding: 40px 20px;
+  }
+
+  .qa-title {
+    font-size: 26px;
+    margin-bottom: 28px;
+  }
+
+  /* 🔥 Stack layout (VERY IMPORTANT) */
+  .qa-body {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  /* 🔥 Disable sticky (important for mobile) */
+  .qa-image-wrap {
+    position: relative;
+    top: 0;
+    height: 260px;
+  }
+
+  .qa-image {
+    object-fit: cover;
+  }
+
+  .qa-question {
+    padding: 14px 0;
+  }
+
+  .qa-question-text {
+    font-size: 14px;
+  }
+
+  .qa-answer {
+    font-size: 13px;
+    padding-right: 0;
+  }
+
+  .qa-divider {
+    margin-top: 4px;
+  }
 }

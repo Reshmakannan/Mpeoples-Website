@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap');
+
+.appdevfuture-main-section {
+  width: 100%;
+  min-height: 100vh;
+  background: #F8FDFF;
+  padding: 20px 50px 15px;
+  box-sizing: border-box;
+  font-family: "polysans", sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.appdevfuture-main-container {
+  max-width: 1200px;
+  width: 100%;
+  transform: scale(0.92);
+  transform-origin: top center;
+}
+
+/* Heading */
+.appdevfuture-main-title {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 600;
+  color: #263238;
+
+  margin: 0 0 22px;
+  line-height: 1.2;
+
+  font-family: 'Inter', sans-serif;
+}
+
+/* Subtitle */
+.appdevfuture-subtitle-label {
+  font-size: clamp(18px, 1.7vw, 22px);
+  font-weight: 700;
+  color: #082F6E;
+
+  margin-bottom: 14px;
+
+  font-family: 'Inter', sans-serif;
+}
+
+/* Description */
+.appdevfuture-main-description {
+  max-width: 1000px;
+  font-size: clamp(14px, 1.3vw, 18px);
+  line-height: 1.7;
+  color: #8A8787;
+
+  margin-bottom: 35px;
+
+  font-family: 'Public Sans', sans-serif;
+}
+
+/* Grid */
+.appdevfuture-card-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  width: 100%;
+}
+
+/* Common Card */
+.appdevfuture-service-card {
+  padding: 18px 14px;
+  box-sizing: border-box;
+  min-height: 135px;
+}
+
+/* Top row */
+.appdevfuture-service-card:nth-child(1) {
+  grid-column: span 2;
+  border-right: 1px solid #9ca3af;
+  border-bottom: 1px solid #9ca3af;
+}
+
+.appdevfuture-service-card:nth-child(2) {
+  grid-column: span 2;
+  border-right: 1px solid #9ca3af;
+  border-bottom: 1px solid #9ca3af;
+}
+
+.appdevfuture-service-card:nth-child(3) {
+  grid-column: span 2;
+  border-bottom: 1px solid #9ca3af;
+}
+
+/* Bottom row */
+.appdevfuture-card-bottom-left {
+  grid-column: 2 / span 2;
+  border-right: 1px solid #9ca3af;
+}
+
+.appdevfuture-card-bottom-right {
+  grid-column: 4 / span 2;
+}
+
+/* Header */
+.appdevfuture-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.appdevfuture-card-icon {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+/* Card Title */
+.appdevfuture-card-title {
+  font-size: clamp(18px, 1.5vw, 22px);
+  font-weight: 700;
+  color:  #263238;
+
+  margin: 0;
+  line-height: 1.3;
+
+  font-family: 'Inter', sans-serif;
+}
+
+/* Card Text */
+.appdevfuture-card-text {
+  font-size: clamp(13px, 1vw, 16px);
+  line-height: 1.6;
+  color:  #8A8787;
+
+  margin: 0;
+
+  font-family: 'Public Sans', sans-serif;
+}
+
+@media (max-width: 1024px) {
+
+  .appdevfuture-main-section {
+    padding: 20px 30px;
+  }
+
+  /* ❌ REMOVE SCALING (this was breaking your layout feel) */
+  .appdevfuture-main-container {
+    transform: none;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  /* KEEP EXACT SAME GRID (NO CHANGE) */
+  .appdevfuture-card-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+  }
+
+  /* ONLY SMALL SPACE REDUCTION */
+  .appdevfuture-service-card {
+    padding: 14px 12px;
+    min-height: 120px;
+  }
+
+  /* TEXT SLIGHT ADJUSTMENT ONLY */
+  .appdevfuture-main-title {
+    font-size: 48px;
+  }
+
+  .appdevfuture-subtitle-label {
+    font-size: 20px;
+  }
+
+  .appdevfuture-main-description {
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+
+  .appdevfuture-card-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .appdevfuture-card-title {
+    font-size: 20px;
+  }
+
+  .appdevfuture-card-text {
+    font-size: 15px;
+  }
+
+  /* KEEP GRID POSITIONS EXACTLY SAME */
+  .appdevfuture-service-card:nth-child(1),
+  .appdevfuture-service-card:nth-child(2),
+  .appdevfuture-service-card:nth-child(3) {
+    grid-column: span 2;
+  }
+
+  .appdevfuture-card-bottom-left {
+    grid-column: 2 / span 2;
+  }
+
+  .appdevfuture-card-bottom-right {
+    grid-column: 4 / span 2;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .appdevfuture-main-section {
+    padding: 30px 20px;
+    height: auto;
+    min-height: auto;
+  }
+
+  /* no scaling */
+  .appdevfuture-main-container {
+    transform: none;
+    width: 100%;
+  }
+
+  /* title */
+  .appdevfuture-main-title {
+    font-size: 36px;
+  }
+
+  /* subtitle */
+  .appdevfuture-subtitle-label {
+    font-size: 18px;
+  }
+
+  /* description */
+  .appdevfuture-main-description {
+    font-size: 14px;
+    margin-bottom: 22px;
+  }
+
+  /* ⚠️ keep structure but allow wrapping if needed */
+  .appdevfuture-card-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    overflow-x: hidden;
+  }
+
+  /* cards slightly compact */
+  .appdevfuture-service-card {
+    padding: 14px 10px;
+    min-height: 110px;
+  }
+
+  /* icon */
+  .appdevfuture-card-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* text */
+  .appdevfuture-card-title {
+    font-size: 18px;
+  }
+
+  .appdevfuture-card-text {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* keep same layout positions but allow better fit */
+  .appdevfuture-service-card:nth-child(1),
+  .appdevfuture-service-card:nth-child(2),
+  .appdevfuture-service-card:nth-child(3) {
+    grid-column: span 2;
+  }
+
+  .appdevfuture-card-bottom-left {
+    grid-column: 2 / span 2;
+  }
+
+  .appdevfuture-card-bottom-right {
+    grid-column: 4 / span 2;
+  }
+}

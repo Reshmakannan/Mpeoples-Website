@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Public+Sans:wght@300;400;500;600&display=swap');
+.how-work-section {
+    width: 100%;
+    margin: 0;
+    padding: 30px 95px 40px;
+    background:  #F8FDFF;
+    box-sizing: border-box;
+}
+
+.how-work-title {
+    width: 369px;
+    height: 5px;
+    margin: 0 auto 70px;
+    text-align: center;
+    white-space: nowrap;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 36px;
+    line-height: 90%;
+    letter-spacing: 0%;
+    color: #2a3944;
+}
+
+.how-work-intro {
+    width: 100%;
+    margin: 0 auto 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.how-work-text {
+    width: 80%;
+    height: 20%;
+    flex: none;
+}
+
+.how-work-text h3 {
+    /* width: 60%; */
+    height: 26px;
+    margin: 0 0 30px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 25px;
+    line-height: 70%;
+    letter-spacing: 0%;
+    color:#082F6E;
+
+}
+
+.how-work-text p {
+    /* width: 60%; */
+    margin: 0;
+    font-family: "Public Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 70%;
+    letter-spacing: 0%;
+    color: #8a8787;
+}
+
+.how-work-text p+p {
+    margin-top: 10px;
+}
+
+.how-work-logo-wrap {
+    width: 160px;
+    height: 130px;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -6px;
+}
+
+.how-work-big-logo {
+    width: 160px;
+    height: 120px;
+    object-fit: contain;
+    display: block;
+}
+
+.how-work-cards {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+}
+
+.how-work-card {
+    width: 100%;
+    text-align: center;
+}
+
+.how-work-image-box {
+    width: 200px;
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    background: #ddd;
+}
+
+.how-work-front,
+.how-work-back {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.how-work-front {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+}
+
+.hide-front {
+    opacity: 0;
+    transform: scale(0.96);
+}
+
+.how-work-back {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.show-back {
+    opacity: 1;
+    transform: translateY(10);
+    pointer-events: auto;
+}
+
+.how-work-image-box {
+    width: 100%;
+    height: 320px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    background: #ddd;
+}
+
+.how-work-front,
+.how-work-back {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.how-work-front {
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 2;
+}
+
+.hide-front {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.how-work-back {
+    opacity: 0;
+    transform: translateY(40px);
+    /* ⬅️ push more down initially */
+    pointer-events: none;
+    z-index: 3;
+}
+
+.show-back {
+    opacity: 1;
+    transform: translateY(0);
+    /* ✅ FIXED */
+    pointer-events: auto;
+}
+
+.how-work-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.how-work-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.08));
+}
+
+.how-work-quote {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    margin: 0;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.25;
+    font-style: italic;
+    text-align: left;
+    z-index: 4;
+}
+
+.back-top-line {
+    width: 100%;
+    height: 5px;
+    background: #b8dfea;
+}
+
+.back-content {
+    padding: 16px 12px 8px;
+}
+
+.back-content h5 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0 0 10px;
+}
+
+.back-content p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #8b8b8b;
+    margin: 0;
+}
+
+.back-thumbs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    padding: 0 6px 6px;
+}
+
+.back-thumbs img {
+    width: 100%;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.plan-panel h5 {
+    color: #1a5fc1;
+}
+
+.idea-panel {
+    background: #fff3e7;
+}
+
+.idea-panel .back-top-line {
+    background: #bce3eb;
+}
+
+.idea-panel h5 {
+    color: #f39a2d;
+}
+
+.strategy-panel {
+    background: #f4f4f4;
+}
+
+.strategy-panel h5 {
+    color: #333;
+}
+
+.process-panel {
+    background: #f7f7f7;
+}
+
+.process-panel h5 {
+    color: #222;
+}
+
+.how-work-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.how-work-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.08));
+}
+
+.how-work-quote {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    margin: 0;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.25;
+    font-style: italic;
+    text-align: left;
+}
+
+.how-work-card h4 {
+    margin: 0 0 4px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #123f88;
+}
+
+.how-work-card span {
+    font-size: 14px;
+    color: #8d8d8d;
+}

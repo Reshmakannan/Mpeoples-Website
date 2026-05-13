@@ -1,0 +1,94 @@
+/* GifSection.css */
+
+.gifshowcase-section {
+  width: 100%;
+  background: #F8FDFF;
+
+  padding: 50px 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.gifshowcase-container {
+  width: 100%;
+  max-width: 700px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gifshowcase-card {
+  width: 100%;
+  max-width: 1180px;
+
+  background: #111111;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.12);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gifshowcase-image {
+  width: 100%;
+  display: block;
+
+  object-fit: cover;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 992px) {
+
+  .gifshowcase-section {
+    padding: 50px 24px;
+  }
+
+  .gifshowcase-card {
+    border-radius: 18px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .gifshowcase-section {
+    padding: 40px 16px;
+  }
+
+  .gifshowcase-card {
+    border-radius: 14px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+  .gifshowcase-section {
+    padding: 30px 12px;
+  }
+
+  .gifshowcase-card {
+    border-radius: 12px;
+  }
+}

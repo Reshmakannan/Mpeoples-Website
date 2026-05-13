@@ -5,6 +5,8 @@ import "../Style/Uiuxdesign.css";
 
 import mpeoplesLogo from "../assets/Vector.png";
 import bgImage from "../assets/uiuxbg.png";
+import trapLeft from "../assets/left-corner.png";   
+import trapRight from "../assets/right-corner.png"; 
 
 import ServicesSection from "../components/Uiuxservice";
 import DesignSection from "../components/Uiuxdesign";
@@ -24,6 +26,12 @@ function UIUXPage() {
         className="uiux-page"
         style={{ backgroundImage: `url(${bgImage})` }}
       >
+        {/* Left trapezoid */}
+        <img src={trapLeft} alt="" className="trap-left" />
+
+        {/* Right trapezoid */}
+        <img src={trapRight} alt="" className="trap-right" />
+
         <div className="uiux-overlay">
           <img src={mpeoplesLogo} alt="MPeoples Logo" className="uiux-logo" />
 
@@ -38,12 +46,11 @@ function UIUXPage() {
           </p>
 
           <button className="uiux-btn">
-            Let’s Build Together <span>↗</span>
+            Let's Build Together <span>↗</span>
           </button>
         </div>
       </section>
 
-      {/* Services Section */}
       <ServicesSection />
       <DesignSection />
       <QaSection />

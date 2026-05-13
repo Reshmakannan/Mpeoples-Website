@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Public+Sans:wght@300;400;500;600&display=swap');
+
+/* ================================================= */
+/* MAIN SECTION */
+/* ================================================= */
+
+.aboutwork-section-main {
+  width: 100%;
+  padding: 60px 90px;
+  background: #F8FDFF;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ================================================= */
+/* TITLE */
+/* ================================================= */
+
+.aboutwork-main-title {
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #243744;
+  margin-bottom: 65px;
+}
+
+/* ================================================= */
+/* INTRO */
+/* ================================================= */
+
+.aboutwork-intro-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 35px;
+}
+
+.aboutwork-intro-text {
+  width: 75%;
+}
+
+.aboutwork-intro-text h3 {
+  font-family: "Inter", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #082F6E;
+  margin-bottom: 22px;
+}
+
+.aboutwork-intro-text p {
+  font-family: "Public Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #7d7d7d;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.aboutwork-logo-container {
+  width: 140px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutwork-logo-image {
+  width: 130px;
+  height: 110px;
+  object-fit: contain;
+}
+
+/* ================================================= */
+/* CARDS */
+/* ================================================= */
+
+.aboutwork-cards-wrapper {
+  display: flex;
+  gap: 18px;
+  width: 100%;
+}
+
+.aboutwork-single-card {
+  flex: 1;
+  text-align: center;
+}
+
+/* ================================================= */
+/* IMAGE BOX */
+/* ================================================= */
+
+.aboutwork-image-container {
+  width: 100%;
+  height: 320px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 18px;
+}
+
+/* ================================================= */
+/* FRONT + BACK */
+/* ================================================= */
+
+.aboutwork-front-card,
+.aboutwork-back-card {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.45s ease;
+}
+
+/* FRONT */
+
+.aboutwork-front-card {
+  opacity: 1;
+  transform: translateY(0);
+  z-index: 2;
+}
+
+.aboutwork-hide-front {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* BACK */
+
+.aboutwork-back-card {
+  opacity: 0;
+  transform: translateY(45px);
+  z-index: 3;
+}
+
+.aboutwork-show-back {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================================================= */
+/* IMAGE */
+/* ================================================= */
+
+.aboutwork-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ================================================= */
+/* OVERLAY */
+/* ================================================= */
+
+.aboutwork-dark-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.08)
+  );
+}
+
+/* ================================================= */
+/* QUOTE */
+/* ================================================= */
+
+.aboutwork-card-quote {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  color: #ffffff;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.5;
+  text-align: left;
+  z-index: 4;
+}
+
+/* ================================================= */
+/* CARD TITLE */
+/* ================================================= */
+
+.aboutwork-card-title {
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #123f88;
+}
+
+/* ================================================= */
+/* STEP */
+/* ================================================= */
+
+.aboutwork-card-step {
+  font-size: 14px;
+  color: #8a8a8a;
+}
+
+/* ================================================= */
+/* RESPONSIVE */
+/* ================================================= */
+
+@media screen and (max-width: 992px) {
+
+  .aboutwork-section-main {
+    padding: 50px 30px;
+  }
+
+  .aboutwork-cards-wrapper {
+    flex-wrap: wrap;
+  }
+
+  .aboutwork-single-card {
+    width: calc(50% - 10px);
+    flex: unset;
+  }
+
+  .aboutwork-intro-wrapper {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .aboutwork-intro-text {
+    width: 100%;
+  }
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 576px) {
+
+  .aboutwork-main-title {
+    font-size: 30px;
+  }
+
+  .aboutwork-intro-text h3 {
+    font-size: 22px;
+    line-height: 1.4;
+  }
+
+  .aboutwork-intro-text p {
+    font-size: 15px;
+  }
+
+  .aboutwork-cards-wrapper {
+    flex-direction: column;
+  }
+
+  .aboutwork-single-card {
+    width: 100%;
+  }
+
+  .aboutwork-image-container {
+    height: 280px;
+  }
+}

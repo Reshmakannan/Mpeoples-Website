@@ -4,6 +4,7 @@ import "../Style/Ourproducts.css";
 import lookit from "../assets/lookit.png";
 import makkal from "../assets/makkal.png";
 import hr from "../assets/lookit.png";
+import arrowIcon from "../assets/blue-arrow.png";
 
 const cards = [
   {
@@ -95,7 +96,9 @@ const ProductCards = () => {
               <p className="card-info-desc">{card.description}</p>
               <button className="card-info-more">
   More
-  <span className="card-info-arrow">↗</span>
+  <span className="card-info-arrow">
+    <img src={arrowIcon} alt="arrow" />
+  </span>
 </button>
             </div>
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 import "../Style/Whychoose.css";
 
 import craftedIcon from "../assets/crafted.png";
@@ -51,21 +51,54 @@ const values = [
   { icon: priorityIcon,   title: "Priority",    desc: "Customers are our top priority. Customer satisfaction is our goal." },
 ];
 
-const WhyChoose = ({ onEnter, onComplete }) => {
-  const outerRef     = useRef(null);
-  const trackRef     = useRef(null);
-  const offsetRef    = useRef(0);
-  const activeRef    = useRef(false);   // true only when section top is at y≈0
-  const completedRef = useRef(false);
+const WhyChoose = () => {
+  const outerRef      = useRef(null);
+  const trackRef      = useRef(null);
+  const offsetRef     = useRef(0);
+  const activeRef     = useRef(false);
+  const completedRef  = useRef(false);
+  const savedScrollY  = useRef(0);
+
+  // ── Lock page scroll ────────────────────────────────────────────
+  const lockPage = useCallback(() => {
+    const sectionTop = outerRef.current
+      ? window.scrollY + outerRef.current.getBoundingClientRect().top
+      : window.scrollY;
+
+    window.scrollTo({ top: sectionTop, behavior: "instant" });
+    savedScrollY.current = sectionTop;
+
+    document.body.style.overflow  = "hidden";
+    document.body.style.position  = "fixed";
+    document.body.style.top       = `-${sectionTop}px`;
+    document.body.style.width     = "100%";
+  }, []);
+
+  // ── Unlock page scroll and continue downward ────────────────────
+  const unlockPage = useCallback(() => {
+    const scrollY = savedScrollY.current;
+
+    document.body.style.overflow  = "";
+    document.body.style.position  = "";
+    document.body.style.top       = "";
+    document.body.style.width     = "";
+
+    window.scrollTo(0, scrollY);
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+      });
+    });
+  }, []);
 
   useEffect(() => {
     const outer = outerRef.current;
     const track = trackRef.current;
     if (!outer || !track) return;
 
-    const MAX   = (SLIDE_COUNT - 1) * 100;
-    const SPEED = 0.12;
-    // tolerance in px — how close to y=0 counts as "fully in view"
+    const MAX            = (SLIDE_COUNT - 1) * 100;
+    const SPEED          = 0.12;
     const SNAP_THRESHOLD = 4;
 
     const applyOffset = (delta) => {
@@ -76,20 +109,16 @@ const WhyChoose = ({ onEnter, onComplete }) => {
     };
 
     // ── Page scroll listener ────────────────────────────────────────
-    // Activates horizontal mode only when the section's top edge
-    // has reached (or passed) the top of the viewport.
     const onPageScroll = () => {
       const rect = outer.getBoundingClientRect();
       const fullyInView = rect.top <= SNAP_THRESHOLD && rect.top >= -SNAP_THRESHOLD;
 
       if (fullyInView && !activeRef.current) {
-        // Section just snapped fully into view — lock the page
         activeRef.current    = true;
         completedRef.current = false;
-        onEnter && onEnter();
+        lockPage();
       }
 
-      // If user scrolls back up above this section, deactivate
       if (rect.top > SNAP_THRESHOLD && activeRef.current) {
         activeRef.current = false;
       }
@@ -99,38 +128,65 @@ const WhyChoose = ({ onEnter, onComplete }) => {
 
     // ── Wheel ───────────────────────────────────────────────────────
     const onWheel = (e) => {
-      // Only intercept if section is fully in view (activeRef)
-      if (!activeRef.current) return;
+      // If not yet active, check on the fly (handles post-lock state)
+      if (!activeRef.current) {
+        const rect = outer.getBoundingClientRect();
+        const fullyInView = rect.top <= SNAP_THRESHOLD && rect.top >= -SNAP_THRESHOLD;
+        if (fullyInView) {
+          activeRef.current    = true;
+          completedRef.current = false;
+          lockPage();
+        } else {
+          return;
+        }
+      }
 
       const atStart = offsetRef.current <= 0;
       const atEnd   = offsetRef.current >= MAX;
 
-      // Scrolling down past last slide → fire onComplete, release page
       if (e.deltaY > 0 && atEnd) {
         if (!completedRef.current) {
           completedRef.current = true;
           activeRef.current    = false;
-          onComplete && onComplete();
+          unlockPage();
         }
         return;
       }
 
-      // Scrolling up at first slide → release page scroll upward
       if (e.deltaY < 0 && atStart) {
         activeRef.current = false;
+        document.body.style.overflow  = "";
+        document.body.style.position  = "";
+        document.body.style.top       = "";
+        document.body.style.width     = "";
+        window.scrollTo(0, savedScrollY.current);
         return;
       }
 
-      // Otherwise prevent vertical scroll and move track
       e.preventDefault();
       applyOffset(e.deltaY * SPEED);
     };
 
     // ── Touch ───────────────────────────────────────────────────────
     let touchStartY = 0;
-    const onTouchStart = (e) => { touchStartY = e.touches[0].clientY; };
-    const onTouchMove  = (e) => {
-      if (!activeRef.current) return;
+
+    const onTouchStart = (e) => {
+      touchStartY = e.touches[0].clientY;
+    };
+
+    const onTouchMove = (e) => {
+      if (!activeRef.current) {
+        const rect = outer.getBoundingClientRect();
+        const fullyInView = rect.top <= SNAP_THRESHOLD && rect.top >= -SNAP_THRESHOLD;
+        if (fullyInView) {
+          activeRef.current    = true;
+          completedRef.current = false;
+          lockPage();
+        } else {
+          return;
+        }
+      }
+
       const dy    = touchStartY - e.touches[0].clientY;
       const atEnd = offsetRef.current >= MAX;
 
@@ -138,12 +194,18 @@ const WhyChoose = ({ onEnter, onComplete }) => {
         if (!completedRef.current) {
           completedRef.current = true;
           activeRef.current    = false;
-          onComplete && onComplete();
+          unlockPage();
         }
         return;
       }
+
       if (dy < 0 && offsetRef.current <= 0) {
         activeRef.current = false;
+        document.body.style.overflow  = "";
+        document.body.style.position  = "";
+        document.body.style.top       = "";
+        document.body.style.width     = "";
+        window.scrollTo(0, savedScrollY.current);
         return;
       }
 
@@ -152,7 +214,6 @@ const WhyChoose = ({ onEnter, onComplete }) => {
       applyOffset(dy * SPEED * 10);
     };
 
-    // wheel must be on window to catch all scroll attempts while locked
     window.addEventListener("wheel",      onWheel,      { passive: false });
     outer.addEventListener("touchstart",  onTouchStart, { passive: true  });
     outer.addEventListener("touchmove",   onTouchMove,  { passive: false });
@@ -162,8 +223,14 @@ const WhyChoose = ({ onEnter, onComplete }) => {
       window.removeEventListener("wheel",  onWheel);
       outer.removeEventListener("touchstart", onTouchStart);
       outer.removeEventListener("touchmove",  onTouchMove);
+
+      // Safety: always clean up body lock on unmount
+      document.body.style.overflow  = "";
+      document.body.style.position  = "";
+      document.body.style.top       = "";
+      document.body.style.width     = "";
     };
-  }, [onEnter, onComplete]);
+  }, [lockPage, unlockPage]);
 
   return (
     <div className="why-outer" ref={outerRef}>
@@ -255,5 +322,5 @@ const WhyChoose = ({ onEnter, onComplete }) => {
     </div>
   );
 };
- 
+
 export default WhyChoose;

@@ -1,0 +1,300 @@
+/* =========================
+   SECTION ONLY BOX SIZING
+========================= */
+
+.saasdoubts-section *,
+.saasdoubts-section *::before,
+.saasdoubts-section *::after {
+  box-sizing: border-box;
+}
+
+/* =========================
+   MAIN SECTION
+========================= */
+
+.saasdoubts-section {
+  width: 100%;
+  background-color: #F8FDFF !important;
+
+  padding: 60px 50px;
+
+  display: flex;
+  justify-content: center;
+
+  overflow-x: hidden;
+
+  position: relative;
+}
+
+.saasdoubts-container {
+  width: 100%;
+  max-width: 1180px;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.saasdoubts-title {
+  text-align: center;
+
+  font-size: clamp(32px, 4vw, 58px);
+  font-weight: 700;
+  line-height: 1.2;
+
+  color: #1f2a37;
+
+  margin-bottom: 42px;
+}
+
+/* =========================
+   FAQ LIST
+========================= */
+
+.saasdoubts-faq-list {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.saasdoubts-faq-item {
+  border-bottom: 1px solid #d6dbe1;
+  padding: 18px 0;
+
+  transition: 0.3s ease;
+}
+
+/* =========================
+   QUESTION ROW
+========================= */
+
+.saasdoubts-faq-question-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  cursor: pointer;
+}
+
+.saasdoubts-faq-question {
+  margin: 0;
+
+  font-size: clamp(18px, 1.5vw, 30px);
+  font-weight: 700;
+  line-height: 1.4;
+
+  color: #1e293b;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.saasdoubts-faq-btn {
+  width: 44px;
+  height: 44px;
+
+  border: none;
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+}
+
+.saasdoubts-faq-icon {
+  width: 42px;
+  height: 42px;
+
+  object-fit: contain;
+
+  transition: transform 0.35s ease;
+}
+
+.saasdoubts-faq-icon.rotate {
+  transform: rotate(180deg);
+}
+
+/* =========================
+   ANSWER
+========================= */
+
+.saasdoubts-faq-answer-wrapper {
+  max-height: 0;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  transition:
+    max-height 0.45s ease,
+    opacity 0.35s ease,
+    margin-top 0.35s ease;
+}
+
+.saasdoubts-faq-answer-wrapper.show {
+  max-height: 300px;
+
+  opacity: 1;
+
+  margin-top: 14px;
+}
+
+.saasdoubts-faq-answer {
+  margin: 0;
+
+  max-width: 95%;
+
+  font-size: clamp(14px, 1vw, 17px);
+  line-height: 1.8;
+
+  color: #5b6472;
+}
+
+/* =========================
+   TABLET
+========================= */
+/* =========================
+   1024px (TABLET / SMALL LAPTOP)
+========================= */
+
+@media (max-width: 1024px) {
+
+  .saasdoubts-section {
+    padding: 50px 15px;
+    overflow: visible; /* 🔥 IMPORTANT FIX */
+  }
+
+  .saasdoubts-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .saasdoubts-faq-question-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding-right: 10px; /* 🔥 give breathing space */
+  }
+
+  .saasdoubts-faq-question {
+    font-size: 22px;
+    flex: 1;
+  }
+
+  /* 🔥 ICON BUTTON FIX */
+  .saasdoubts-faq-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .saasdoubts-faq-icon {
+    width: 40px;
+    height: 40px;
+    display: block;
+  }
+
+  .saasdoubts-faq-answer-wrapper.show {
+    max-height: 260px;
+  }
+}
+
+@media (max-width: 992px) {
+
+  .saasdoubts-section {
+    padding: 50px 30px;
+  }
+
+  .saasdoubts-title {
+    margin-bottom: 36px;
+  }
+
+  .saasdoubts-faq-question {
+    font-size: 20px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .saasdoubts-section {
+    padding: 40px 20px;
+  }
+
+  .saasdoubts-title {
+    font-size: 30px;
+    margin-bottom: 28px;
+  }
+
+  .saasdoubts-faq-item {
+    padding: 16px 0;
+  }
+
+  .saasdoubts-faq-question {
+    font-size: 16px;
+    line-height: 1.5;
+
+    max-width: 82%;
+  }
+
+  .saasdoubts-faq-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .saasdoubts-faq-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .saasdoubts-faq-answer {
+    max-width: 100%;
+
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 425px) {
+
+  .saasdoubts-section {
+    padding: 34px 16px;
+  }
+
+  .saasdoubts-title {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .saasdoubts-faq-question {
+    font-size: 15px;
+    max-width: 80%;
+  }
+
+  .saasdoubts-faq-answer {
+    font-size: 13px;
+  }
+}

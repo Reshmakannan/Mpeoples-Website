@@ -124,6 +124,65 @@
 }
 
 /* ── Responsive ── */
+
+/* ===============================
+   🔹 1024px (Tablet / Laptop)
+================================= */
+@media (max-width: 1024px) {
+
+  .pf-footer {
+    padding: 48px 40px 0;
+    min-height: 420px;
+  }
+
+  .pf-top {
+    margin-bottom: 48px;
+    gap: 8px;
+  }
+
+  .pf-logo {
+    height: 40px;
+  }
+
+  .pf-brand {
+    font-size: 1.5rem;
+  }
+
+  .pf-tagline {
+    font-size: 0.85rem;
+  }
+
+  .pf-socials {
+    gap: 12px;
+  }
+
+  .pf-social-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .pf-social-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* 🔥 WATERMARK FIX */
+  .pf-watermark {
+    bottom: -20px;
+    left: 20px;
+  }
+
+  .pf-watermark-icon {
+    height: 190px;
+    opacity: 0.7;
+  }
+
+  .pf-watermark-text {
+    font-size: clamp(80px, 12vw, 150px);
+    letter-spacing: -3px;
+  }
+}
+
 @media (max-width: 768px) {
   .pf-footer {
     padding: 40px 28px 0;

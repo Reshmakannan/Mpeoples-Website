@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../Style/Forms.css";
-import ceoPhoto from "../assets/ceo.png"; 
+import ceoPhoto from "../assets/Idea.png";
 
 function ContactSection() {
   const [formData, setFormData] = useState({
@@ -30,7 +30,8 @@ function ContactSection() {
         <p className="contact-subtitle">
           Have an idea or a project in mind?
           <br />
-          Talk to our experts and turn your vision into a powerful digital product.
+          Talk to our experts and turn your vision into a powerful digital
+          product.
         </p>
       </div>
 
@@ -44,11 +45,12 @@ function ContactSection() {
           <div className="ceo-info">
             <p className="ceo-text">
               Hi, I'm Narasimma - CEO at MPeoples.{" "}
-              <span className="ceo-link">Schedule a call with</span> me to discuss
-              in detail about your project and how we can help your business. You
-              can also request for free custom quote if the scope of work is clear.
+              <span className="ceo-link">Schedule a call with</span> me to
+              discuss in detail about your project and how we can help your
+              business. You can also request for free custom quote if the scope
+              of work is clear.
             </p>
-            <button className="whatsapp-btn">
+            <button className="whatsapp-btn"> 
               <svg
                 className="wa-icon"
                 viewBox="0 0 32 32"
@@ -138,7 +140,9 @@ function ContactSection() {
 
           <div className="form-row">
             <div className="form-group">
-              <label className="form-label">What's your project deadline?*</label>
+              <label className="form-label">
+                What's your project deadline?*
+              </label>
               <select
                 name="deadline"
                 className="form-select"
@@ -190,7 +194,11 @@ function ContactSection() {
             <button type="button" className="btn-consultation">
               Free consultation
               <span className="arrow-circle">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
                     d="M7 17L17 7M17 7H7M17 7V17"
                     stroke="white"
@@ -206,7 +214,9 @@ function ContactSection() {
       </div>
 
       {/* Watermark M */}
-      <div className="watermark-m" aria-hidden="true">M</div>
+      <div className="watermark-m" aria-hidden="true">
+        M
+      </div>
     </section>
   );
 }

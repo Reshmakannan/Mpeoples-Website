@@ -1,113 +1,385 @@
-/* SECTION */
-.webprocess-section {
+/* ============================================
+   Webprocess.css — 7 Slide Horizontal Scroll
+   ============================================ */
+
+.wp-outer {
   width: 100%;
   height: 100vh;
-  background: #e6d3bd;
+  overflow: hidden;
+  position: relative;
+}
+
+.wp-track {
+  display: flex;
+  width: 700%;           /* 7 slides */
+  height: 100%;
+  transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  will-change: transform;
+}
+
+.wp-section {
+  width: calc(100% / 7); /* each = 100vw */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
 }
 
-/* CONTAINER */
-.webprocess-container {
-  width: 85%;
-  height: 90%;
-  position: relative;
+/* ── Slide Backgrounds ── */
+.wp-slide-1 { background: linear-gradient(90deg, #FFF6E9 0%, #FFE3C7 100%); }
+.wp-slide-2 { background: linear-gradient(90deg, #FFEFEF 0%, #FFD6D6 100%); }
+.wp-slide-3 { background: linear-gradient(90deg, #F3F0FF 0%, #DDD6FF 100%); }
+.wp-slide-4 { background: linear-gradient(90deg, #EEF7FF 0%, #D6E9FF 100%); }
+.wp-slide-5 { background: linear-gradient(90deg, #EDFFF6 0%, #C7F0DA 100%); }
+.wp-slide-6 { background: linear-gradient(90deg, #F3F0FF 0%, #DDD6FF 100%); }
+.wp-slide-7 { background: linear-gradient(160deg, #dde9f8 0%, #c5d8f0 100%); }
+
+/* ── Process Slides Container ── */
+.wp-container {
+  width: 82%;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 2;
 }
 
-/* HEADER */
-.webprocess-header {
+.wp-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  position: relative;
-  z-index: 2;
 }
 
-.webprocess-title h1 {
-  font-size: 52px;
+.wp-title h1 {
+  font-size: 42px;
   color: #2d3b40;
   line-height: 1.2;
+  font-weight: 800;
+  margin: 0;
 }
 
-.webprocess-subtext {
-  width: 38%;
+.wp-subtext {
+  width: 42%;
+  padding-top: 8px;
 }
 
-.webprocess-subtext p {
+.wp-subtext p {
+  font-size: 15px;
   color: #5f6b6f;
   line-height: 1.6;
+  margin: 0;
 }
 
-/* DIVIDER */
-.webprocess-divider {
+.wp-divider {
   width: 100%;
   height: 1px;
-  background: #9ea7aa;
-  margin: 25px 0;
+  background: #c2c9cb;
+  margin: 28px 0 32px 0;
 }
 
-/* CONTENT */
-.webprocess-content {
+.wp-content {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
-  position: relative;
-  z-index: 2;
+  align-items: flex-start;
 }
 
-/* LEFT */
-.webprocess-left {
-  width: 45%;
-}
+.wp-left { width: 42%; }
 
-.webprocess-step {
+.wp-step-label {
+  font-size: 13px;
   color: #8c9092;
-  font-size: 14px;
-}
-
-.webprocess-heading {
-  font-size: 24px;
-  color: #183a6b;
-  margin: 10px 0;
-}
-
-.webprocess-description {
-  color: #5f6b6f;
-  line-height: 1.7;
-}
-
-/* RIGHT */
-.webprocess-right {
-  width: 40%;
-}
-
-.webprocess-block h3 {
+  display: block;
   margin-bottom: 10px;
+}
+
+.wp-step-heading {
+  font-size: 22px;
+  color: #183a6b;
+  font-weight: 700;
+  margin: 0 0 14px 0;
+}
+
+.wp-step-desc {
+  font-size: 14px;
+  color: #5f6b6f;
+  line-height: 1.75;
+  margin: 0;
+  max-width: 420px;
+}
+
+.wp-right {
+  width: 38%;
+  padding-top: 60px;
+}
+
+.wp-block-title {
+  font-size: 15px;
+  font-weight: 700;
   color: #2d3b40;
+  margin: 0 0 12px 0;
 }
 
-.webprocess-block ul {
-  padding-left: 18px;
+.wp-block-list {
+  padding-left: 14px;
+  margin: 0;
 }
 
-.webprocess-block li {
-  margin-bottom: 8px;
+.wp-block-list li {
+  font-size: 13.5px;
+  margin-bottom: 10px;
   color: #6c7579;
+  line-height: 1.5;
 }
 
-/* SMALL DIVIDER */
-.webprocess-small-divider {
-  width: 60%;
+.wp-small-divider {
+  width: 70%;
   height: 1px;
-  background: #9ea7aa;
+  background: #c2c9cb;
   margin: 20px 0;
 }
 
-/* ========================= */
-/* 🔥 PURE CSS SHAPES */
-/* ========================= */
+/* ── Corner Images ── */
+.wp-corner-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 160px;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+}
 
+.wp-corner-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 160px;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ════════════════════════════
+   SLIDE 7 — Stats
+   ════════════════════════════ */
+
+.wp-stats-container {
+  width: 82%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  gap: 40px;
+}
+
+.wp-stats-heading {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1a2b3c;
+  text-align: center;
+  line-height: 1.25;
+  margin: 0;
+}
+
+/* ── 4 stat cards ── */
+.wp-stats-grid {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  width: 100%;
+}
+
+.wp-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Blue gradient circle */
+.wp-stat-circle {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #1a6ec0 0%, #0d3b7a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(13, 59, 122, 0.3);
+}
+
+.wp-stat-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* makes PNG white */
+}
+
+.wp-stat-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1a2b3c;
+}
+
+.wp-stat-label {
+  font-size: 13px;
+  color: #7a8a96;
+  text-align: center;
+}
+
+/* ── CTA ── */
+.wp-stats-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.wp-cta-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3a4a58;
+  margin: 0;
+  text-align: center;
+}
+
+.wp-cta-btn {
+  background: #183a6b;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 36px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: background 0.2s ease;
+}
+
+.wp-cta-btn:hover {
+  background: #0f2a52;
+}
+
+/* ── Responsive ── */
+
+/* ===============================
+   🔹 1024px
+================================= */
+@media (max-width: 1024px) {
+
+  .wp-outer {
+    height: auto;              /* 🔥 avoid vh issues */
+    min-height: 100vh;
+  }
+
+  .wp-section {
+    height: auto;
+    min-height: 100vh;
+    padding: 40px 0;
+  }
+
+  .wp-container {
+    width: 90%;
+  }
+
+  /* ── Header ── */
+  .wp-title h1 {
+    font-size: 34px;
+  }
+
+  .wp-subtext {
+    width: 48%;
+  }
+
+  .wp-subtext p {
+    font-size: 14px;
+  }
+
+  /* ── Content ── */
+  .wp-content {
+    gap: 30px;
+  }
+
+  .wp-left {
+    width: 48%;
+  }
+
+  .wp-right {
+    width: 44%;
+    padding-top: 40px;
+  }
+
+  .wp-step-heading {
+    font-size: 20px;
+  }
+
+  .wp-step-desc {
+    font-size: 13.5px;
+  }
+
+  .wp-block-list li {
+    font-size: 13px;
+  }
+
+  /* ── Corner decorations ── */
+  .wp-corner-left,
+  .wp-corner-right {
+    width: 120px;
+  }
+
+  /* ── Stats (Slide 7) ── */
+  .wp-stats-container {
+    width: 90%;
+    gap: 30px;
+  }
+
+  .wp-stats-heading {
+    font-size: 30px;
+  }
+
+  .wp-stats-grid {
+    gap: 40px;
+  }
+
+  .wp-stat-circle {
+    width: 110px;
+    height: 110px;
+  }
+
+  .wp-stat-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .wp-stat-value {
+    font-size: 24px;
+  }
+
+  .wp-stat-label {
+    font-size: 12px;
+  }
+
+  .wp-cta-btn {
+    padding: 12px 30px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wp-title h1 { font-size: 28px; }
+  .wp-content { flex-direction: column; gap: 24px; }
+  .wp-left, .wp-right { width: 100%; }
+  .wp-corner-left, .wp-corner-right { width: 100px; }
+  .wp-stats-heading { font-size: 24px; }
+  .wp-stats-grid { gap: 24px; flex-wrap: wrap; }
+  .wp-stat-circle { width: 90px; height: 90px; }
+  .wp-stat-icon { width: 40px; height: 40px; }
+  .wp-stat-value { font-size: 22px; }
+}
+
+@media (max-width: 420px) {
+  .wp-corner-left, .wp-corner-right { display: none; }
+}

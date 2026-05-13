@@ -49,7 +49,7 @@ const faqs = [
     id: 8,
     question: "Do you provide long-term support?",
     answer:
-      "Yes. We offer flexible ongoing support packages to keep your product updated, optimized, and aligned with evolving user needs.",
+      "We provide flexible pricing models tailored to startups, growing businesses, and enterprises. Our goal is to deliver high-quality design solutions that offer real ROI.",
   },
 ];
 

@@ -9,7 +9,10 @@
   width: 100%;
   padding: 60px 60px 48px;
   box-sizing: border-box;
-  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  /* DEFAULT FONT */
+  font-family: "Public Sans", sans-serif;
+
   overflow-x: hidden;
 }
 
@@ -18,18 +21,26 @@
   text-align: center;
   margin-bottom: 48px;
 }
+
 .hwd-title {
   font-size: 42px;
   font-weight: 700;
   color: #7ab8f5;
   margin: 0 0 10px;
   letter-spacing: -0.3px;
+
+  /* TITLE FONT */
+  font-family: "Inter", sans-serif;
 }
+
 .hwd-subtitle {
   font-size: 17px;
   font-weight: 700;
   color: #ffffff;
   margin: 0;
+
+  /* SUBTITLE FONT */
+  font-family: "Inter", sans-serif;
 }
 
 /* ── Body 2-col ── */
@@ -50,6 +61,8 @@
   opacity: 0;
   transform: translateY(8px);
 }
+
+/* STEP TEXT BASE (Public Sans already inherited) */
 .hwd-step-badge {
   display: block;
   font-size: 13px;
@@ -59,6 +72,7 @@
   margin-bottom: 10px;
   text-transform: uppercase;
 }
+
 .hwd-step-title {
   font-size: 24px;
   font-weight: 700;
@@ -66,11 +80,19 @@
   margin: 0 0 14px;
   line-height: 1.3;
 }
+
 .hwd-step-desc {
   font-size: 13px;
   line-height: 1.85;
   color: #b8cde6;
   margin: 0;
+}
+
+/* ── ONLY STEP 1 (first copy block) → Inter */
+.hwd-body .hwd-copy:first-of-type .hwd-step-badge,
+.hwd-body .hwd-copy:first-of-type .hwd-step-title,
+.hwd-body .hwd-copy:first-of-type .hwd-step-desc {
+  font-family: "Inter", sans-serif;
 }
 
 /* ── Right column ── */
@@ -87,11 +109,6 @@
    STAGE — fixed pixel size, relative positioned.
    All 3 phones sit inside via absolute coords.
    Nothing can overflow this box.
-
-   Total width = phone1(190) + gap(20) + phone2(175)
-               + gap(20) + phone3(160) = 565px
-   But phones overlap slightly so we use 500px
-   and let overflow:hidden clip the tiny excess.
    ════════════════════════════════════════════════ */
 .hwd-stage {
   position: relative;
@@ -101,13 +118,7 @@
   overflow: hidden;
 }
 
-/* ════════════════════════════════════════════════
-   FRAME 1 — Front phone (notch + buttons)
-   Left-anchored at 0, centered in stage
-   Stage is 520px, phone is 190px → left = (520-190)/2 = 165px
-   But we want it left-of-center to leave room for phones 2&3
-   so left = 30px
-   ════════════════════════════════════════════════ */
+/* FRAME 1 */
 .hwd-frame--phone {
   position: absolute;
   left: 80px;
@@ -134,7 +145,6 @@
   position: relative;
 }
 
-/* LEFT volume buttons */
 .hwd-phone-outer::before {
   content: "";
   position: absolute;
@@ -147,7 +157,6 @@
   box-shadow: 0 36px 0 0 #c8d4de;
 }
 
-/* RIGHT power button */
 .hwd-phone-outer::after {
   content: "";
   position: absolute;
@@ -186,11 +195,7 @@
   flex-shrink: 0;
 }
 
-/* ════════════════════════════════════════════════
-   FRAME 2 — Phone shape, no notch/buttons
-   Sits behind frame 1, to its right
-   left = 30 (frame1 left) + 190 (frame1 width) - 40 (overlap) = 180px
-   ════════════════════════════════════════════════ */
+/* FRAME 2 */
 .hwd-frame--flat {
   position: absolute;
   left: 295px;
@@ -209,9 +214,7 @@
   position: relative;
 }
 
-/* ════════════════════════════════════════════════
-   FRAME 3 — Phone shape, no notch/buttons
-   ════════════════════════════════════════════════ */
+/* FRAME 3 */
 .hwd-frame--ghost {
   position: absolute;
   left: 480px;
@@ -230,9 +233,7 @@
   position: relative;
 }
 
-/* ════════════════════════════════════════════════
-   SCREEN IMAGES
-   ════════════════════════════════════════════════ */
+/* SCREEN IMAGES */
 .hwd-phone-screen .hwd-screen-img,
 .hwd-frame--flat-inner .hwd-screen-img,
 .hwd-frame--ghost-inner .hwd-screen-img {
@@ -245,9 +246,7 @@
   display: block;
 }
 
-/* ════════════════════════════════════════════════
-   SLIDE ANIMATIONS
-   ════════════════════════════════════════════════ */
+/* ANIMATIONS */
 @keyframes slideFromRight {
   from { transform: translateX(100%); opacity: 0.4; }
   to   { transform: translateX(0);    opacity: 1;   }
@@ -263,9 +262,7 @@
   animation: slideFromLeft  0.44s cubic-bezier(0.25,0.46,0.45,0.94) both;
 }
 
-/* ════════════════════════════════════════════════
-   CONTROLS
-   ════════════════════════════════════════════════ */
+/* CONTROLS */
 .hwd-controls {
   display: flex;
   align-items: center;
@@ -312,14 +309,9 @@
 .hwd-dot:hover { background: rgba(255,255,255,0.6); }
 .hwd-dot--on {
   background: #2563eb;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
 }
 
-/* ════════════════════════════════════════════════
-   CTA
-   ════════════════════════════════════════════════ */
+/* CTA */
 .hwd-cta {
   display: flex;
   align-items: center;
@@ -333,7 +325,6 @@
   gap: 10px;
   padding: 13px 26px;
   background: linear-gradient(90deg, #072E6D 0%, #168FC0 100%);
-
   border: none;
   border-radius: 8px;
   color: #fff;
@@ -343,8 +334,6 @@
   transition: background 0.2s, transform 0.15s;
   box-sizing: border-box;
 }
-/* .hwd-btn-primary:hover { background: #155dd4; transform: translateY(-1px); } */
-.hwd-icon-flat { font-size: 15px; }
 
 .hwd-btn-ghost {
   display: inline-flex;
@@ -376,41 +365,113 @@
   box-sizing: border-box;
 }
 
-/* ════════════════════════════════════════════════
-   RESPONSIVE — scale everything down proportionally
-   ════════════════════════════════════════════════ */
-@media (max-width: 960px) {
-  .hwd-section { padding: 44px 24px 40px; }
-  .hwd-body    { grid-template-columns: 1fr; gap: 32px; }
-  .hwd-copy    { text-align: center; max-width: 500px; margin: 0 auto; }
-  .hwd-title   { font-size: 32px; }
+/* RESPONSIVE 1024px */
+@media (max-width: 1024px) {
+  .hwd-section { padding: 50px 30px 40px; }
+  .hwd-title { font-size: 34px; }
+  .hwd-subtitle { font-size: 15px; }
 
-  /* Stage scales to ~80% */
-  .hwd-stage   { max-width: 500px; height: 340px; }
+  .hwd-body {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
 
-  .hwd-frame--phone { left: 20px; }
-  .hwd-phone-outer  { width: 152px; height: 314px; border-radius: 32px; }
+  .hwd-copy {
+    max-width: 600px;
+    margin: 0 auto;
+  }
 
-  .hwd-frame--flat        { left: 196px; bottom: 12px; }
-  .hwd-frame--flat-inner  { width: 132px; height: 284px; border-radius: 28px; }
+  .hwd-stage {
+    height: 360px;
+    max-width: 520px;
+  }
 
-  .hwd-frame--ghost        { left: 346px; bottom: 24px; }
-  .hwd-frame--ghost-inner  { width: 120px; height: 264px; border-radius: 26px; }
+  .hwd-frame--phone { left: 40px; transform: scale(0.85); transform-origin: bottom left; }
+  .hwd-frame--flat { left: 220px; transform: scale(0.85); transform-origin: bottom left; }
+  .hwd-frame--ghost { left: 360px; transform: scale(0.85); transform-origin: bottom left; }
 }
 
-@media (max-width: 560px) {
-  /* Stage scales to ~60% */
-  .hwd-stage   { max-width: 370px; height: 260px; }
+/* RESPONSIVE 768px */
+/* ===============================
+   🔹 768px (Clean Tablet / Mobile Layout)
+================================= */
+@media (max-width: 768px) {
 
-  .hwd-frame--phone { left: 14px; }
-  .hwd-phone-outer  { width: 110px; height: 228px; border-radius: 24px; padding: 12px 8px 10px; }
-  .hwd-phone-notch  { width: 46px; height: 6px; }
+  .hwd-section {
+    padding: 40px 20px;
+  }
 
-  .hwd-frame--flat        { left: 144px; bottom: 10px; }
-  .hwd-frame--flat-inner  { width: 96px; height: 208px; border-radius: 20px; }
+  .hwd-title {
+    font-size: 28px;
+  }
 
-  .hwd-frame--ghost        { left: 256px; bottom: 20px; }
-  .hwd-frame--ghost-inner  { width: 88px; height: 192px; border-radius: 18px; }
+  .hwd-subtitle {
+    font-size: 14px;
+  }
 
-  .hwd-cta { flex-direction: column; gap: 14px; }
+  .hwd-body {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 28px;
+  }
+
+  .hwd-copy {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  /* 🔥 STAGE FIX */
+  .hwd-stage {
+    height: 300px;
+    max-width: 320px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* 🔥 MAIN PHONE (CENTER) */
+  .hwd-frame--phone {
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) scale(0.78);
+    transform-origin: bottom center;
+    z-index: 3;
+  }
+
+  /* 🔥 SECOND PHONE (SLIGHT RIGHT BACK) */
+  .hwd-frame--flat {
+    left: 65%;
+    bottom: 10px;
+    transform: translateX(-50%) scale(0.7);
+    transform-origin: bottom center;
+    z-index: 2;
+    opacity: 0.9;
+  }
+
+  /* 🔥 REMOVE THIRD PHONE (too crowded on mobile) */
+  .hwd-frame--ghost {
+    display: none;
+  }
+
+  /* 🔥 CONTROLS CENTER */
+  .hwd-controls {
+    justify-content: center;
+  }
+
+  /* 🔥 CTA FIX */
+  .hwd-cta {
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 26px;
+  }
+
+  .hwd-btn-primary {
+    width: 100%;
+    max-width: 260px;
+    justify-content: center;
+  }
+
+  .hwd-btn-ghost {
+    justify-content: center;
+  }
 }

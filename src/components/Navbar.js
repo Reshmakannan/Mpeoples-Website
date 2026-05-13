@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "../Style/Navbar.css";
 import logo from "../assets/logo.png";
 import teamPhoto from "../assets/group.png";
 import awardsImg from "../assets/award.png";
 
-function Navbar() {
+function Navbar({ onNavigate }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [closing, setClosing] = useState(false);
-
-  const navigate = useNavigate();
 
   const handleClose = () => {
     setClosing(true);
@@ -22,7 +19,7 @@ function Navbar() {
   const handleNavigate = (path) => {
     handleClose();
     setTimeout(() => {
-      navigate(path);
+      onNavigate(path); // 🔥 triggers transition from App.js
     }, 450);
   };
 
@@ -34,7 +31,7 @@ function Navbar() {
             src={logo}
             alt="logo"
             className={`logo ${menuOpen ? "logo--white" : ""}`}
-            onClick={() => navigate("/")}
+            onClick={() => onNavigate("/")} // ✅ fixed
             style={{ cursor: "pointer" }}
           />
 
@@ -68,17 +65,13 @@ function Navbar() {
               <div className="link-column">
                 <h3 className="col-title">Services</h3>
                 <ul>
-                  <li onClick={() => handleNavigate("/uiux-design")}>
-                    UI / UX Design
-                  </li>
-                  <li onClick={() => handleNavigate("/web-development")}>
-                    Web Development
-                  </li>
-                  <li>App Development</li>
-                  <li>Saas Product Development</li>
-                  <li>Digital Marketing</li>
-                  <li>Graphic Design</li>
-                  <li>Video Editing</li>
+                  <li onClick={() => handleNavigate("/uiux-design")}>UI / UX Design</li>
+                  <li onClick={() => handleNavigate("/web-development")}>Web Development</li>
+                  <li onClick={() => handleNavigate("/app-development")}>App Development</li>
+                  <li onClick={() => handleNavigate("/saas-development")}>Saas Development</li>
+                  <li onClick={() => handleNavigate("/digital-marketing")}>Digital Marketing</li>
+                  <li onClick={() => handleNavigate("/graphic-design")}>Graphic Design</li>
+                  <li onClick={() => handleNavigate("/video-editing")}>Video Editing</li>
                 </ul>
 
                 <h3 className="col-title second-title">Our Product</h3>
@@ -98,7 +91,7 @@ function Navbar() {
 
                 <h3 className="col-title second-title">Company</h3>
                 <ul>
-                  <li>About us</li>
+                  <li onClick={() => handleNavigate("/about-us")}>About Us</li>
                   <li>Team</li>
                   <li>Career</li>
                 </ul>

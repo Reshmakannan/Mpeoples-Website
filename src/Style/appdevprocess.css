@@ -1,0 +1,460 @@
+/* =========================
+   SAFE BOX SIZING
+========================= */
+
+.appdevprocess-section *,
+.appdevprocess-section *::before,
+.appdevprocess-section *::after {
+  box-sizing: border-box;
+}
+
+/* =========================
+   MAIN SECTION
+========================= */
+
+.appdevprocess-section {
+  width: 100%;
+  padding: 80px 20px;
+  background: #020a2a;
+  color: #ffffff;
+
+  overflow-x: hidden;
+  position: relative;
+}
+
+.appdevprocess-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.appdevprocess-title {
+  text-align: center;
+  font-size: 36px;
+  color: #9ec3ff;
+  margin-bottom: 10px;
+}
+
+.appdevprocess-subtitle {
+  text-align: center;
+  margin-bottom: 50px;
+  color: #d8e7ff;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.appdevprocess-content {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+/* =========================
+   STEPS
+========================= */
+
+.appdevprocess-steps {
+  flex: 1;
+}
+
+.appdevprocess-step-item {
+  opacity: 0.5;
+  margin: 10px 0;
+  transition: 0.3s ease;
+}
+
+.appdevprocess-step-item-active {
+  opacity: 1;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* =========================
+   DETAILS
+========================= */
+
+.appdevprocess-details {
+  flex: 2;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 25px;
+}
+
+.appdevprocess-details-title {
+  color: #9ec3ff;
+  font-size: 28px;
+}
+
+.appdevprocess-description-box {
+  color: #cce5ef;
+  line-height: 1.8;
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.appdevprocess-image-wrapper {
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.appdevprocess-image-frame {
+  width: 150px;
+  height: 300px;
+
+  border: 4px solid #ffffff;
+  border-radius: 30px;
+
+  overflow: hidden;
+
+  background: #f5f5f5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.appdevprocess-moving-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* =========================
+   SLIDE ANIMATION
+========================= */
+
+.appdevprocess-slide-left {
+  animation: appdevprocessSlideLeft 0.35s ease;
+}
+
+.appdevprocess-slide-right {
+  animation: appdevprocessSlideRight 0.35s ease;
+}
+
+@keyframes appdevprocessSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(120px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes appdevprocessSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-120px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* =========================
+   SLIDER
+========================= */
+
+.appdevprocess-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+}
+
+/* =========================
+   NAV BUTTONS
+========================= */
+
+.appdevprocess-nav-btn {
+  width: 42px;
+  height: 42px;
+
+  border: none;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  background: #ffffff;
+  color: #111827;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.3s ease;
+}
+
+.appdevprocess-nav-btn:hover {
+  background: linear-gradient(180deg, #083372 0%, #168cbe 100%);
+  color: #ffffff;
+}
+
+.appdevprocess-nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* =========================
+   DOTS
+========================= */
+
+.appdevprocess-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.appdevprocess-dot {
+  width: 14px;
+  height: 14px;
+
+  border-radius: 50%;
+  background: #cfcfcf;
+
+  transition: 0.3s ease;
+}
+
+.appdevprocess-dot-active {
+  background: linear-gradient(180deg, #083372 0%, #168cbe 100%);
+  transform: scale(1.1);
+}
+
+.appdevprocess-dot-last {
+  background: #ff4da6;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+/* =========================
+   BUTTONS (FIXED ALIGNMENT)
+========================= */
+
+.appdevprocess-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* make both buttons consistent */
+.appdevprocess-btn-primary,
+.appdevprocess-btn-ghost {
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* primary button */
+.appdevprocess-btn-primary {
+  border: none;
+  color: #ffffff;
+  background: linear-gradient(90deg, #072e6d 0%, #168fc0 100%);
+}
+
+/* ghost button */
+.appdevprocess-btn-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: #ffffff;
+  gap: 10px;
+}
+
+/* arrow icon fix */
+.appdevprocess-arrow-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(90deg, #072e6d 0%, #168fc0 100%);
+}
+
+
+@media (max-width: 1024px) {
+
+  .appdevprocess-section {
+    padding: 60px 30px;
+  }
+
+  .appdevprocess-container {
+    width: 95%;
+  }
+
+  /* 🔥 KEEP ROW LAYOUT (NOT COLUMN) */
+  .appdevprocess-content {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  /* 🔥 BALANCED WIDTHS */
+  .appdevprocess-steps {
+    flex: 1;
+    text-align: left;
+  }
+
+  .appdevprocess-details {
+    flex: 1.5;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .appdevprocess-image-wrapper {
+    flex: 1;
+    justify-content: center;
+  }
+
+  /* 🔥 TYPOGRAPHY SCALE */
+  .appdevprocess-title {
+    font-size: 30px;
+  }
+
+  .appdevprocess-subtitle {
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+
+  .appdevprocess-details-title {
+    font-size: 24px;
+  }
+
+  .appdevprocess-description-box {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* 🔥 IMAGE RESIZE */
+  .appdevprocess-image-frame {
+    width: 130px;
+    height: 260px;
+  }
+
+  /* 🔥 BUTTON ALIGNMENT */
+  .appdevprocess-cta {
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .appdevprocess-btn-primary,
+  .appdevprocess-btn-ghost {
+    height: 40px;
+    font-size: 13px;
+    padding: 0 16px;
+  }
+
+  /* 🔥 SLIDER TUNING */
+  .appdevprocess-slider {
+    gap: 14px;
+  }
+
+  .appdevprocess-dot {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .appdevprocess-section {
+    padding: 60px 16px;
+  }
+
+  .appdevprocess-title {
+    font-size: 28px;
+  }
+
+  .appdevprocess-details-title {
+    font-size: 24px;
+  }
+
+  .appdevprocess-image-frame {
+    width: 130px;
+    height: 260px;
+  }
+
+  .appdevprocess-slider {
+    gap: 12px;
+  }
+
+  .appdevprocess-dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .appdevprocess-btn-primary,
+  .appdevprocess-btn-ghost {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .appdevprocess-title {
+    font-size: 24px;
+  }
+
+  .appdevprocess-details-title {
+    font-size: 20px;
+  }
+
+  .appdevprocess-description-box {
+    font-size: 14px;
+  }
+
+  .appdevprocess-nav-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .appdevprocess-image-frame {
+    width: 115px;
+    height: 230px;
+  }
+}

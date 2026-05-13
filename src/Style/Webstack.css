@@ -1,24 +1,8 @@
-/* ════════════════════════════════════════════════════════════
-   UI/UX TECH STACK — Uiuxstack.css
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Public+Sans:wght@400;500;600&display=swap');
 
-   Animation: pause ~1.2s, then smooth ease slide one cell,
-   repeat for each of 8 icons, then seamlessly loop.
-
-   Cell width = divider(1px) + icon(65px) + margin(50px×2) = 166px
-   8 cells = 1328px (one full set — translateX target for loop)
-
-   Total cycle = 8 steps × (1.2s pause + 0.5s slide) = 13.6s
-   Each step occupies 1/8 = 12.5% of the timeline.
-   Slide portion = 0.5/1.7 ≈ 29% of each step's window.
-
-   Keyframe layout per step i (i = 0..7):
-     start of pause : i * 12.5%
-     end of pause   : i * 12.5% + 8.82%   (pause = 70% of step)
-     end of slide   : (i+1) * 12.5%       (slide = 30% of step)
-   ════════════════════════════════════════════════════════════ */
-
-.stack-section {
+.web-stack-section {
   background: #E6F3FF;
+
   width: 100%;
   padding: 60px 0 56px;
   box-sizing: border-box;
@@ -26,218 +10,388 @@
   overflow: hidden;
 }
 
-.stack-title {
+.web-stack-title {
   text-align: center;
   font-size: 36px;
   font-weight: 800;
-  color: #0d1b3e;
-  margin: 0 0 44px;
+  font-family: 'Inter', sans-serif;
+  color: #263238;
+
+  margin: 0 0 52px;
   line-height: 1.2;
-  padding: 0 60px;
+  padding: 0 24px;
 }
 
-.stack-info {
+/* =========================================
+   COMMON CONTAINER
+========================================= */
+
+.web-stack-container {
+  width: 100%;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+/* =========================================
+   INFO SECTION
+========================================= */
+
+.web-stack-info {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto 44px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1060px;
-  margin: 0 auto 48px;
-  padding: 0 60px;
-  gap: 24px;
+  gap: 40px;
 }
 
-.stack-info-left { flex: 1; }
+.web-stack-info-left {
+  flex: 1;
+  max-width: 720px;
+}
 
-.stack-info-heading {
+.web-stack-info-heading {
   font-size: 18px;
   font-weight: 700;
-  color: #1a4fa0;
-  margin: 0 0 14px;
+  font-family: 'Inter', sans-serif;
+  color: #082F6E;
+
+  margin: 0 0 18px;
 }
 
-.stack-info-desc {
-  font-size: 14px;
-  line-height: 1.75;
-  color: #4a5568;
+.web-stack-info-desc {
+  font-size: 15px;
+  line-height: 1.9;
+  font-family: 'Public Sans', sans-serif;
+  color: #8A8787;
+
   margin: 0;
+  max-width: 700px;
 }
 
-.stack-info-right { flex-shrink: 0; }
+.web-stack-info-right {
+  flex-shrink: 0;
+}
 
-.stack-pie {
-  width: 110px;
-  height: 110px;
+.web-stack-control {
+  width: 120px;
+  height: 120px;
   object-fit: contain;
   display: block;
 }
 
-/* ════════════════════════════════════════════════
+/* =========================================
    MARQUEE
-   ════════════════════════════════════════════════ */
-.stack-marquee-outer {
+========================================= */
+
+.web-stack-marquee-outer {
   width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(
-    to right, transparent 0%, #000 5%, #000 95%, transparent 100%
-  );
-  mask-image: linear-gradient(
-    to right, transparent 0%, #000 5%, #000 95%, transparent 100%
-  );
 }
 
-.stack-marquee-track {
+.web-stack-marquee-inner {
+  width: 100%;
+  overflow: hidden;
+}
+
+.web-stack-marquee-track {
   display: flex;
   align-items: center;
   width: max-content;
   will-change: transform;
-  /*
-    13.6s total, infinite.
-    We use a custom multi-stop keyframe that holds
-    (pause) then eases (slide) for each of 8 icons.
-    translateX goes 0 → -1328px over the full cycle.
-    Each icon = -166px step.
-  */
-  animation: icon-step-scroll 13.6s infinite;
-  animation-timing-function: linear; /* overridden per segment in keyframes */
+
+  animation: web-icon-step-scroll 13.6s infinite;
+  animation-timing-function: linear;
 }
 
-/*
-  8 icons × 166px = 1328px
-  Each step = 12.5% of 13.6s = 1.7s
-    - Pause:  0% → 8.82% of each step (≈1.2s hold)
-    - Slide:  8.82% → 12.5% of each step (≈0.5s ease)
+@keyframes web-icon-step-scroll {
 
-  Step boundaries (cumulative %):
-    Step 0: 0%      pause end: 8.82%   slide end: 12.5%   → -166px
-    Step 1: 12.5%   pause end: 21.32%  slide end: 25%     → -332px
-    Step 2: 25%     pause end: 33.82%  slide end: 37.5%   → -498px
-    Step 3: 37.5%   pause end: 46.32%  slide end: 50%     → -664px
-    Step 4: 50%     pause end: 58.82%  slide end: 62.5%   → -830px
-    Step 5: 62.5%   pause end: 71.32%  slide end: 75%     → -996px
-    Step 6: 75%     pause end: 83.82%  slide end: 87.5%   → -1162px
-    Step 7: 87.5%   pause end: 96.32%  slide end: 100%    → -1328px
-*/
-@keyframes icon-step-scroll {
-  /* Step 0 — hold at 0 */
-  0%     { transform: translateX(0);      animation-timing-function: ease-in-out; }
-  /* slide to -166 */
-  8.82%  { transform: translateX(0);      animation-timing-function: ease-in-out; }
-  12.5%  { transform: translateX(-166px); animation-timing-function: ease-in-out; }
+  0% { transform: translateX(0); }
+  8.82% { transform: translateX(0); }
+  12.5% { transform: translateX(-150px); }
 
-  /* Step 1 — hold */
-  21.32% { transform: translateX(-166px); animation-timing-function: ease-in-out; }
-  25%    { transform: translateX(-332px); animation-timing-function: ease-in-out; }
+  21.32% { transform: translateX(-150px); }
+  25% { transform: translateX(-300px); }
 
-  /* Step 2 */
-  33.82% { transform: translateX(-332px); animation-timing-function: ease-in-out; }
-  37.5%  { transform: translateX(-498px); animation-timing-function: ease-in-out; }
+  33.82% { transform: translateX(-300px); }
+  37.5% { transform: translateX(-450px); }
 
-  /* Step 3 */
-  46.32% { transform: translateX(-498px); animation-timing-function: ease-in-out; }
-  50%    { transform: translateX(-664px); animation-timing-function: ease-in-out; }
+  46.32% { transform: translateX(-450px); }
+  50% { transform: translateX(-600px); }
 
-  /* Step 4 */
-  58.82% { transform: translateX(-664px); animation-timing-function: ease-in-out; }
-  62.5%  { transform: translateX(-830px); animation-timing-function: ease-in-out; }
+  58.82% { transform: translateX(-600px); }
+  62.5% { transform: translateX(-750px); }
 
-  /* Step 5 */
-  71.32% { transform: translateX(-830px); animation-timing-function: ease-in-out; }
-  75%    { transform: translateX(-996px); animation-timing-function: ease-in-out; }
+  71.32% { transform: translateX(-750px); }
+  75% { transform: translateX(-900px); }
 
-  /* Step 6 */
-  83.82% { transform: translateX(-996px);  animation-timing-function: ease-in-out; }
-  87.5%  { transform: translateX(-1162px); animation-timing-function: ease-in-out; }
+  83.82% { transform: translateX(-900px); }
+  87.5% { transform: translateX(-1050px); }
 
-  /* Step 7 */
-  96.32% { transform: translateX(-1162px); animation-timing-function: ease-in-out; }
-  100%   { transform: translateX(-1328px); }
+  96.32% { transform: translateX(-1050px); }
+  100% { transform: translateX(-1200px); }
 }
 
-/* ── Each cell ── */
-.stack-cell {
+.web-stack-cell {
   display: flex;
   align-items: center;
   flex-shrink: 0;
 }
 
-.stack-divider {
+.web-stack-divider {
   display: block;
   width: 1px;
-  height: 50px;
-  background: #c5d5e8;
+  height: 52px;
+  background: #cfd9e7;
   flex-shrink: 0;
 }
 
-.stack-icon {
-  width: 65px;
-  height: 65px;
+.web-stack-icon {
+  width: 62px;
+  height: 62px;
   object-fit: contain;
   display: block;
   flex-shrink: 0;
-  margin: 0 50px;
+  margin: 0 42px;
 }
 
-/* ════════════════════════════════════════════════
+/* =========================================
+   VALUE BOX
+========================================= */
+
+.web-value-wrapper {
+  width: 100%;
+  max-width: 1180px;
+  margin: 34px auto 0;
+}
+
+.web-value-box {
+  width: 100%;
+  border-radius: 10px;
+
+  background: linear-gradient(90deg, #072E6D 0%, #168FC0 100%);
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  overflow: hidden;
+
+  box-shadow: 0 12px 30px rgba(0, 70, 150, 0.14);
+}
+
+.web-value-card {
+  position: relative;
+  padding: 24px 18px;
+  text-align: center;
+}
+
+.web-value-card:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 22px;
+  width: 1px;
+  height: calc(100% - 44px);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.web-value-image {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 12px;
+}
+
+.web-value-title {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  color: #5DB5F1;
+
+  margin: 0 0 10px;
+}
+
+.web-value-desc {
+  font-size: 12px;
+  line-height: 1.7;
+  font-family: 'Public Sans', sans-serif;
+  color: #FFFFFF;
+
+  margin: 0 auto;
+  max-width: 200px;
+}
+
+/* =========================================
    RESPONSIVE
-   ════════════════════════════════════════════════ */
+========================================= */
+
 @media (max-width: 768px) {
-  .stack-section  { padding: 44px 0 40px; }
-  .stack-title    { font-size: 26px; padding: 0 24px; }
-  .stack-info     { padding: 0 24px; flex-direction: column; align-items: flex-start; }
-  .stack-pie      { width: 85px; height: 85px; }
-  /* cell = 1 + 50 + 34+34 = 119px; 8×119=952px */
-  .stack-icon     { width: 50px; height: 50px; margin: 0 34px; }
-  .stack-divider  { height: 40px; }
-  .stack-marquee-track {
-    animation-name: icon-step-scroll-md;
+
+  .web-stack-section {
+    padding: 44px 0 40px;
   }
-  @keyframes icon-step-scroll-md {
-    0%     { transform: translateX(0);     animation-timing-function: ease-in-out; }
-    8.82%  { transform: translateX(0);     animation-timing-function: ease-in-out; }
-    12.5%  { transform: translateX(-119px); animation-timing-function: ease-in-out; }
-    21.32% { transform: translateX(-119px); animation-timing-function: ease-in-out; }
-    25%    { transform: translateX(-238px); animation-timing-function: ease-in-out; }
-    33.82% { transform: translateX(-238px); animation-timing-function: ease-in-out; }
-    37.5%  { transform: translateX(-357px); animation-timing-function: ease-in-out; }
-    46.32% { transform: translateX(-357px); animation-timing-function: ease-in-out; }
-    50%    { transform: translateX(-476px); animation-timing-function: ease-in-out; }
-    58.82% { transform: translateX(-476px); animation-timing-function: ease-in-out; }
-    62.5%  { transform: translateX(-595px); animation-timing-function: ease-in-out; }
-    71.32% { transform: translateX(-595px); animation-timing-function: ease-in-out; }
-    75%    { transform: translateX(-714px); animation-timing-function: ease-in-out; }
-    83.82% { transform: translateX(-714px); animation-timing-function: ease-in-out; }
-    87.5%  { transform: translateX(-833px); animation-timing-function: ease-in-out; }
-    96.32% { transform: translateX(-833px); animation-timing-function: ease-in-out; }
-    100%   { transform: translateX(-952px); }
+
+  .web-stack-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .web-stack-container {
+    padding: 0 20px;
+  }
+
+  .web-stack-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 34px;
+  }
+
+  .web-stack-info-desc {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .web-stack-pie {
+    width: 88px;
+    height: 88px;
+  }
+
+  .web-stack-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 34px;
+  }
+
+  .web-stack-divider {
+    height: 40px;
+  }
+
+  .web-stack-marquee-track {
+    animation-name: web-icon-step-scroll-md;
+  }
+
+  .web-value-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .web-value-card:nth-child(2)::after {
+    display: none;
+  }
+
+  @keyframes web-icon-step-scroll-md {
+
+    0% { transform: translateX(0); }
+    8.82% { transform: translateX(0); }
+    12.5% { transform: translateX(-119px); }
+
+    21.32% { transform: translateX(-119px); }
+    25% { transform: translateX(-238px); }
+
+    33.82% { transform: translateX(-238px); }
+    37.5% { transform: translateX(-357px); }
+
+    46.32% { transform: translateX(-357px); }
+    50% { transform: translateX(-476px); }
+
+    58.82% { transform: translateX(-476px); }
+    62.5% { transform: translateX(-595px); }
+
+    71.32% { transform: translateX(-595px); }
+    75% { transform: translateX(-714px); }
+
+    83.82% { transform: translateX(-714px); }
+    87.5% { transform: translateX(-833px); }
+
+    96.32% { transform: translateX(-833px); }
+    100% { transform: translateX(-952px); }
   }
 }
 
 @media (max-width: 480px) {
-  .stack-title        { font-size: 22px; }
-  .stack-info-heading { font-size: 16px; }
-  /* cell = 1 + 38 + 24+24 = 87px; 8×87=696px */
-  .stack-icon    { width: 38px; height: 38px; margin: 0 24px; }
-  .stack-divider { height: 32px; }
-  .stack-marquee-track {
-    animation-name: icon-step-scroll-sm;
+
+  .web-stack-title {
+    font-size: 24px;
   }
-  @keyframes icon-step-scroll-sm {
-    0%     { transform: translateX(0);     animation-timing-function: ease-in-out; }
-    8.82%  { transform: translateX(0);     animation-timing-function: ease-in-out; }
-    12.5%  { transform: translateX(-87px);  animation-timing-function: ease-in-out; }
-    21.32% { transform: translateX(-87px);  animation-timing-function: ease-in-out; }
-    25%    { transform: translateX(-174px); animation-timing-function: ease-in-out; }
-    33.82% { transform: translateX(-174px); animation-timing-function: ease-in-out; }
-    37.5%  { transform: translateX(-261px); animation-timing-function: ease-in-out; }
-    46.32% { transform: translateX(-261px); animation-timing-function: ease-in-out; }
-    50%    { transform: translateX(-348px); animation-timing-function: ease-in-out; }
-    58.82% { transform: translateX(-348px); animation-timing-function: ease-in-out; }
-    62.5%  { transform: translateX(-435px); animation-timing-function: ease-in-out; }
-    71.32% { transform: translateX(-435px); animation-timing-function: ease-in-out; }
-    75%    { transform: translateX(-522px); animation-timing-function: ease-in-out; }
-    83.82% { transform: translateX(-522px); animation-timing-function: ease-in-out; }
-    87.5%  { transform: translateX(-609px); animation-timing-function: ease-in-out; }
-    96.32% { transform: translateX(-609px); animation-timing-function: ease-in-out; }
-    100%   { transform: translateX(-696px); }
+
+  .web-stack-info-heading {
+    font-size: 16px;
+  }
+
+  .web-stack-info-desc {
+    font-size: 13px;
+  }
+
+  .web-stack-icon {
+    width: 38px;
+    height: 38px;
+    margin: 0 24px;
+  }
+
+  .web-stack-divider {
+    height: 32px;
+  }
+
+  .web-stack-marquee-track {
+    animation-name: web-icon-step-scroll-sm;
+  }
+
+  .web-value-box {
+    grid-template-columns: 1fr;
+  }
+
+  .web-value-card::after {
+    display: none !important;
+  }
+
+  .web-value-card {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .web-value-card:last-child {
+    border-bottom: none;
+  }
+
+  .web-value-title {
+    font-size: 17px;
+  }
+
+  .web-value-desc {
+    font-size: 12px;
+  }
+
+  @keyframes web-icon-step-scroll-sm {
+
+    0% { transform: translateX(0); }
+    8.82% { transform: translateX(0); }
+    12.5% { transform: translateX(-87px); }
+
+    21.32% { transform: translateX(-87px); }
+    25% { transform: translateX(-174px); }
+
+    33.82% { transform: translateX(-174px); }
+    37.5% { transform: translateX(-261px); }
+
+    46.32% { transform: translateX(-261px); }
+    50% { transform: translateX(-348px); }
+
+    58.82% { transform: translateX(-348px); }
+    62.5% { transform: translateX(-435px); }
+
+    71.32% { transform: translateX(-435px); }
+    75% { transform: translateX(-522px); }
+
+    83.82% { transform: translateX(-522px); }
+    87.5% { transform: translateX(-609px); }
+
+    96.32% { transform: translateX(-609px); }
+    100% { transform: translateX(-696px); }
   }
 }

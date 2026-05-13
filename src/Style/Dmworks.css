@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* ONLY affects this section */
+.dw-section *,
+.dw-section *::before,
+.dw-section *::after {
+  box-sizing: border-box;
+}
+
+/* ───────── SECTION ───────── */
+.dw-section {
+  width: 100%;
+  background: #fff;
+  padding: 40px 0 0;
+}
+
+/* ───────── HEADER ───────── */
+.dw-section .dw-header {
+  text-align: center;
+  padding: 0 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dw-section .dw-title {
+  font-family: "Inter", sans-serif;
+  font-size: 60px;
+  font-weight: 700;
+  color: #26323b;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.dw-section .dw-desc {
+  margin-top: 14px;
+  margin-bottom: 0;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #8c8c8c;
+}
+
+/* ───────── SLIDER WRAPPER ───────── */
+.dw-section .dw-slider-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 25px;
+  margin-bottom: 0;
+
+  height: 560px;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.dw-section .dw-slider-wrapper:active {
+  cursor: grabbing;
+}
+
+/* ───────── SWIPER ───────── */
+.dw-section .dw-swiper {
+  height: 450px;
+  position: relative;
+  z-index: 10;
+}
+
+.dw-section .dw-swiper.swiper {
+  overflow: visible !important;
+  width: 100%;
+}
+
+.dw-section .dw-swiper .swiper-wrapper {
+  align-items: center;
+}
+
+/* ───────── SLIDES ───────── */
+.dw-section .dw-slide {
+  width: 360px !important;
+  height: 440px !important;
+  flex-shrink: 0;
+}
+
+.dw-section .dw-slide.dw-slide--left,
+.dw-section .dw-slide.dw-slide--right {
+  width: 340px !important;
+}
+
+/* ───────── CARD ───────── */
+.dw-section .dw-card {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ───────── IMAGE ───────── */
+.dw-section .dw-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ───────── WAVES ───────── */
+.dw-section .dw-wave {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 550px;
+  pointer-events: none;
+  z-index: 20;
+  overflow: hidden;
+}
+
+/* TOP */
+.dw-section .dw-wave--top {
+  top: 0;
+}
+
+.dw-section .dw-wave--top::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 750px;
+  top: -600px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+/* BOTTOM */
+.dw-section .dw-wave--bottom {
+  bottom: 0;
+}
+
+.dw-section .dw-wave--bottom::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 750px;
+  bottom: -600px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+/* ───────── BUTTON ───────── */
+.dw-section .dw-btn-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 25px 0 60px;
+}
+
+.dw-section .dw-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  width: 240px;
+  height: 62px;
+  justify-content: center;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #0d3e8d 0%, #1f97d4 100%);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.dw-section .dw-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(13, 62, 141, 0.3);
+}

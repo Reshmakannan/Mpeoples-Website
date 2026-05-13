@@ -53,50 +53,50 @@ const services = [
 
 const Webfuture = () => {
   return (
-    <section className="uxfuture-main-section">
-      <div className="uxfuture-main-container">
+    <section className="webfuture-main-section">
+      <div className="webfuture-main-container">
 
         {/* Heading */}
-        <h1 className="uxfuture-main-title">The Future of Web Development</h1>
+        <h1 className="webfuture-main-title">The Future of Web Development</h1>
 
         {/* Delivered by */}
-        <p className="uxfuture-subtitle-label">Delivered by MPeoples</p>
+        <p className="webfuture-subtitle-label">Delivered by MPeoples</p>
 
         {/* Description */}
-        <p className="uxfuture-main-description">
+        <p className="webfuture-main-description">
           Great websites are more than just code — they are powerful digital platforms that drive performance, engagement, and business growth. At MPeoples, we combine modern technologies, scalable architecture, and performance-driven development to build secure and high-performing websites for growing businesses.
         </p>
 
         {/* Cards Grid */}
-        <div className="uxfuture-card-grid">
+        <div className="webfuture-card-grid">
           {/* Top row — 3 cards */}
           {services.filter(s => s.row === 'top').map(service => (
-            <div key={service.id} className="uxfuture-service-card">
-              <div className="uxfuture-card-header">
-                <img src={service.icon} alt={service.alt} className="uxfuture-card-icon" />
-                <h3 className="uxfuture-card-title">{service.title}</h3>
+            <div key={service.id} className="webfuture-service-card">
+              <div className="webfuture-card-header">
+                <img src={service.icon} alt={service.alt} className="webfuture-card-icon" />
+                <h3 className="webfuture-card-title">{service.title}</h3>
               </div>
-              <p className="uxfuture-card-text">{service.text}</p>
+              <p className="webfuture-card-text">{service.text}</p>
             </div>
           ))}
 
           {/* Bottom row — 2 cards */}
-          <div className="uxfuture-service-card uxfuture-card-bottom-left">
-            <div className="uxfuture-card-header">
-              <img src={iconMobilee} alt="Mobile-First & Responsive Design" className="uxfuture-card-icon" />
-              <h3 className="uxfuture-card-title">Mobile-First &amp; Responsive Design</h3>
+          <div className="webfuture-service-card webfuture-card-bottom-left">
+            <div className="webfuture-card-header">
+              <img src={iconMobilee} alt="Mobile-First & Responsive Design" className="webfuture-card-icon" />
+              <h3 className="webfuture-card-title">Mobile-First &amp; Responsive Design</h3>
             </div>
-            <p className="uxfuture-card-text">
+            <p className="webfuture-card-text">
               Every website we build is optimized for all screen sizes, delivering a seamless experience across mobile, tablet, and desktop devices.
             </p>
           </div>
 
-          <div className="uxfuture-service-card uxfuture-card-bottom-right">
-            <div className="uxfuture-card-header">
-              <img src={iconUsability} alt="Usability Testing & Optimization" className="uxfuture-card-icon" />
-              <h3 className="uxfuture-card-title">Usability Testing &amp; Optimization</h3>
+          <div className="webfuture-service-card webfuture-card-bottom-right">
+            <div className="webfuture-card-header">
+              <img src={iconUsability} alt="Usability Testing & Optimization" className="webfuture-card-icon" />
+              <h3 className="webfuture-card-title">Usability Testing &amp; Optimization</h3>
             </div>
-            <p className="uxfuture-card-text">
+            <p className="webfuture-card-text">
               We optimize websites for speed, reliability, and protection by implementing best practices in performance tuning, security standards, and scalable infrastructure.
             </p>
           </div>

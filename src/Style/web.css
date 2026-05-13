@@ -145,3 +145,124 @@
     display: none;
   }
 }                         
+
+/* Trapezoid decorations */
+.trap-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 180px;
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.trap-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 180px;
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Hide on mobile */
+@media (max-width: 420px) {
+  .trap-left,
+  .trap-right {
+    display: none;
+  }
+}
+
+/* ===============================
+   🔹 1024px
+================================= */
+@media (max-width: 1024px) {
+
+  .uiux-page {
+    height: auto;              /* 🔥 avoid vh issues */
+    padding: 60px 20px;
+    overflow-x: hidden;        /* 🔥 prevent trapezoid cut */
+  }
+
+  .uiux-overlay {
+    max-width: 800px;
+    margin-top: 20px;
+  }
+
+  .uiux-logo {
+    width: 140px;
+    margin-bottom: 24px;
+  }
+
+  .uiux-title {
+    font-size: 34px;
+    line-height: 1.2;
+    margin-bottom: 28px;
+  }
+
+  .uiux-description {
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 700px;
+  }
+
+  .uiux-btn {
+    width: 220px;
+    height: 54px;
+    font-size: 16px;
+    margin-top: 30px;
+  }
+
+  /* 🔥 trapezoid responsive */
+  .trap-left,
+  .trap-right {
+    width: 140px;
+  }
+}
+
+/* ===============================
+   🔹 768px
+================================= */
+@media (max-width: 768px) {
+
+  .uiux-page {
+    height: auto;
+    padding: 50px 18px;
+    overflow-x: hidden;
+  }
+
+  .uiux-overlay {
+    margin-top: 10px;
+    max-width: 100%;
+  }
+
+  .uiux-logo {
+    width: 120px;
+    margin-bottom: 20px;
+  }
+
+  .uiux-title {
+    font-size: 30px;
+    line-height: 1.25;
+  }
+
+  .uiux-description {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .uiux-btn {
+    width: 200px;
+    height: 50px;
+    font-size: 15px;
+    margin-top: 24px;
+  }
+
+  /* 🔥 trapezoid smaller */
+  .trap-left,
+  .trap-right {
+    width: 110px;
+  }
+}

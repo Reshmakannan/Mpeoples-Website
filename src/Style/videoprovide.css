@@ -1,0 +1,345 @@
+/* videoprovide.css */
+
+/* ONLY THIS SECTION STYLES */
+/* NO GLOBAL * SELECTOR */
+
+.videoprovide-section,
+.videoprovide-section * {
+  box-sizing: border-box;
+}
+
+.videoprovide-section {
+  width: 100%;
+  background: #f7e3e3;
+  padding: 38px 24px;
+  position: relative;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+}
+
+/* MAIN CONTAINER */
+
+.videoprovide-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* TITLE */
+
+.videoprovide-title {
+  text-align: center;
+  font-size: clamp(30px, 3vw, 52px);
+  font-weight: 700;
+  color: #1d2a32;
+  margin: 0 0 34px 0;
+  line-height: 1.1;
+}
+
+/* GRID */
+
+.videoprovide-grid {
+  display: grid;
+  align-items: stretch;
+}
+
+.videoprovide-grid-7 {
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.videoprovide-grid-5 {
+  grid-template-columns: repeat(5, 1fr);
+  width: 76%;
+  margin: 0 auto;
+}
+
+.videoprovide-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+  width: 58%;
+  margin: 0 auto;
+}
+
+/* CARD */
+
+.videoprovide-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px 10px;
+
+  border-right: 1px solid #d9c7c7;
+
+  min-height: 108px;
+}
+
+/* REMOVE LAST BORDERS */
+
+.videoprovide-grid-7 .videoprovide-card:nth-child(7),
+.videoprovide-grid-5 .videoprovide-card:nth-child(5),
+.videoprovide-grid-4 .videoprovide-card:nth-child(4) {
+  border-right: none;
+}
+
+/* ICON */
+
+.videoprovide-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+/* TEXT */
+
+.videoprovide-card-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1f2937;
+  text-align: center;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* DIVIDERS */
+
+.videoprovide-divider {
+  width: 92%;
+  height: 1px;
+  background: #d8c5c5;
+  margin: 8px auto 18px auto;
+}
+
+.videoprovide-divider-small {
+  width: 80%;
+}
+
+.videoprovide-divider-mini {
+  width: 60%;
+}
+
+/* CORNER SHAPES */
+
+.videoprovide-left-shape {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 180px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.videoprovide-right-shape {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 180px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* =========================
+   LAPTOP
+========================= */
+/* =========================
+   1024px (FINAL WORKING)
+========================= */
+@media (max-width: 1024px) {
+
+  .videoprovide-section {
+    padding: 36px 24px;
+  }
+
+  .videoprovide-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+
+  /* 🔥 ONE GRID FOR ALL 23 ITEMS */
+  .videoprovide-grid-all {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 per row */
+    width: 100%;
+  }
+
+  /* 🔥 CARD */
+  .videoprovide-card {
+    padding: 18px 12px;
+    min-height: 110px;
+
+    border-right: 1px solid #d9c7c7;
+    border-bottom: 1px solid #d9c7c7;
+  }
+
+  /* 🔥 REMOVE RIGHT BORDER EVERY 5TH */
+  .videoprovide-card:nth-child(5n) {
+    border-right: none;
+  }
+
+  /* =========================
+     🔹 LAST ROW (3 CENTERED)
+  ========================= */
+
+  .videoprovide-card:nth-child(21) {
+    grid-column: 2;
+    border-bottom: none;
+  }
+
+  .videoprovide-card:nth-child(22) {
+    grid-column: 3;
+    border-bottom: none;
+  }
+
+  .videoprovide-card:nth-child(23) {
+    grid-column: 4;
+    border-bottom: none;
+    border-right: none;
+  }
+
+  /* 🔥 ICON */
+  .videoprovide-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* 🔥 TEXT */
+  .videoprovide-card-title {
+    font-size: 13px;
+  }
+
+  /* 🔥 DIVIDER */
+  .videoprovide-divider {
+    width: 85%;
+    margin: 10px auto 16px;
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+/* =========================
+   768px — FINAL CLEAN VERSION
+   (4 PER ROW + ONLY VERTICAL LINES)
+========================= */
+@media (max-width: 768px) {
+
+  .videoprovide-section {
+    padding: 32px 18px;
+  }
+
+  .videoprovide-title {
+    font-size: 30px;
+    margin-bottom: 26px;
+    text-align: center;
+  }
+
+  /* 🔥 PERFECT GRID */
+  .videoprovide-grid-all {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+  }
+
+  /* 🔥 CARD */
+  .videoprovide-card {
+    padding: 18px 10px;
+    min-height: 105px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* ❌ remove all borders first */
+    border: none;
+    position: relative;
+  }
+
+  /* 🔥 CREATE CLEAN VERTICAL LINES USING ::after */
+  .videoprovide-card::after {
+    content: "";
+    position: absolute;
+    top: 20%;
+    right: 0;
+    width: 1px;
+    height: 60%;
+    background: #d9c7c7;
+  }
+
+  /* ❌ REMOVE LINE FROM LAST COLUMN */
+  .videoprovide-card:nth-child(4n)::after {
+    display: none;
+  }
+
+  /* 🔥 ICON */
+  .videoprovide-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+
+  /* 🔥 TEXT */
+  .videoprovide-card-title {
+    font-size: 12.5px;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  /* 🔥 REMOVE SHAPES */
+  .videoprovide-left-shape,
+  .videoprovide-right-shape {
+    display: none;
+  }
+
+  /* 🔥 DIVIDER */
+  .videoprovide-divider {
+    width: 90%;
+    margin: 12px auto 16px;
+  }
+}
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+  .videoprovide-section {
+    padding: 28px 14px;
+  }
+
+  .videoprovide-grid-7,
+  .videoprovide-grid-5,
+  .videoprovide-grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .videoprovide-card {
+    border-right: none;
+    min-height: 92px;
+    padding: 14px 8px;
+  }
+
+  .videoprovide-title {
+    font-size: 28px;
+    margin-bottom: 22px;
+  }
+
+  .videoprovide-icon {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 10px;
+  }
+
+  .videoprovide-card-title {
+    font-size: 12.5px;
+  }
+
+  .videoprovide-left-shape,
+  .videoprovide-right-shape {
+    display: none;
+  }
+}

@@ -10,7 +10,7 @@ import icon4 from "../assets/icon4.png";
 import icon5 from "../assets/icon5.png";
 import icon6 from "../assets/icon6.png";
 
-const services = [
+const uiuxServices = [
   {
     icon: icon1,
     title: "User Experience Design",
@@ -49,24 +49,35 @@ const services = [
   },
 ];
 
-function ServicesSection() {
+function UiuxServicesSection() {
   return (
-    <section className="services-section">
-      <h2 className="services-heading">Experience-Led Digital Design Solutions</h2>
-      <p className="services-subtext">
-        From research and strategy to scalable design systems, we deliver end-to-end
-        UI/UX solutions that help businesses build intuitive, high-performing digital products.
+    <section className="uiux-services-section">
+      <h2 className="uiux-services-heading">
+        Experience-Led Digital Design Solutions
+      </h2>
+
+      <p className="uiux-services-subtext">
+        From research and strategy to scalable design systems, we deliver
+        end-to-end UI/UX solutions that help businesses build intuitive,
+        high-performing digital products.
       </p>
 
-      <div className="services-grid">
-        {services.map((service, index) => (
-          <div className="service-card" key={index}>
-            <div className="service-icon-wrap">
-              <img src={service.icon} alt={service.title} className="service-icon" />
+      <div className="uiux-services-grid">
+        {uiuxServices.map((service, index) => (
+          <div className="uiux-service-card" key={index}>
+            <div className="uiux-service-icon-wrap">
+              <img
+                src={service.icon}
+                alt={service.title}
+                className="uiux-service-icon"
+              />
             </div>
+
             <h3>{service.title}</h3>
+
             <p>{service.desc}</p>
-            <div className="service-tags">
+
+            <div className="uiux-service-tags">
               {service.tags.map((tag, i) => (
                 <span key={i}>{tag}</span>
               ))}
@@ -78,4 +89,4 @@ function ServicesSection() {
   );
 }
 
-export default ServicesSection;
+export default UiuxServicesSection;

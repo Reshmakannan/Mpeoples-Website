@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Public+Sans:wght@400;500&display=swap');
+
+/* ===========================
+   SECTION
+   =========================== */
+.gdb-section {
+  background: #f0f4f8;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px 60px;
+  box-sizing: border-box;
+}
+
+/* ===========================
+   INNER
+   =========================== */
+.gdb-inner {
+  width: 100%;
+  max-width: 1050px;
+}
+
+/* ===========================
+   HEADING
+   =========================== */
+.gdb-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f1f4b;
+  text-align: center;
+  line-height: 1.25;
+  max-width: 750px;
+  margin: 0 auto 16px auto;
+}
+
+/* ===========================
+   ROWS
+   =========================== */
+.gdb-row {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.gdb-row--2 {
+  justify-content: flex-start;
+  margin-bottom: 0;
+}
+
+/* ===========================
+   CARD
+   =========================== */
+.gdb-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.gdb-row--2 .gdb-card {
+  flex: 0 0 calc(33.333% - 11px);
+  max-width: calc(33.333% - 11px);
+}
+
+/* ===========================
+   IMAGE WRAP
+   =========================== */
+.gdb-card__img-wrap {
+  width: 100%;
+  height: 120px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.gdb-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===========================
+   CARD TITLE
+   =========================== */
+.gdb-card__title {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a56c4;
+  margin: 0 0 4px 0;
+}
+
+/* ===========================
+   CARD DESC
+   =========================== */
+.gdb-card__desc {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 11px;
+  color: #3a3a4a;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ===========================
+   1024px
+   =========================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .gdb-section {
+    padding: 20px 40px;
+  }
+
+  .gdb-heading {
+    font-size: 22px;
+    margin-bottom: 14px;
+  }
+
+  .gdb-card__img-wrap {
+    height: 110px;
+  }
+
+  .gdb-card__title {
+    font-size: 12px;
+  }
+
+  .gdb-card__desc {
+    font-size: 11px;
+  }
+}
+
+/* ===========================
+   768px
+   =========================== */
+@media (min-width: 431px) and (max-width: 768px) {
+  .gdb-section {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    padding: 40px 24px;
+  }
+
+  .gdb-heading {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .gdb-row {
+    gap: 16px;
+  }
+
+  .gdb-card__img-wrap {
+    height: 120px;
+  }
+
+  .gdb-card__title {
+    font-size: 13px;
+  }
+
+  .gdb-card__desc {
+    font-size: 11px;
+  }
+
+  .gdb-row--2 .gdb-card {
+    flex: 0 0 calc(33.333% - 11px);
+    max-width: calc(33.333% - 11px);
+  }
+}
+
+/* ===========================
+   425px
+   =========================== */
+@media (max-width: 425px) {
+  .gdb-section {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    padding: 30px 16px 40px;
+  }
+
+  .gdb-heading {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .gdb-row,
+  .gdb-row--2 {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  .gdb-card,
+  .gdb-row--2 .gdb-card {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+  }
+
+  .gdb-card__img-wrap {
+    height: 180px;
+  }
+
+  .gdb-card__title {
+    font-size: 14px;
+  }
+
+  .gdb-card__desc {
+    font-size: 12px;
+  }
+}
