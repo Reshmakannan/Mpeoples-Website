@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../Style/Clientfeedback.css";
 import avatarIcon from "../assets/avatar.png";
 import reactionIcon from "../assets/reaction.png";
@@ -50,10 +50,28 @@ const VISIBLE = 3;
 
 const ClientFeedback = () => {
   const [current, setCurrent] = useState(0);
+  const [sliding, setSliding] = useState(false);
+  const [slideDir, setSlideDir] = useState(""); // "left" or "right"
 
-  const prev = () => setCurrent((p) => Math.max(p - 1, 0));
-  const next = () =>
-    setCurrent((p) => Math.min(p + 1, feedbacks.length - VISIBLE));
+  const animate = (dir, newIndex) => {
+    setSlideDir(dir);
+    setSliding(true);
+    setTimeout(() => {
+      setCurrent(newIndex);
+      setSliding(false);
+      setSlideDir("");
+    }, 350); // matches CSS transition duration
+  };
+
+  const prev = () => {
+    if (current === 0 || sliding) return;
+    animate("right", current - 1);
+  };
+
+  const next = () => {
+    if (current >= feedbacks.length - VISIBLE || sliding) return;
+    animate("left", current + 1);
+  };
 
   const visible = feedbacks.slice(current, current + VISIBLE);
 
@@ -74,9 +92,11 @@ const ClientFeedback = () => {
         </button>
       </div>
 
-      <div className="cf-cards">
+      <div
+        className={`cf-cards${sliding ? ` cf-slide-${slideDir}` : ""}`}
+      >
         {visible.map((f, i) => (
-          <div className="cf-card" key={i}>
+          <div className="cf-card" key={current + i}>
             {/* Name at top */}
             <p className="cf-card-name">{f.name}</p>
 
@@ -94,8 +114,8 @@ const ClientFeedback = () => {
               />
             </div>
 
-            {/* Reply bubble — tail bottom left */}
-            <div className="cf-bubble cf-bubble-left">
+            {/* Reply bubble — tail bottom right */}
+            <div className="cf-bubble cf-bubble-right">
               <p className="cf-bubble-text" style={{ whiteSpace: "pre-line" }}>
                 {f.reply}
               </p>

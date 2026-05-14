@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Public+Sans:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap');
+
 .cf-section {
   width: 100%;
   min-height: 100vh;
-  
+  background: #F8FDFF;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,11 +14,11 @@
 
 .cf-heading {
   font-size: 42px;
-  font-weight: 800;
+  font-weight: 700;
   color: #1a1a2e;
   margin: 0 0 8px;
   text-align: center;
-  font-family: 'Gilroy', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 /* ── Nav ── */
@@ -38,10 +40,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #b0bbd8;
+  background: #E6F0FF;
   color: #1a1a2e;
   transition: background 0.2s;
-  font-family: 'Gilroy', sans-serif;
   line-height: 1;
 }
 
@@ -67,19 +68,48 @@
   max-width: 980px;
   justify-content: center;
   align-items: stretch;
+
+  /* ✅ SLIDE ANIMATION — only addition */
+  overflow: hidden;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+/* ✅ Slide left (next) */
+.cf-slide-left {
+  animation: slideLeft 0.35s ease forwards;
+}
+
+/* ✅ Slide right (prev) */
+.cf-slide-right {
+  animation: slideRight 0.35s ease forwards;
+}
+
+@keyframes slideLeft {
+  0%   { transform: translateX(0);    opacity: 1; }
+  49%  { transform: translateX(-40px); opacity: 0; }
+  50%  { transform: translateX(40px);  opacity: 0; }
+  100% { transform: translateX(0);    opacity: 1; }
+}
+
+@keyframes slideRight {
+  0%   { transform: translateX(0);    opacity: 1; }
+  49%  { transform: translateX(40px);  opacity: 0; }
+  50%  { transform: translateX(-40px); opacity: 0; }
+  100% { transform: translateX(0);    opacity: 1; }
 }
 
 /* ── Individual card ── */
 .cf-card {
   flex: 1;
-  background: #d6ddf2;
-  border-radius: 16px;
+  background: #E6F0FF;
+  border-radius: 10px;
   padding: 18px 16px 16px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   min-width: 0;
-  font-family: 'Gilroy', sans-serif;
+  transition: background 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
 }
 
 .cf-card-name {
@@ -87,27 +117,22 @@
   font-weight: 600;
   color: #1a1a2e;
   margin: 0;
-  font-family: 'Gilroy', sans-serif;
 }
 
-/* ── Chat bubbles with tail ── */
+/* ── Chat bubbles ── */
 .cf-bubble {
-  background: #ffffff;
+  background: #FFFFFF99;
   border-radius: 12px;
   padding: 10px 12px;
   position: relative;
 }
 
-/* Tail pointing bottom-left like a chat message */
 .cf-bubble-left::after {
   content: '';
   position: absolute;
   bottom: -10px;
   left: 14px;
-  width: 0;
-  height: 0;
   border-left: 10px solid transparent;
-  border-right: 0px solid transparent;
   border-top: 10px solid #ffffff;
 }
 
@@ -116,19 +141,35 @@
   color: #333;
   margin: 0;
   line-height: 1.6;
-  font-family: 'Gilroy', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* ── Reaction image ── */
+/* ── Reaction bubble ── */
 .cf-reaction-wrap {
-  padding: 4px 0 4px 4px;
-  margin-top: 2px;
+  position: relative;
+  display: inline-flex;
+  align-self: flex-start;
+  width: fit-content;
+  padding: 6px 8px;
+  background: #ffffff;
+  border-radius: 10px;
+  margin-top: 4px;
+  margin-left: 4px;
+}
+
+.cf-reaction-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 10px;
+  border-left: 8px solid transparent;
+  border-top: 8px solid #ffffff;
 }
 
 .cf-reaction-img {
-  width: 48px;
+  width: 36px;
   height: auto;
-  object-fit: contain;
+  display: block;
 }
 
 /* ── Footer ── */
@@ -145,7 +186,6 @@
   height: 42px;
   border-radius: 50%;
   object-fit: cover;
-  flex-shrink: 0;
 }
 
 .cf-footer-info {
@@ -158,16 +198,13 @@
   font-size: 13px;
   font-weight: 700;
   color: #1a1a2e;
-  font-family: 'Gilroy', sans-serif;
 }
 
 .cf-footer-handle {
   font-size: 11px;
   color: #888;
-  font-family: 'Gilroy', sans-serif;
 }
 
-/* ── Quote ── */
 .cf-quote {
   margin-top: 36px;
   font-size: 15px;
@@ -176,18 +213,12 @@
   max-width: 680px;
   line-height: 1.7;
   font-style: italic;
-  font-family: 'Gilroy', sans-serif;
+  font-family: 'Public Sans', sans-serif;
 }
 
-/* ── Card hover ── */
-.cf-card {
-  transition: background 0.3s ease, transform 0.3s ease;
-  cursor: pointer;
-}
-
+/* ── Hover ── */
 .cf-card:hover {
   background: #1a3a6e;
-  
 }
 
 .cf-card:hover .cf-card-name,
@@ -196,26 +227,48 @@
 }
 
 .cf-card:hover .cf-bubble {
-  background: #2a4f8a;
+  background: white;
 }
 
 .cf-card:hover .cf-bubble-left::after {
-  border-top-color: #2a4f8a;
+  border-top-color: white;
 }
 
 .cf-card:hover .cf-bubble-text {
-  color: #e8edf8;
+  color: black;
 }
 
 .cf-card:hover .cf-footer-handle {
   color: #a0b4d0;
 }
 
+.cf-card:hover .cf-reaction-wrap {
+  background: #ffffff;
+}
+
+.cf-card:hover .cf-reaction-wrap::after {
+  border-top-color: #ffffff;
+}
+
+/* RIGHT SIDE BUBBLE */
+.cf-bubble-right {
+  align-self: flex-end;
+  background: #FFFFFF99;
+}
+
+.cf-bubble-right::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: 14px;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #ffffff;
+}
+
 /* ============================= */
-/* ✅ 1024px */
+/* 1024px */
 /* ============================= */
 @media (max-width: 1024px) {
-
   .cf-section {
     padding: 50px 30px 40px;
     min-height: auto;
@@ -240,118 +293,3 @@
   }
 }
 
-
-/* ============================= */
-/* ✅ 768px */
-/* ============================= */
-@media (max-width: 768px) {
-
-  .cf-section {
-    padding: 45px 20px 35px;
-  }
-
-  .cf-heading {
-    font-size: 30px;
-  }
-
-  .cf-nav {
-    align-self: center;
-    margin-right: 0;
-    margin-bottom: 18px;
-  }
-
-  .cf-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 22px;
-  }
-
-  .cf-cards {
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .cf-card {
-    flex: 1 1 calc(50% - 8px);
-  }
-
-  .cf-quote {
-    font-size: 13px;
-    line-height: 1.6;
-    margin-top: 24px;
-  }
-}
-
-
-/* ============================= */
-/* ✅ 420px */
-/* ============================= */
-@media (max-width: 420px) {
-
-  .cf-section {
-    padding: 35px 14px 30px;
-  }
-
-  .cf-heading {
-    font-size: 24px;
-    line-height: 1.3;
-  }
-
-  .cf-nav {
-    gap: 8px;
-    margin-bottom: 14px;
-  }
-
-  .cf-btn {
-    width: 34px;
-    height: 34px;
-    font-size: 18px;
-  }
-
-  .cf-cards {
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .cf-card {
-    width: 100%;
-    padding: 14px;
-    border-radius: 14px;
-  }
-
-  .cf-card-name {
-    font-size: 13px;
-  }
-
-  .cf-bubble {
-    padding: 8px 10px;
-  }
-
-  .cf-bubble-text {
-    font-size: 11.5px;
-    line-height: 1.5;
-  }
-
-  .cf-reaction-img {
-    width: 40px;
-  }
-
-  .cf-avatar {
-    width: 36px;
-    height: 36px;
-  }
-
-  .cf-footer-name {
-    font-size: 12px;
-  }
-
-  .cf-footer-handle {
-    font-size: 10px;
-  }
-
-  .cf-quote {
-    font-size: 12px;
-    line-height: 1.5;
-    margin-top: 20px;
-  }
-}

@@ -201,7 +201,6 @@
   font-size: 15px;
   font-weight: 600;
   color:#082F6E;
-;
   margin: 0;
 }
 
@@ -274,196 +273,139 @@
   transform: translateY(12px);
 }
 
-/* ============================= */
-/* ✅ 1024px */
-/* ============================= */
-@media (max-width: 1024px) {
-
-  .products-section {
-    padding: 2rem 1.5rem;
-  }
-
-  .products-title {
-    font-size: 26px;
-  }
-
-  .cards-grid {
-    grid-template-columns: repeat(2, 300px);
-    gap: 24px;
-  }
-}
-
-
-/* ============================= */
-/* ✅ 768px */
-/* ============================= */
 @media (max-width: 768px) {
-
+ 
   .products-section {
-    padding: 1.8rem 1rem;
+    padding: 20px 12px 28px;
   }
-
+ 
   .products-title {
-    font-size: 24px;
-  }
-
-  .cards-grid {
-    grid-template-columns: repeat(1, minmax(280px, 320px));
-    gap: 28px;
-    padding: 1.5rem 0;
-  }
-
-  .dark-card {
-    height: 320px;
-    border-radius: 18px;
-  }
-
-  .mini-card {
-    width: 95px;
-    height: 125px;
-    padding: 8px;
-  }
-
-  .mini-card-img {
-    width: 72px;
-    height: 78px;
-  }
-
-  .folder-title {
-    font-size: 15px;
-  }
-
-  .folder-year {
-    font-size: 11px;
-  }
-
-  .folder-users-count {
     font-size: 22px;
+    letter-spacing: 0.03em;
   }
-
-  .folder-icon {
-    width: 46px;
-    height: 46px;
-  }
-
-  .card-info-title {
-    font-size: 14px;
-  }
-
-  .card-info-desc {
-    font-size: 12px;
-  }
-}
-
-
-/* ============================= */
-/* ✅ 420px */
-/* ============================= */
-@media (max-width: 420px) {
-
-  .products-section {
-    padding: 1.5rem 0.8rem;
-  }
-
-  .products-title {
-    font-size: 20px;
-    line-height: 1.4;
-  }
-
+ 
+  /* 3 equal columns, fluid — no fixed 300px */
   .cards-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
-    padding: 1rem 0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 1.25rem 0;
+    justify-content: stretch;
   }
-
+ 
+  .card-wrapper {
+    gap: 10px;
+    min-width: 0;
+  }
+ 
+  /* Dark card — full cell width, shorter height */
   .dark-card {
-    height: 280px;
-    border-radius: 16px;
+    height: 210px;
+    border-radius: 14px;
   }
-
+ 
+  /* Mini cards — much smaller to fit narrow cards */
   .mini-card {
-    width: 82px;
-    height: 110px;
-    border-radius: 10px;
-    padding: 7px;
-  }
-
-  .mini-card-label {
-    font-size: 8px;
-  }
-
-  .mini-card-img {
     width: 62px;
-    height: 65px;
+    height: 80px;
+    padding: 5px;
+    border-radius: 7px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
   }
-
+ 
+  .mini-card-label {
+    font-size: 6px;
+    margin-bottom: 3px;
+  }
+ 
+  .mini-card-img {
+    width: 48px;
+    height: 52px;
+    border-radius: 3px;
+  }
+ 
+  /* Mini card positions — recalculated for narrow card */
   .fc-daily {
-    top: 12px;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
   }
-
+ 
   .fc-updates {
-    top: 42px;
-    left: 16px;
+    top: 24px;
+    left: 40px;
+    transform: rotate(-30deg);
   }
-
+ 
   .fc-astro {
-    top: 58px;
-    right: 22px;
+    top: 32px;
+    right: 40px;
+    transform: rotate(30deg);
   }
-
+ 
+  /* Hover lifts — shorter to match card height */
+  .dark-card:hover .fc-daily   { transform: translateX(-50%) translateY(-22px); }
+  .dark-card:hover .fc-updates { transform: rotate(-30deg) translateY(-14px); }
+  .dark-card:hover .fc-astro   { transform: rotate(20deg) translateY(-14px); }
+ 
+  /* Folder text — scaled for narrow card */
   .folder-title {
-    top: 28px;
-    left: 12px;
-    font-size: 14px;
+    font-size: 11px;
+    top: 24px;
+    left: 10px;
   }
-
+ 
   .folder-year {
-    top: 48px;
-    left: 12px;
-    font-size: 10px;
+    font-size: 9px;
+    top: 38px;
+    left: 10px;
   }
-
+ 
   .folder-users {
-    top: 130px;
-    left: 12px;
+    top: 100px;
+    left: 10px;
+    gap: 2px;
   }
-
+ 
   .folder-users-count {
-    font-size: 18px;
+    font-size: 16px;
   }
-
+ 
   .folder-users-label {
-    font-size: 10px;
+    font-size: 9px;
   }
-
+ 
   .folder-icon {
-    width: 40px;
-    height: 40px;
-    right: 12px;
-    bottom: 12px;
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    bottom: 8px;
+    right: 8px;
   }
-
+ 
+  /* Card info below dark card */
   .card-info {
-    gap: 6px;
+    gap: 4px;
     padding: 0 2px;
   }
-
+ 
   .card-info-title {
-    font-size: 13px;
-  }
-
-  .card-info-desc {
     font-size: 11px;
+    line-height: 1.3;
+  }
+ 
+  .card-info-desc {
+    font-size: 10px;
     line-height: 1.5;
   }
-
+ 
   .card-info-more {
-    font-size: 12px;
-  }
-
-  .card-info-arrow {
-    width: 18px;
-    height: 18px;
     font-size: 10px;
+    gap: 4px;
+  }
+ 
+  .card-info-arrow,
+  .card-info-arrow img {
+    width: 14px;
+    height: 14px;
   }
 }

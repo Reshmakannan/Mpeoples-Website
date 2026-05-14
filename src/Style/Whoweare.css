@@ -22,7 +22,6 @@
   letter-spacing: -0.5px;
 }
 
-/* center both cards */
 .wwa-cards-row {
   display: flex;
   justify-content: center;
@@ -234,4 +233,116 @@
 
 .wwa-bottom-item .wwa-label::before { 
   top: calc(100% + 22px); 
+}
+
+@media (max-width: 768px) {
+
+  /* Section */
+  .wwa-section {
+    padding: 24px 20px 10px;
+  }
+
+  .wwa-title {
+    font-size: 28px;
+    margin: 0 0 18px;
+  }
+
+  /* Cards */
+  .wwa-cards-row {
+    gap: 14px;
+  }
+
+  .wwa-card-left {
+    height: 280px;
+  }
+
+  .wwa-card-right {
+    width: 260px;
+    height: 280px;
+    padding: 24px 20px;
+  }
+
+  .wwa-card-heading {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .wwa-card-para {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* =========================
+     🔥 TIMELINE (HORIZONTAL FIXED)
+     ========================= */
+
+  .wwa-timeline-wrapper {
+    margin-top: 20px;
+  }
+
+  .wwa-timeline {
+    width: 70%;              /* more space */
+    height: 150px;           /* reduced height */
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .wwa-timeline::before,
+  .wwa-timeline::after {
+    top: 75px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .wwa-timeline-line {
+    top: 75px;
+    height: 2px;
+  }
+
+  .wwa-timeline-item {
+    height: 150px;
+  }
+
+  /* Dots smaller */
+  .wwa-dot {
+    width: 28px;
+    height: 28px;
+  }
+
+  .wwa-dot::after {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Text */
+  .wwa-year {
+    font-size: 14px;
+  }
+
+  .wwa-label {
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  /* Position tuning */
+  .wwa-top-item .wwa-year {
+    top: 30px;
+  }
+
+  .wwa-top-item .wwa-label {
+    bottom: 8px;
+  }
+
+  .wwa-bottom-item .wwa-label {
+    top: 8px;
+  }
+
+  .wwa-bottom-item .wwa-year {
+    bottom: 30px;
+  }
+
+  /* Connector lines shorter */
+  .wwa-top-item .wwa-label::before,
+  .wwa-bottom-item .wwa-label::before {
+    width: 28px;
+  }
 }
