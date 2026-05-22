@@ -39,22 +39,22 @@ const services = [
 export default function SaassbsServices() {
   return (
     <section className="saassbs-section">
+      <img src={trapLeft} alt="" className="trap-left" />
+
+      {/* Right trapezoid */}
+      <img src={trapRight} alt="" className="trap-right" />
 
       <div className="saassbs-wrapper">
-
         {/* Header */}
         <div className="saassbs-header">
           <h1 className="saassbs-main-heading">
             SaaS Development Services We Provide
           </h1>
-          <p className="saassbs-taglines">
-            Idea to SaaS. Build to Scale.
-          </p>
+          <p className="saassbs-taglines">Idea to SaaS. Build to Scale.</p>
         </div>
 
         {/* Layout */}
         <div className="saassbs-layout">
-
           <div className="saash-divider"></div>
           <div className="saasv-divider"></div>
 
@@ -69,13 +69,9 @@ export default function SaassbsServices() {
               key={service.id}
               className={`saassbs-card ${service.position}`}
             >
-              <h3 className="saassbs-card-title">
-                {service.title}
-              </h3>
+              <h3 className="saassbs-card-title">{service.title}</h3>
 
-              <p className="saassbs-card-descs">
-                {service.description}
-              </p>
+              <p className="saassbs-card-descs">{service.description}</p>
             </div>
           ))}
         </div>
@@ -86,17 +82,9 @@ export default function SaassbsServices() {
             Let's Build Together ↗
           </button>
 
-          <button className="saashwd-btn-ghost">
-            Free Consultation ↗
-          </button>
+          <button className="saashwd-btn-ghost">Free Consultation ↗</button>
         </div>
-
       </div>
-
-      {/* Decorations */}
-      <img src={trapLeft} alt="" className="trap-left" />
-      <img src={trapRight} alt="" className="trap-right" />
-
     </section>
   );
 }

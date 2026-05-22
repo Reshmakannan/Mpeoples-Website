@@ -406,143 +406,85 @@
 @media (max-width: 768px) {
 
   .web-stack-section {
-    padding: 46px 0 40px;
-    overflow: hidden;
+    padding: 40px 0 44px;
+  }
+
+  .web-stack-container {
+    padding: 0 20px;
   }
 
   /* TITLE */
   .web-stack-title {
-    font-size: 32px;
-    line-height: 1.2;
-    margin-bottom: 36px;
-    padding: 0 24px;
-    text-align: center;
-  }
-
-  /* CONTAINER */
-  .web-stack-container {
-    padding: 0 24px;
+    font-size: 26px;
+    margin-bottom: 32px;
   }
 
   /* INFO SECTION */
   .web-stack-info {
-    width: 100%;
-    margin-bottom: 34px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
+    gap: 20px;
+    margin-bottom: 30px;
   }
 
   .web-stack-info-left {
-    width: 100%;
     max-width: 100%;
   }
 
-  /* 🔥 REMOVE SIDE IMAGE */
+  .web-stack-info-heading {
+    font-size: 15px;
+  }
+
+  .web-stack-info-desc {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* ❌ REMOVE SIDE IMAGE */
   .web-stack-info-right {
     display: none;
   }
 
-  .web-stack-control {
-    display: none;
-  }
-
-  /* HEADING */
-  .web-stack-info-heading {
-    font-size: 17px;
-    margin-bottom: 14px;
-    line-height: 1.3;
-  }
-
-  /* DESCRIPTION */
-  .web-stack-info-desc {
-    font-size: 14px;
-    line-height: 1.85;
-    max-width: 100%;
-  }
-
   /* MARQUEE */
-  .web-stack-marquee-outer {
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .web-stack-marquee-inner {
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .web-stack-marquee-track {
-    display: flex;
-    align-items: center;
-    width: max-content;
-  }
-
   .web-stack-icon {
-    width: 56px;
-    height: 56px;
-    margin: 0 30px;
+    width: 48px;
+    height: 48px;
+    margin: 0 24px;
   }
 
   .web-stack-divider {
-    height: 46px;
+    height: 42px;
   }
 
   /* VALUE BOX */
   .web-value-wrapper {
-    width: 100%;
-    margin-top: 30px;
-    padding: 0 24px;
-    box-sizing: border-box;
+    margin-top: 24px;
   }
 
   .web-value-box {
-    width: 100%;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    border-radius: 12px;
-    overflow: hidden;
+    grid-template-columns: repeat(4, 1fr); /* keep same */
   }
 
   .web-value-card {
-    padding: 24px 18px;
+    padding: 18px 12px;
   }
 
-  /* REMOVE OLD DIVIDERS */
-  .web-value-card::after {
-    display: none;
-  }
-
-  /* NEW GRID BORDERS */
-  .web-value-card:nth-child(1),
-  .web-value-card:nth-child(2) {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  }
-
-  .web-value-card:nth-child(1),
-  .web-value-card:nth-child(3) {
-    border-right: 1px solid rgba(255, 255, 255, 0.12);
+  .web-value-card:not(:last-child)::after {
+    top: 16px;
+    height: calc(100% - 32px);
   }
 
   .web-value-image {
-    width: 34px;
-    height: 34px;
-    margin-bottom: 10px;
-  }
-
-  .web-value-title {
-    font-size: 15px;
+    width: 28px;
+    height: 28px;
     margin-bottom: 8px;
   }
 
+  .web-value-title {
+    font-size: 13px;
+  }
+
   .web-value-desc {
-    font-size: 12px;
-    line-height: 1.7;
-    max-width: 100%;
+    font-size: 11px;
+    line-height: 1.6;
   }
 }
 
@@ -552,33 +494,30 @@
 @media (max-width: 425px) {
 
   .web-stack-section {
-    padding: 34px 0 30px;
+    padding: 32px 0 36px;
     overflow: hidden;
   }
 
   /* TITLE */
   .web-stack-title {
-    font-size: 28px;
-    line-height: 1.2;
-    margin-bottom: 28px;
-    padding: 0 16px;
+    font-size: 22px;
+    line-height: 1.25;
+    margin-bottom: 26px;
+    padding: 0 14px;
     text-align: center;
   }
 
   /* CONTAINER */
   .web-stack-container {
-    padding: 0 16px;
+    padding: 0 14px;
   }
 
   /* INFO SECTION */
   .web-stack-info {
-    width: 100%;
-    margin-bottom: 26px;
-
-    display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
+    margin-bottom: 22px;
   }
 
   .web-stack-info-left {
@@ -586,35 +525,28 @@
     max-width: 100%;
   }
 
-  /* 🔥 REMOVE SIDE IMAGE */
-  .web-stack-info-right {
-    display: none;
+  .web-stack-info-heading {
+    font-size: 14px;
+    margin-bottom: 10px;
+    line-height: 1.3;
   }
 
+  .web-stack-info-desc {
+    font-size: 12.5px;
+    line-height: 1.65;
+  }
+
+  /* REMOVE SIDE IMAGE */
+  .web-stack-info-right,
   .web-stack-control {
     display: none;
   }
 
-  /* HEADING */
-  .web-stack-info-heading {
-    font-size: 16px;
-    margin-bottom: 12px;
-    line-height: 1.3;
-  }
+  /* =========================
+     MARQUEE FIX (MOBILE SAFE)
+  ========================= */
 
-  /* DESCRIPTION */
-  .web-stack-info-desc {
-    font-size: 13px;
-    line-height: 1.75;
-    max-width: 100%;
-  }
-
-  /* MARQUEE */
-  .web-stack-marquee-outer {
-    width: 100%;
-    overflow: hidden;
-  }
-
+  .web-stack-marquee-outer,
   .web-stack-marquee-inner {
     width: 100%;
     overflow: hidden;
@@ -624,64 +556,74 @@
     display: flex;
     align-items: center;
     width: max-content;
+
+    /* smoother mobile animation */
+    animation: web-scroll-425 12s linear infinite;
+  }
+
+  @keyframes web-scroll-425 {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-60%);
+    }
   }
 
   .web-stack-icon {
-    width: 48px;
-    height: 48px;
-    margin: 0 24px;
+    width: 42px;
+    height: 42px;
+    margin: 0 18px;
+    flex-shrink: 0;
   }
 
   .web-stack-divider {
-    height: 40px;
+    height: 34px;
+    flex-shrink: 0;
   }
 
-  /* VALUE BOX */
+  /* =========================
+     VALUE BOX (STACK CLEAN)
+  ========================= */
+
   .web-value-wrapper {
-    width: 100%;
-    margin-top: 26px;
-    padding: 0 16px;
-    box-sizing: border-box;
+    margin-top: 20px;
   }
 
   .web-value-box {
-    width: 100%;
-
-    display: grid;
-    grid-template-columns: 1fr;
-
+    grid-template-columns: 1fr; /* stack vertically */
     border-radius: 12px;
-    overflow: hidden;
   }
 
   .web-value-card {
-    padding: 22px 18px;
+    padding: 18px 14px;
+    text-align: center;
   }
 
-  /* REMOVE VERTICAL DIVIDER */
-  .web-value-card:not(:last-child)::after {
+  /* remove vertical dividers */
+  .web-value-card::after {
     display: none;
   }
 
-  /* ADD HORIZONTAL DIVIDER */
+  /* add horizontal divider */
   .web-value-card:not(:last-child) {
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .web-value-image {
-    width: 32px;
-    height: 32px;
-    margin-bottom: 10px;
-  }
-
-  .web-value-title {
-    font-size: 15px;
+    width: 28px;
+    height: 28px;
     margin-bottom: 8px;
   }
 
+  .web-value-title {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
   .web-value-desc {
-    font-size: 12px;
-    line-height: 1.7;
+    font-size: 11.5px;
+    line-height: 1.6;
     max-width: 100%;
   }
 }

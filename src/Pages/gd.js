@@ -13,7 +13,7 @@ import FutureSection from "../components/Gdfuture";
 import GdIndustries from "../components/Gdindustries";
 import GdBenefits from "../components/Gdbenefits";
 import GdStack from "../components/Gdstack";
-import DigitalWorks from "../components/Gdworks";
+import GdWorks from "../components/Gdworks";
 import Forms from "../components/Forms";
 import DoubtsSection from "../components/gddoubts";
 import FeedbackSection from "../components/Clientfeedback";
@@ -55,8 +55,8 @@ function GdPage() {
       <FutureSection />
       <GdIndustries />
       <GdBenefits />
-      <DigitalWorks />
       <GdStack />
+      <GdWorks />
       <Forms />
       <DoubtsSection />
       <FeedbackSection />

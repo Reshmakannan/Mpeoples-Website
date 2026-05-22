@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap');
+
 .saasi-section {
   background-color: #fce8e8;
-  padding: 60px 40px;
-  font-family: "Segoe UI", Arial, sans-serif;
+  padding: 10px 80px; /* 🔥 reduced to avoid extra scroll */
+  font-family: 'Public Sans', Arial, sans-serif;
   margin: 0 auto;
   border-radius: 0px;
 
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden; /* 🔥 prevent horizontal scroll */
 }
 
 /* Title */
@@ -15,6 +17,7 @@
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 40px;
+  font-family: 'Inter', sans-serif;
 }
 
 /* GRID */
@@ -45,19 +48,18 @@
   width: 76%;
   height: 1px;
   background: #e6cfcf;
-  margin: 7px 170px;
-
+  margin: 7px auto; /* 🔥 fixed */
 }
+
 .saasi-dividers {
   width: 60%;
-    height: 1px;
-    background: #e6cfcf;
-    /* margin: 11px 209px; */
-    display: flex;
-    text-align: center;
-    margin: 8px 250px;
-
+  height: 1px;
+  background: #e6cfcf;
+  display: flex;
+  text-align: center;
+  margin: 8px auto; /* 🔥 fixed */
 }
+
 /* Card */
 .saasi-card {
   display: flex;
@@ -65,7 +67,7 @@
   align-items: center;
   padding: 25px;
   border-right: 1px solid #e0c8c8;
-  min-height: 120px;
+  min-height: 100px;
 }
 
 /* remove right border last column */
@@ -77,7 +79,6 @@
   border-right: none;
 }
 
- 
 /* icon */
 .saasi-img {
   width: 45px;
@@ -90,6 +91,7 @@
   font-size: 14px;
   font-weight: 600;
   text-align: center;
+  font-family: 'Inter', sans-serif;
 }
 
 .trap-left {
@@ -115,20 +117,19 @@
 @media (max-width: 1024px) {
 
   .saasi-section {
-    padding: 50px 30px;
+    padding: 40px 5px;
   }
 
   .saasi-title {
     font-size: 28px;
     margin-bottom: 32px;
+    font-family: 'Inter', sans-serif;
   }
 
-  /* 🔥 KEEP 4 COLUMN STRUCTURE (NOT 2) */
   .saasi-grid-4 {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  /* 🔥 CLEAN BORDERS */
   .saasi-card {
     padding: 22px 16px;
     min-height: 110px;
@@ -139,7 +140,6 @@
     border-right: none;
   }
 
-  /* 🔥 CENTERED SECOND ROW (2 cards) */
   .saasi-grid-2-center {
     grid-template-columns: repeat(4, 1fr);
     margin-top: 18px;
@@ -154,14 +154,12 @@
     border-right: none;
   }
 
-  /* 🔥 DIVIDER PERFECT CENTER */
   .saasi-divide,
   .saasi-dividers {
     width: 65%;
     margin: 12px auto;
   }
 
-  /* 🔥 ICON + TEXT SCALE */
   .saasi-img {
     width: 40px;
     height: 40px;
@@ -169,15 +167,19 @@
 
   .saasi-card-title {
     font-size: 13px;
+    font-family: 'Inter', sans-serif;
   }
 
-  /* 🔥 TRAPEZOID FIX (no cutting) */
   .trap-left,
   .trap-right {
     width: 140px;
     opacity: 0.9;
   }
 }
+
+/* ===========================
+   768px RESPONSIVE (SAME DESIGN)
+   =========================== */
 @media (max-width: 768px) {
 
   .saasi-section {
@@ -189,34 +191,119 @@
     margin-bottom: 28px;
   }
 
-  .saasi-grid-4,
+  /* 🔥 KEEP 4 COLUMN LAYOUT */
+  .saasi-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
   .saasi-grid-2-center {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 16px;
   }
 
+  /* KEEP CENTER POSITION */
+  .saasi-grid-2-center .saasi-card:first-child {
+    grid-column: 2;
+  }
+
+  .saasi-grid-2-center .saasi-card:last-child {
+    grid-column: 3;
+  }
+
+  /* CARD ADJUST */
   .saasi-card {
+    padding: 18px 10px;
+    min-height: 90px;
+    border-right: 1px solid #e0c8c8;
+  }
+
+  .saasi-grid-4 .saasi-card:nth-child(4) {
     border-right: none;
-    border-bottom: 1px solid #e0c8c8;
-    padding: 20px 10px;
   }
 
-  .saasi-card:last-child {
-    border-bottom: none;
+  .saasi-grid-2-center .saasi-card:last-child {
+    border-right: none;
   }
 
+  /* DIVIDERS (CENTERED CLEAN) */
   .saasi-divide,
   .saasi-dividers {
-    width: 100%;
+    width: 75%;
     margin: 10px auto;
   }
 
+  /* ICON SCALE */
   .saasi-img {
     width: 36px;
     height: 36px;
   }
 
+  /* TEXT SCALE */
   .saasi-card-title {
-    font-size: 13px;
+    font-size: 12.5px;
+  }
+
+  /* REMOVE TRAPEZOIDS */
+  .trap-left,
+  .trap-right {
+    display: none;
+  }
+}
+
+@media (max-width: 425px) {
+
+  .saasi-section {
+    padding: 30px 8px;
+  }
+
+  .saasi-title {
+    font-size: 20px;
+    margin-bottom: 22px;
+  }
+
+  .saasi-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .saasi-card {
+    padding: 14px 6px;
+    min-height: 80px;
+    border-right: 1px solid #e0c8c8;
+  }
+
+  .saasi-grid-4 .saasi-card:nth-child(4) {
+    border-right: none;
+  }
+
+  .saasi-grid-2-center {
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 0;
+  }
+
+  .saasi-grid-2-center .saasi-card:first-child {
+    grid-column: 2;
+  }
+
+  .saasi-grid-2-center .saasi-card:last-child {
+    grid-column: 3;
+    border-right: none;
+  }
+
+  .saasi-divide,
+  .saasi-dividers {
+    width: 80%;
+    margin: 8px auto;
+  }
+
+  .saasi-img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 8px;
+  }
+
+  .saasi-card-title {
+    font-size: 11px;
+    line-height: 1.3;
   }
 
   .trap-left,

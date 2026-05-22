@@ -1,37 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 /* ONLY affects this section */
-.dw-section *,
-.dw-section *::before,
-.dw-section *::after {
+.gdworks-section *,
+.gdworks-section *::before,
+.gdworks-section *::after {
   box-sizing: border-box;
 }
 
 /* ───────── SECTION ───────── */
-.dw-section {
+.gdworks-section {
   width: 100%;
   background: #fff;
-  padding: 40px 0 0;
+  padding: 30px 0 0;
 }
 
 /* ───────── HEADER ───────── */
-.dw-section .dw-header {
+.gdworks-section .gdworks-header {
   text-align: center;
   padding: 0 24px;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
-.dw-section .dw-title {
+.gdworks-section .gdworks-title {
   font-family: "Inter", sans-serif;
-  font-size: 60px;
-  font-weight: 700;
+  font-size: 46px;
+  font-weight: 600;
   color: #26323b;
   line-height: 1.1;
   margin: 0;
 }
 
-.dw-section .dw-desc {
+.gdworks-section .gdworks-desc {
   margin-top: 14px;
   margin-bottom: 0;
   font-size: 18px;
@@ -40,10 +40,10 @@
 }
 
 /* ───────── SLIDER WRAPPER ───────── */
-.dw-section .dw-slider-wrapper {
+.gdworks-section .gdworks-slider-wrapper {
   position: relative;
   width: 100%;
-  margin-top: 25px;
+  margin-top: 0px;
   margin-bottom: 0;
 
   height: 560px;
@@ -51,40 +51,40 @@
   cursor: grab;
 }
 
-.dw-section .dw-slider-wrapper:active {
+.gdworks-section .gdworks-slider-wrapper:active {
   cursor: grabbing;
 }
 
 /* ───────── SWIPER ───────── */
-.dw-section .dw-swiper {
+.gdworks-section .gdworks-swiper {
   height: 450px;
   position: relative;
   z-index: 10;
 }
 
-.dw-section .dw-swiper.swiper {
+.gdworks-section .gdworks-swiper.swiper {
   overflow: visible !important;
   width: 100%;
 }
 
-.dw-section .dw-swiper .swiper-wrapper {
+.gdworks-section .gdworks-swiper .swiper-wrapper {
   align-items: center;
 }
 
 /* ───────── SLIDES ───────── */
-.dw-section .dw-slide {
+.gdworks-section .gdworks-slide {
   width: 360px !important;
   height: 440px !important;
   flex-shrink: 0;
 }
 
-.dw-section .dw-slide.dw-slide--left,
-.dw-section .dw-slide.dw-slide--right {
+.gdworks-section .gdworks-slide.gdworks-slide--left,
+.gdworks-section .gdworks-slide.gdworks-slide--right {
   width: 340px !important;
 }
 
 /* ───────── CARD ───────── */
-.dw-section .dw-card {
+.gdworks-section .gdworks-card {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -92,7 +92,7 @@
 }
 
 /* ───────── IMAGE ───────── */
-.dw-section .dw-card img {
+.gdworks-section .gdworks-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -102,7 +102,7 @@
 }
 
 /* ───────── WAVES ───────── */
-.dw-section .dw-wave {
+.gdworks-section .gdworks-wave {
   position: absolute;
   left: 0;
   width: 100%;
@@ -113,28 +113,28 @@
 }
 
 /* TOP */
-.dw-section .dw-wave--top {
+.gdworks-section .gdworks-wave--top {
   top: 0;
 }
 
-.dw-section .dw-wave--top::before {
+.gdworks-section .gdworks-wave--top::before {
   content: "";
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   width: 200%;
-  height: 750px;
+  height: 700px;
   top: -600px;
   background: #fff;
   border-radius: 50%;
 }
 
 /* BOTTOM */
-.dw-section .dw-wave--bottom {
+.gdworks-section .gdworks-wave--bottom {
   bottom: 0;
 }
 
-.dw-section .dw-wave--bottom::before {
+.gdworks-section .gdworks-wave--bottom::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -147,13 +147,13 @@
 }
 
 /* ───────── BUTTON ───────── */
-.dw-section .dw-btn-wrap {
+.gdworks-section .gdworks-btn-wrap {
   display: flex;
   justify-content: center;
-  padding: 25px 0 60px;
+  padding: 0px 0 40px;
 }
 
-.dw-section .dw-btn {
+.gdworks-section .gdworks-btn {
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -170,7 +170,240 @@
   transition: 0.25s ease;
 }
 
-.dw-section .dw-btn:hover {
+.gdworks-section .gdworks-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(13, 62, 141, 0.3);
+}
+
+@media (max-width: 1024px) {
+
+  .gdworks-section {
+    padding: 24px 0 0;
+  }
+
+  /* HEADER */
+  .gdworks-section .gdworks-header {
+    padding: 0 20px;
+    max-width: 900px;
+  }
+
+  .gdworks-section .gdworks-title {
+    font-size: 38px;
+    line-height: 1.15;
+  }
+
+  .gdworks-section .gdworks-desc {
+    font-size: 16px;
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+
+  /* SLIDER WRAPPER */
+  .gdworks-section .gdworks-slider-wrapper {
+    height: 480px; /* reduced from 560px */
+    margin-top: 10px;
+  }
+
+  /* SWIPER */
+  .gdworks-section .gdworks-swiper {
+    height: 400px;
+  }
+
+  /* SLIDES */
+  .gdworks-section .gdworks-slide {
+    width: 300px !important;   /* reduced */
+    height: 380px !important;
+  }
+
+  .gdworks-section .gdworks-slide.gdworks-slide--left,
+  .gdworks-section .gdworks-slide.gdworks-slide--right {
+    width: 280px !important;   /* reduced */
+  }
+
+  /* CARDS */
+  .gdworks-section .gdworks-card {
+    border-radius: 8px;
+  }
+
+  /* WAVES */
+  .gdworks-section .gdworks-wave {
+    height: 450px;
+  }
+
+  .gdworks-section .gdworks-wave--top::before {
+    height: 600px;
+    top: -520px;
+  }
+
+  .gdworks-section .gdworks-wave--bottom::before {
+    height: 620px;
+    bottom: -520px;
+  }
+
+  /* BUTTON */
+  .gdworks-section .gdworks-btn {
+    width: 220px;
+    height: 56px;
+    font-size: 16px;
+    gap: 10px;
+  }
+
+  .gdworks-section .gdworks-btn-wrap {
+    padding: 0px 0 30px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .gdworks-section {
+    padding: 20px 0 0;
+  }
+
+  /* HEADER */
+  .gdworks-section .gdworks-header {
+    padding: 0 16px;
+    max-width: 100%;
+  }
+
+  .gdworks-section .gdworks-title {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  .gdworks-section .gdworks-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 10px;
+  }
+
+  /* SLIDER WRAPPER */
+  .gdworks-section .gdworks-slider-wrapper {
+    height: 420px; /* compact tablet height */
+  }
+
+  /* SWIPER */
+  .gdworks-section .gdworks-swiper {
+    height: 360px;
+  }
+
+  /* SLIDES */
+  .gdworks-section .gdworks-slide {
+    width: 260px !important;
+    height: 340px !important;
+  }
+
+  .gdworks-section .gdworks-slide.gdworks-slide--left,
+  .gdworks-section .gdworks-slide.gdworks-slide--right {
+    width: 240px !important;
+  }
+
+  /* CARDS */
+  .gdworks-section .gdworks-card {
+    border-radius: 8px;
+  }
+
+  /* WAVES */
+  .gdworks-section .gdworks-wave {
+    height: 380px;
+  }
+
+  .gdworks-section .gdworks-wave--top::before {
+    height: 520px;
+    top: -460px;
+  }
+
+  .gdworks-section .gdworks-wave--bottom::before {
+    height: 520px;
+    bottom: -400px;
+  }
+
+  /* BUTTON */
+  .gdworks-section .gdworks-btn {
+    width: 200px;
+    height: 52px;
+    font-size: 15px;
+    gap: 8px;
+  }
+
+  .gdworks-section .gdworks-btn-wrap {
+    padding: 0px 0 24px;
+  }
+}
+
+@media (max-width: 425px) {
+
+  .gdworks-section {
+    padding: 16px 0 0;
+  }
+
+  /* HEADER */
+  .gdworks-section .gdworks-header {
+    padding: 0 14px;
+    max-width: 100%;
+  }
+
+  .gdworks-section .gdworks-title {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  .gdworks-section .gdworks-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-top: 8px;
+  }
+
+  /* SLIDER WRAPPER */
+  .gdworks-section .gdworks-slider-wrapper {
+    height: 340px; /* compact mobile height */
+  }
+
+  /* SWIPER */
+  .gdworks-section .gdworks-swiper {
+    height: 300px;
+  }
+
+  /* SLIDES */
+  .gdworks-section .gdworks-slide {
+    width: 210px !important;
+    height: 280px !important;
+  }
+
+  .gdworks-section .gdworks-slide.gdworks-slide--left,
+  .gdworks-section .gdworks-slide.gdworks-slide--right {
+    width: 200px !important;
+  }
+
+  /* CARD */
+  .gdworks-section .gdworks-card {
+    border-radius: 6px;
+  }
+
+  /* WAVES */
+  .gdworks-section .gdworks-wave {
+    height: 300px;
+  }
+
+  .gdworks-section .gdworks-wave--top::before {
+    height: 420px;
+    top: -380px;
+  }
+
+  .gdworks-section .gdworks-wave--bottom::before {
+    height: 420px;
+    bottom: -350px;
+  }
+
+  /* BUTTON */
+  .gdworks-section .gdworks-btn-wrap {
+    padding: 0px 0 20px;
+  }
+
+  .gdworks-section .gdworks-btn {
+    width: 180px;
+    height: 48px;
+    font-size: 14px;
+    gap: 8px;
+    border-radius: 8px;
+  }
 }

@@ -4,7 +4,7 @@
    SECTION
    =========================== */
 .gdb-section {
-  background: #f0f4f8;
+  background: #F8FDFF;
   height: 100vh;
   max-height: 100vh;
   overflow: hidden;
@@ -30,9 +30,10 @@
    =========================== */
 .gdb-heading {
   font-family: 'Inter', sans-serif;
-  font-size: 26px;
-  font-weight: 800;
-  color: #0f1f4b;
+  font-size: 32px;
+  font-weight: 600;
+  color: #263238;
+
   text-align: center;
   line-height: 1.25;
   max-width: 750px;

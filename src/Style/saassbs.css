@@ -1,15 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap');
 
 /* SECTION */
 .saassbs-section {
-  background: #000220;
-  font-family: 'DM Sans', sans-serif;
+  background: #05072A;
+  font-family: 'Public Sans', sans-serif;
   width: 100%;
-  padding: 80px 20px;
+  padding: 40px 0px 60px;
   display: flex;
   justify-content: center;
   position: relative;
-  overflow: visible;
 }
 
 /* WRAPPER */
@@ -24,32 +23,31 @@
 /* HEADER */
 .saassbs-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 70px;
 }
 
 .saassbs-main-heading {
-  font-family: 'Sora', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  background: linear-gradient(90deg, #5b9df9, #a78bfa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 34px;
+  font-weight: 600;
+  color: #9CC2FF;
+  margin-bottom: 10px;
 }
 
 .saassbs-taglines {
-  color: white;
-  font-size: 1rem;
+  font-size: 14px;
+  color: #C9D4F1;
 }
 
 /* LAYOUT */
 .saassbs-layout {
   position: relative;
   width: 100%;
-  max-width: 1000px;
+  max-width: 900px;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px 100px;
+  gap: 90px 120px;
 }
 
 /* DIVIDERS */
@@ -57,158 +55,430 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 85%;
+  width: 70%;
   height: 1px;
   transform: translateX(-50%);
-  background: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.15);
 }
 
 .saasv-divider {
   position: absolute;
   left: 50%;
   top: 50%;
-  height: 85%;
+  height: 70%;
   width: 1px;
   transform: translateY(-50%);
-  background: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.15);
 }
 
-/* CENTER */
+/* CENTER ICON */
 .saascenter-circle {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  background: radial-gradient(circle, #2a3f7a, #0d1b3e);
+  background: radial-gradient(circle at 30% 30%, #1A2B6B, #070E2D);
   display: flex;
   align-items: center;
   justify-content: center;
 
   box-shadow:
     0 0 0 1px rgba(255,255,255,0.05),
-    0 10px 40px rgba(0,0,0,0.6);
+    0 8px 30px rgba(0,0,0,0.6);
 }
 
 .saassbs-logo-img {
-  width: 70%;
-  height: 70%;
+  width: 60%;
+  height: 60%;
   object-fit: contain;
 }
 
 /* CARDS */
 .saassbs-card {
-  max-width: 240px;
+  max-width: 260px;
 }
 
 /* POSITIONS */
 .top-left {
   justify-self: end;
   text-align: right;
-  padding-right: 40px;
+  padding-right: 30px;
 }
 
 .top-right {
   justify-self: start;
   text-align: left;
-  padding-left: 40px;
+  padding-left: 30px;
 }
 
 .bottom-left {
   justify-self: end;
   text-align: right;
-  padding-right: 40px;
+  padding-right: 30px;
 }
 
 .bottom-right {
   justify-self: start;
   text-align: left;
-  padding-left: 40px;
+  padding-left: 30px;
 }
 
-/* TEXT */
+/* TITLE */
 .saassbs-card-title {
-  font-family: 'Sora', sans-serif;
-  font-size: 0.95rem;
-  color: #a0bef8;
-  margin-bottom: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #9CC2FF;
+  margin-bottom: 8px;
 }
 
+/* DESCRIPTION */
 .saassbs-card-descs {
-  font-size: 0.85rem;
-  color: #e2e8ec;
+  font-size: 13px;
+  color: #C9D4F1;
   line-height: 1.6;
 }
 
 /* CTA */
 .hwd-cta {
-  margin-top: 70px;
+  margin-top: 60px;
   display: flex;
-  gap: 20px;
+  gap: 18px;
 }
 
 .saashwd-btn-primary {
-  background: linear-gradient(90deg, #072E6D, #168FC0);
-  padding: 12px 26px;
-  border-radius: 8px;
+  background: linear-gradient(90deg, #0B3B8C, #1FA2D6);
+  padding: 12px 24px;
+  border-radius: 6px;
   color: white;
   border: none;
+  font-size: 14px;
   cursor: pointer;
 }
 
 .saashwd-btn-ghost {
   background: transparent;
   border: none;
-  color: white;
+  color: #C9D4F1;
+  font-size: 14px;
   cursor: pointer;
 }
 
-/* TRAPEZOIDS */
 .trap-left {
   position: absolute;
   bottom: 0;
-  left: -30px;
-  width: 160px;
+  left: 0;
+  width: 180px;
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .trap-right {
   position: absolute;
   bottom: 0;
-  right: -30px;
-  width: 160px;
+  right: 0;
+  width: 180px;
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
 
-  .saassbs-layout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
+/* ===========================
+   1024px RESPONSIVE
+   =========================== */
+@media (max-width: 1024px) {
+
+  .saassbs-section {
+    padding: 40px 10px;
   }
 
-  .saash-divider,
-  .saasv-divider {
+  .saassbs-wrapper {
+    max-width: 900px;
+  }
+
+  .saassbs-main-heading {
+    font-size: 28px;
+  }
+
+  .saassbs-taglines {
+    font-size: 13px;
+  }
+
+  /* LAYOUT */
+  .saassbs-layout {
+    max-width: 800px;
+    gap: 70px 80px;
+  }
+
+  /* CENTER CIRCLE */
+  .saascenter-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .saassbs-logo-img {
+    width: 65%;
+    height: 65%;
+  }
+
+  /* CARDS */
+  .saassbs-card {
+    max-width: 220px;
+  }
+
+  .saassbs-card-title {
+    font-size: 13px;
+  }
+
+  .saassbs-card-descs {
+    font-size: 12px;
+  }
+
+  /* TEXT POSITION ADJUST */
+  .top-left,
+  .bottom-left {
+    padding-right: 20px;
+  }
+
+  .top-right,
+  .bottom-right {
+    padding-left: 20px;
+  }
+
+  /* CTA */
+  .hwd-cta {
+    margin-top: 50px;
+    gap: 14px;
+  }
+
+  .saashwd-btn-primary,
+  .saashwd-btn-ghost {
+    font-size: 13px;
+    padding: 10px 20px;
+  }
+
+  /* ❌ REMOVE TRAPEZOIDS */
+  .trap-left,
+  .trap-right {
     display: none;
+  }
+}
+
+/* ===========================
+   768px RESPONSIVE (FIXED)
+   =========================== */
+@media (max-width: 768px) {
+
+  .saassbs-section {
+    padding: 50px 16px;
+  }
+
+  .saassbs-header {
+    margin-bottom: 40px;
+  }
+
+  .saassbs-main-heading {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .saassbs-taglines {
+    font-size: 13px;
+  }
+
+  /* KEEP GRID but REDUCE GAP */
+  .saassbs-layout {
+    max-width: 100%;
+    gap: 50px 40px;
+  }
+
+  /* CENTER ICON SMALLER */
+  .saascenter-circle {
+    width: 90px;
+    height: 90px;
+  }
+
+  .saassbs-logo-img {
+    width: 65%;
+    height: 65%;
+  }
+
+  /* TEXT ADJUST */
+  .saassbs-card {
+    max-width: 200px;
+  }
+
+  .saassbs-card-title {
+    font-size: 13px;
+  }
+
+  .saassbs-card-descs {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  /* REDUCE SIDE SPACING */
+  .top-left,
+  .bottom-left {
+    padding-right: 15px;
+  }
+
+  .top-right,
+  .bottom-right {
+    padding-left: 15px;
+  }
+
+  /* DIVIDERS SHORTER */
+  .saash-divider {
+    width: 60%;
+  }
+
+  .saasv-divider {
+    height: 60%;
+  }
+
+  /* CTA */
+  .hwd-cta {
+    margin-top: 40px;
+    gap: 12px;
+  }
+
+  .saashwd-btn-primary,
+  .saashwd-btn-ghost {
+    font-size: 13px;
+    padding: 10px 18px;
+  }
+
+  /* REMOVE TRAPEZOIDS */
+  .trap-left,
+  .trap-right {
+    display: none;
+  }
+}
+
+
+@media (max-width: 425px) {
+
+  .saassbs-section {
+    padding: 36px 0px 40px;
+    min-height: unset;
+    align-items: flex-start;
+  }
+
+  .saassbs-header {
+    margin-bottom: 24px;
+  }
+
+  .saassbs-main-heading {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+  .saassbs-taglines {
+    font-size: 12px;
+  }
+
+  .saassbs-layout {
+    width: 100%;
+    max-width: 100%;
+    height: 280px;          /* reduced — key fix for circle centering */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;                 /* remove any inherited gap */
   }
 
   .saascenter-circle {
-    position: relative;
-    transform: none;
-    margin: 20px 0;
+    width: 70px;
+    height: 70px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .saassbs-logo-img {
+    width: 58%;
+    height: 58%;
+  }
+
+  .saash-divider {
+    width: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+  }
+
+  .saasv-divider {
+    height: 55%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .saassbs-card {
-    text-align: center !important;
-    padding: 0 !important;
+    max-width: 140px;
+  }
+
+  .top-left {
+    justify-self: end;
+    align-self: end;
+    text-align: right;
+    padding: 0 38px 14px 0;
+  }
+
+  .top-right {
+    justify-self: start;
+    align-self: end;
+    text-align: left;
+    padding: 0 0 14px 38px;
+  }
+
+  .bottom-left {
+    justify-self: end;
+    align-self: start;
+    text-align: right;
+    padding: 14px 38px 0 0;
+  }
+
+  .bottom-right {
+    justify-self: start;
+    align-self: start;
+    text-align: left;
+    padding: 14px 0 0 38px;
+  }
+
+  .saassbs-card-title {
+    font-size: 11px;
+    margin-bottom: 5px;
+  }
+
+  .saassbs-card-descs {
+    font-size: 10px;
+    line-height: 1.5;
   }
 
   .hwd-cta {
+    margin-top: 28px;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .saashwd-btn-primary {
+    width: 50%;
+    text-align: center;
+    font-size: 13px;
+    padding: 11px 10px;
+  }
+
+  .saashwd-btn-ghost {
+    font-size: 13px;
+    padding: 8px 0;
   }
 
   .trap-left,

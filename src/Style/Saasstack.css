@@ -228,97 +228,29 @@
   max-width: 200px;
 }
 
-/* =========================================
-   RESPONSIVE
-========================================= */
-
-@media (max-width: 768px) {
+/* ===========================
+   1024px RESPONSIVE (PERFECT)
+   =========================== */
+@media (max-width: 1024px) {
 
   .saas-stack-section {
-    padding: 44px 0 40px;
-  }
-
-  .saas-stack-title {
-    font-size: 28px;
-    margin-bottom: 40px;
+    padding: 50px 0 50px;
   }
 
   .saas-stack-container {
-    padding: 0 20px;
+    padding: 0 24px;
   }
 
-  .saas-stack-info {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    margin-bottom: 34px;
-  }
-
-  .saas-stack-info-desc {
-    font-size: 14px;
-    line-height: 1.8;
-  }
-
-  .saas-stack-pie {
-    width: 88px;
-    height: 88px;
-  }
-
-  .saas-stack-icon {
-    width: 50px;
-    height: 50px;
-    margin: 0 34px;
-  }
-
-  .saas-stack-divider {
-    height: 40px;
-  }
-
-  .saas-stack-marquee-track {
-    animation-name: saas-icon-step-scroll-md;
-  }
-
-  .saas-value-box {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .saas-value-card:nth-child(2)::after {
-    display: none;
-  }
-
-  @keyframes saas-icon-step-scroll-md {
-
-    0% { transform: translateX(0); }
-    8.82% { transform: translateX(0); }
-    12.5% { transform: translateX(-119px); }
-
-    21.32% { transform: translateX(-119px); }
-    25% { transform: translateX(-238px); }
-
-    33.82% { transform: translateX(-238px); }
-    37.5% { transform: translateX(-357px); }
-
-    46.32% { transform: translateX(-357px); }
-    50% { transform: translateX(-476px); }
-
-    58.82% { transform: translateX(-476px); }
-    62.5% { transform: translateX(-595px); }
-
-    71.32% { transform: translateX(-595px); }
-    75% { transform: translateX(-714px); }
-
-    83.82% { transform: translateX(-714px); }
-    87.5% { transform: translateX(-833px); }
-
-    96.32% { transform: translateX(-833px); }
-    100% { transform: translateX(-952px); }
-  }
-}
-
-@media (max-width: 480px) {
-
+  /* TITLE */
   .saas-stack-title {
-    font-size: 24px;
+    font-size: 30px;
+    margin-bottom: 40px;
+  }
+
+  /* INFO SECTION */
+  .saas-stack-info {
+    gap: 30px;
+    margin-bottom: 36px;
   }
 
   .saas-stack-info-heading {
@@ -326,72 +258,281 @@
   }
 
   .saas-stack-info-desc {
-    font-size: 13px;
+    font-size: 14px;
+    line-height: 1.7;
   }
 
+  .saas-stack-control {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* MARQUEE */
   .saas-stack-icon {
-    width: 38px;
-    height: 38px;
+    width: 54px;
+    height: 54px;
+    margin: 0 30px;
+  }
+
+  .saas-stack-divider {
+    height: 46px;
+  }
+
+  /* VALUE BOX */
+  .saas-value-wrapper {
+    margin-top: 28px;
+  }
+
+  .saas-value-box {
+    grid-template-columns: repeat(4, 1fr); /* keep same */
+  }
+
+  .saas-value-card {
+    padding: 20px 14px;
+  }
+
+  .saas-value-card:not(:last-child)::after {
+    top: 18px;
+    height: calc(100% - 36px);
+  }
+
+  .saas-value-image {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+  }
+
+  .saas-value-title {
+    font-size: 14px;
+  }
+
+  .saas-value-desc {
+    font-size: 11px;
+    line-height: 1.6;
+  }
+}
+
+/* ===========================
+   768px RESPONSIVE (PERFECT)
+   =========================== */
+@media (max-width: 768px) {
+
+  .saas-stack-section {
+    padding: 40px 0 44px;
+  }
+
+  .saas-stack-container {
+    padding: 0 20px;
+  }
+
+  /* TITLE */
+  .saas-stack-title {
+    font-size: 26px;
+    margin-bottom: 32px;
+  }
+
+  /* INFO SECTION */
+  .saas-stack-info {
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .saas-stack-info-left {
+    max-width: 100%;
+  }
+
+  .saas-stack-info-heading {
+    font-size: 15px;
+  }
+
+  .saas-stack-info-desc {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* ❌ REMOVE SIDE IMAGE */
+  .saas-stack-info-right {
+    display: none;
+  }
+
+  /* MARQUEE */
+  .saas-stack-icon {
+    width: 48px;
+    height: 48px;
     margin: 0 24px;
   }
 
   .saas-stack-divider {
-    height: 32px;
+    height: 42px;
   }
 
-  .saas-stack-marquee-track {
-    animation-name: saas-icon-step-scroll-sm;
+  /* VALUE BOX */
+  .saas-value-wrapper {
+    margin-top: 24px;
   }
 
   .saas-value-box {
-    grid-template-columns: 1fr;
-  }
-
-  .saas-value-card::after {
-    display: none !important;
+    grid-template-columns: repeat(4, 1fr); /* keep same */
   }
 
   .saas-value-card {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 18px 12px;
   }
 
-  .saas-value-card:last-child {
-    border-bottom: none;
+  .saas-value-card:not(:last-child)::after {
+    top: 16px;
+    height: calc(100% - 32px);
+  }
+
+  .saas-value-image {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 8px;
   }
 
   .saas-value-title {
-    font-size: 17px;
+    font-size: 13px;
   }
 
   .saas-value-desc {
-    font-size: 12px;
+    font-size: 11px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 425px) {
+
+  .saas-stack-section {
+    padding: 32px 0 36px;
+    overflow: hidden;
   }
 
-  @keyframes saas-icon-step-scroll-sm {
+  /* TITLE */
+  .saas-stack-title {
+    font-size: 22px;
+    line-height: 1.25;
+    margin-bottom: 26px;
+    padding: 0 14px;
+    text-align: center;
+  }
 
-    0% { transform: translateX(0); }
-    8.82% { transform: translateX(0); }
-    12.5% { transform: translateX(-87px); }
+  /* CONTAINER */
+  .saas-stack-container {
+    padding: 0 14px;
+  }
 
-    21.32% { transform: translateX(-87px); }
-    25% { transform: translateX(-174px); }
+  /* INFO SECTION */
+  .saas-stack-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    margin-bottom: 22px;
+  }
 
-    33.82% { transform: translateX(-174px); }
-    37.5% { transform: translateX(-261px); }
+  .saas-stack-info-left {
+    width: 100%;
+    max-width: 100%;
+  }
 
-    46.32% { transform: translateX(-261px); }
-    50% { transform: translateX(-348px); }
+  .saas-stack-info-heading {
+    font-size: 14px;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
 
-    58.82% { transform: translateX(-348px); }
-    62.5% { transform: translateX(-435px); }
+  .saas-stack-info-desc {
+    font-size: 12.5px;
+    line-height: 1.65;
+  }
 
-    71.32% { transform: translateX(-435px); }
-    75% { transform: translateX(-522px); }
+  /* REMOVE SIDE IMAGE */
+  .saas-stack-info-right,
+  .saas-stack-control {
+    display: none;
+  }
 
-    83.82% { transform: translateX(-522px); }
-    87.5% { transform: translateX(-609px); }
+  /* =========================
+     MARQUEE FIX (MOBILE SAFE)
+  ========================= */
 
-    96.32% { transform: translateX(-609px); }
-    100% { transform: translateX(-696px); }
+  .saas-stack-marquee-outer,
+  .saas-stack-marquee-inner {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .saas-stack-marquee-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+
+    /* smoother mobile animation */
+    animation: saas-scroll-425 12s linear infinite;
+  }
+
+  @keyframes saas-scroll-425 {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-60%);
+    }
+  }
+
+  .saas-stack-icon {
+    width: 42px;
+    height: 42px;
+    margin: 0 18px;
+    flex-shrink: 0;
+  }
+
+  .saas-stack-divider {
+    height: 34px;
+    flex-shrink: 0;
+  }
+
+  /* =========================
+     VALUE BOX (STACK CLEAN)
+  ========================= */
+
+  .saas-value-wrapper {
+    margin-top: 20px;
+  }
+
+  .saas-value-box {
+    grid-template-columns: 1fr; /* stack vertically */
+    border-radius: 12px;
+  }
+
+  .saas-value-card {
+    padding: 18px 14px;
+    text-align: center;
+  }
+
+  /* remove vertical dividers */
+  .saas-value-card::after {
+    display: none;
+  }
+
+  /* add horizontal divider */
+  .saas-value-card:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .saas-value-image {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 8px;
+  }
+
+  .saas-value-title {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  .saas-value-desc {
+    font-size: 11.5px;
+    line-height: 1.6;
+    max-width: 100%;
   }
 }
