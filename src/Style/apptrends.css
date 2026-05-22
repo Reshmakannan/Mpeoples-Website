@@ -171,18 +171,50 @@
   height: 22px;
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+/* ===========================
+   1024px RESPONSIVE
+   =========================== */
+@media (max-width: 1024px) {
+
   .gdi-section {
-    padding: 36px 40px;
+    padding: 40px 30px;
+    height: auto;
+    min-height: 100vh;
   }
 
+  .gdi-inner {
+    max-width: 900px;
+  }
+
+  /* HEADING */
   .gdi-heading {
-    font-size: 30px;
+    font-size: 32px;
     margin-bottom: 28px;
   }
 
+  /* ROWS */
+  .gdi-row {
+    gap: 0;
+  }
+
+  .gdi-row--3 {
+    justify-content: space-between;
+  }
+
+  .gdi-row--2 {
+    justify-content: center;
+  }
+
+  /* HORIZONTAL LINE */
+  .gdi-hline {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  /* CARDS */
   .gdi-card {
-    padding: 0 20px 0 20px;
+    padding: 0 20px;
+    max-width: 300px;
   }
 
   .gdi-row--3 .gdi-card:first-child {
@@ -190,7 +222,8 @@
   }
 
   .gdi-row--2 .gdi-card {
-    padding: 0 36px 0 36px;
+    max-width: 280px;
+    padding: 0 30px;
   }
 
   .gdi-row--2 .gdi-card:first-child {
@@ -198,7 +231,158 @@
   }
 
   .gdi-row--2 .gdi-card:last-child {
-    padding: 0 0 0 36px;
+    padding-left: 30px;
+    padding-right: 0;
+  }
+
+  /* TEXT */
+  .gdi-card__title {
+    font-size: 16px;
+  }
+
+  .gdi-card__desc {
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  /* ICON */
+  .gd-service-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* VERTICAL LINE */
+  .gdi-vline {
+    height: 90%;
+    top: 5%;
+  }
+}
+
+/* ===========================
+   768px PERFECT FIX
+   =========================== */
+@media (max-width: 768px) {
+
+  .gdi-section {
+    padding: 30px 20px;
+    height: auto;
+  }
+
+  .gdi-inner {
+    max-width: 650px;
+  }
+
+  .gdi-heading {
+    font-size: 28px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  /* REMOVE ALL LINES */
+  .gdi-hline,
+  .gdi-vline {
+    display: none;
+  }
+
+  /* RESET ROW */
+  .gdi-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  /* RESET CARD */
+  .gdi-card {
+    flex: 0 0 100%;
+    max-width: 300px;
+    padding: 0;
+    text-align: center;
+  }
+
+  .gdi-card__header {
+    justify-content: center;
+  }
+
+  /* ===== MAGIC STARTS HERE ===== */
+
+  /* FIRST ROW → ONLY FIRST 2 ITEMS */
+  .gdi-row:first-of-type .gdi-card:nth-child(1),
+  .gdi-row:first-of-type .gdi-card:nth-child(2) {
+    flex: 0 0 45%;
+  }
+
+  /* MOVE 3rd ITEM TO NEXT ROW CENTER */
+  .gdi-row:first-of-type .gdi-card:nth-child(3) {
+    flex: 0 0 100%;
+  }
+
+  /* SECOND ROW → KEEP 2 ITEMS */
+  .gdi-row:nth-of-type(2) .gdi-card {
+    flex: 0 0 45%;
+  }
+
+  /* ===== TEXT ===== */
+  .gdi-card__title {
+    font-size: 15px;
+  }
+
+  .gdi-card__desc {
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  .gd-service-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* ===========================
+   425px FORCE REMOVE ALL LINES
+   =========================== */
+@media (max-width: 425px) {
+
+  .gdi-section {
+    padding: 24px 16px;
+    height: auto;
+  }
+
+  .gdi-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .gdi-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  /* 🔥 REMOVE EVERYTHING THAT CAN CREATE LINES */
+  .gdi-hline,
+  .gdi-vline,
+  .gdi-card::before,
+  .gdi-card::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .gdi-card {
+    width: 100%;
+    max-width: 320px;
+    padding: 0;
+    text-align: center;
+
+    /* 🔥 REMOVE BORDER IF ANY */
+    border: none !important;
+  }
+
+  .gdi-card__header {
+    justify-content: center;
   }
 
   .gdi-card__title {
@@ -206,141 +390,12 @@
   }
 
   .gdi-card__desc {
-    font-size: 12px;
-  }
-}
-
-/* ===========================
-   768px
-   =========================== */
-@media (min-width: 431px) and (max-width: 768px) {
-  .gdi-section {
-    height: auto;
-    max-height: none;
-    padding: 50px 50px 100px 60px;
-    overflow: visible;
+    font-size: 12.5px;
+    line-height: 1.6;
   }
 
-  .gdi-inner {
-    z-index: 2;
-  }
-
-  .gdi-heading {
-    font-size: 24px;
-    margin-bottom: 24px;
-  }
-
-  .gdi-row--3 {
-    justify-content: space-between;
-    flex-wrap: nowrap;
-  }
-
-  .gdi-row--2 {
-    justify-content: center;
-  }
-
-  .gdi-card {
-    position: relative;
-    flex: 1;
-    padding: 0 16px 0 16px;
-    max-width: none;
-  }
-
-  .gdi-row--3 .gdi-card:first-child {
-    padding-left: 0;
-  }
-
-  .gdi-row--3 .gdi-card:last-child {
-    padding-right: 0;
-  }
-
-  .gdi-row--2 .gdi-card {
-    max-width: 280px;
-    padding: 0 24px 0 24px;
-  }
-
-  .gdi-row--2 .gdi-card:first-child {
-    padding-left: 0;
-  }
-
-  .gdi-row--2 .gdi-card:last-child {
-    padding: 0 0 0 24px;
-  }
-
-  .gdi-vline {
-    display: block;
-  }
-
-  .gdi-card__title {
-    font-size: 13px;
-  }
-
-  .gdi-card__desc {
-    font-size: 11px;
-  }
-
-  .gdi-card__icon {
-    width: 28px;
-    height: 28px;
-  }
-}
-/* ===========================
-   420px
-   =========================== */
-@media (max-width: 425px) {
-  .gdi-section {
-    height: auto;
-    max-height: none;
-    overflow: visible;
-    padding: 30px 16px 40px;
-  }
-
-  .gdi-heading {
-    font-size: 22px;
-    margin-bottom: 20px;
-  }
-
-  .gdi-row,
-  .gdi-row--3,
-  .gdi-row--2 {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 20px !important;
-  }
-
-  .gdi-card,
-  .gdi-row--2 .gdi-card,
-  .gdi-row--2 .gdi-card:first-child,
-  .gdi-row--2 .gdi-card:last-child,
-  .gdi-row--3 .gdi-card:first-child {
-    max-width: 100% !important;
-    flex: 1 1 100% !important;
-    padding: 0 0 16px 0 !important;
-    border-bottom: 1px solid rgba(100, 100, 140, 0.15);
-  }
-
-  .gdi-card:last-child {
-    border-bottom: none;
-  }
-
-  .gdi-vline {
-    display: none !important;
-  }
-
-  .gdi-hline {
-    margin: 4px 0;
-  }
-
-  .gdi-card__icon {
-    width: 28px;
-    height: 28px;
-  }
-
-  .gdi-card__title {
-    font-size: 14px;
-  }
-
-  .gdi-card__desc {
-    font-size: 12px;
+  .gd-service-icon {
+    width: 18px;
+    height: 18px;
   }
 }

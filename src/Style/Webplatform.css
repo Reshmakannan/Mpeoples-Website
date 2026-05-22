@@ -98,59 +98,222 @@
 /* ===============================
    🔹 1024px
 ================================= */
+/* ===============================
+   🔹 1024px UPDATED LAYOUT
+   4 CARDS FIRST ROW
+   4 CARDS SECOND ROW
+================================= */
 @media (max-width: 1024px) {
 
   .webplatform {
-    padding: 40px 40px;
+    padding: 42px 34px;
   }
 
   .webplatform-title {
     font-size: 30px;
-    margin-bottom: 28px;
-    max-width: 720px;
+    margin-bottom: 30px;
+    max-width: 900px;
+    line-height: 1.25;
   }
 
+  /* 🔥 KEEP 4 COLUMNS */
   .webplatform-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px 20px;
-    max-width: 720px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 26px 18px;
+
+    width: 100%;
+    max-width: 100%;
   }
 
+  /* 🔥 CARD */
+  .webplatform-card {
+    width: 100%;
+  }
+
+  /* 🔥 IMAGE */
+  .webplatform-img-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+
+    border-radius: 10px;
+    overflow: hidden;
+
+    margin-bottom: 12px;
+  }
+
+  .webplatform-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* 🔥 TITLE */
   .webplatform-card h3 {
     font-size: 14px;
+    line-height: 1.35;
+    margin-bottom: 6px;
   }
 
+  /* 🔥 DESCRIPTION */
   .webplatform-card p {
     font-size: 12px;
+    line-height: 1.55;
   }
 }
 
 /* ===============================
-   🔹 768px
+   🔹 768px PERFECT TABLET LAYOUT
+   4 CARDS FIRST ROW
+   4 CARDS SECOND ROW
 ================================= */
 @media (max-width: 768px) {
 
   .webplatform {
-    padding: 30px 20px;
+    padding: 34px 20px;
+    overflow: hidden;
   }
 
+  /* TITLE */
   .webplatform-title {
     font-size: 26px;
-    margin-bottom: 24px;
+    line-height: 1.25;
+
+    margin-bottom: 26px;
+
+    max-width: 720px;
+    text-align: center;
   }
 
+  /* 🔥 KEEP 4 COLUMNS */
   .webplatform-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 22px 14px;
+
+    width: 100%;
     max-width: 100%;
   }
 
-  .webplatform-card h3 {
-    font-size: 14px;
+  /* CARD */
+  .webplatform-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
+  /* IMAGE */
+  .webplatform-img-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+
+    border-radius: 8px;
+    overflow: hidden;
+
+    margin-bottom: 10px;
+  }
+
+  .webplatform-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* CARD TITLE */
+  .webplatform-card h3 {
+    font-size: 13px;
+    line-height: 1.35;
+
+    margin: 0 0 5px;
+  }
+
+  /* CARD DESCRIPTION */
   .webplatform-card p {
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1.5;
+
+    margin: 0;
+  }
+}
+
+/* ===============================
+   🔹 425px PERFECT MOBILE
+   2 CARDS PER ROW
+================================= */
+@media (max-width: 425px) {
+
+  .webplatform {
+    padding: 28px 14px;
+    overflow: hidden;
+  }
+
+  /* TITLE */
+  .webplatform-title {
+    font-size: 22px;
+    line-height: 1.25;
+
+    margin-bottom: 22px;
+
+    max-width: 100%;
+    text-align: center;
+
+    letter-spacing: -0.3px;
+  }
+
+  /* 🔥 2 CARDS PER ROW */
+  .webplatform-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px 12px;
+
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* CARD */
+  .webplatform-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* IMAGE */
+  .webplatform-img-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+
+    border-radius: 8px;
+    overflow: hidden;
+
+    margin-bottom: 8px;
+  }
+
+  .webplatform-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* CARD TITLE */
+  .webplatform-card h3 {
+    font-size: 12px;
+    line-height: 1.35;
+
+    margin: 0 0 4px;
+  }
+
+  /* CARD DESCRIPTION */
+  .webplatform-card p {
+    font-size: 10.5px;
+    line-height: 1.45;
+
+    margin: 0;
   }
 }

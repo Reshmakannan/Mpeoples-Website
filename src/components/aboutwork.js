@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../Style/aboutwork.css";
 
-import blueLogo from "../assets/blue-logo.png";
 
 import planImg from "../assets/Plan.png";
 import ideaImg from "../assets/Idea.png";
@@ -78,12 +77,6 @@ function AboutWork() {
         </div>
 
         <div className="aboutwork-logo-container">
-
-          <img
-            src={blueLogo}
-            alt="logo"
-            className="aboutwork-logo-image"
-          />
 
         </div>
 

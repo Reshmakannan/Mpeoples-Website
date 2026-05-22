@@ -125,71 +125,87 @@
 }
 
 /* ===============================
-   🔹 1024px (Tablet / Small Laptop)
-================================= */
-/* ===============================
-   🔹 1024px (Tablet / Small Laptop)
-================================= */
-/* ===============================
-   🔹 1024px (Balanced Height Fix)
+   🔹 1024px (CLEAN PERFECT TABLET)
 ================================= */
 @media (max-width: 1024px) {
 
   .uiux-page {
-    min-height: 85vh;          /* ✅ keeps section tall enough */
-    padding: 70px 30px;        /* ✅ balanced top-bottom spacing */
+    min-height: 85vh;
+    padding: 70px 32px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  /* ✅ REMOVE SIDE TRAPEZOIDS */
+  .trap-left,
+  .trap-right {
+    display: none;
   }
 
   .uiux-overlay {
-    max-width: 780px;
+    max-width: 760px;
+    width: 100%;
     margin-top: 0;
+    padding: 0;
   }
 
+  /* LOGO */
   .uiux-logo {
-    width: 140px;
+    width: 135px;
     margin-bottom: 24px;
   }
 
+  /* TITLE */
   .uiux-title {
-    font-size: 34px;           /* ✅ slightly bigger for presence */
+    font-size: 40px;
     line-height: 1.25;
-    margin-bottom: 26px;
+    letter-spacing: -0.6px;
+    margin-bottom: 24px;
   }
 
+  /* DESCRIPTION */
   .uiux-description {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.8;
-    max-width: 700px;
+    max-width: 720px;
+    margin: 0 auto;
+    color: #444444;
   }
 
+  /* BUTTON */
   .uiux-btn {
     width: 220px;
     height: 54px;
+    margin-top: 30px;
+
     font-size: 16px;
-    margin-top: 32px;
+    border-radius: 8px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
   }
 
-  /* ✅ trapezoids balanced */
-  .trap-left,
-  .trap-right {
-    width: 150px;
-    opacity: 0.95;
+  .uiux-btn span {
+    font-size: 16px;
   }
 
-  .trap-left {
-    left: -5px;
-    bottom: 0;
+  /* ICON WRAP */
+  .service-icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
   }
 
-  .trap-right {
-    right: -5px;
-    bottom: 0;
+  .service-icon {
+    width: 20px;
+    height: 20px;
   }
 }
 /* ===============================
@@ -245,4 +261,75 @@
   .trap-right {
     width: 90px;
   }
+}
+
+@media (min-width: 421px) and (max-width: 425px) {
+
+  .uiux-page {
+    padding: 50px 24px 50px;
+    height: auto;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .uiux-overlay {
+    max-width: 340px;        /* ✅ tighter width to match actual visible area */
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .uiux-logo {
+    width: 100px;
+    margin-bottom: 18px;
+  }
+
+  .uiux-title {
+    font-size: 20px;             /* ✅ smaller so both lines wrap evenly */
+    line-height: 1.45;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    margin-bottom: 14px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .uiux-description {
+    font-size: 14px;             /* ✅ reduced so it doesn't overflow */
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 24px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .uiux-btn {
+    width: 100%;
+    max-width: 200px;
+    height: 48px;
+    font-size: 14px;
+    border-radius: 8px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .service-icon-wrap {
+    width: 36px;
+    height: 36px;
+    margin: 0 auto 10px;
+    border-radius: 10px;
+  }
+
+  .service-icon {
+    width: 16px;
+    height: 16px;
+  }
+
 }

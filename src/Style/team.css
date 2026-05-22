@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Public+Sans:wght@300;400;500;600&display=swap');
+
+.team-page {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🔹 SIDE IMAGES (push further out) */
+.team-left-img {
+  position: absolute;
+  left: 80px;
+  bottom: 60px; /* 👈 move down instead of center */
+  width: 220px;
+}
+
+.team-right-img {
+  position: absolute;
+  right: 80px;
+  bottom: 60px; /* 👈 move down */
+  width: 220px;
+}
+
+/* 🔹 CENTER CONTENT */
+.team-overlay {
+  text-align: center;
+  max-width: 750px; /* 👈 tighter width like design */
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* 🔹 LOGO */
+.team-logo {
+  width: 70px;
+  margin-bottom: 18px;
+}
+
+/* 🔹 TITLE */
+.team-title {
+  font-family: "Inter", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #0b2a5b;
+  margin-bottom: 20px;
+}
+
+/* 🔹 DESCRIPTION */
+.team-description {
+  font-family: "Public Sans", sans-serif;
+  font-size: 20px;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* 🔹 REMOVE BUTTON */
+.team-btn {
+  display: none;
+}
+
+/* ============================= */
+/* 🔹 1024px */
+/* ============================= */
+@media (max-width: 1024px) {
+
+  .team-title {
+    font-size: 38px;
+  }
+
+  .team-description {
+    font-size: 18px;
+  }
+
+  .team-left-img {
+    width: 160px;
+    left: 40px;
+    bottom: 40px;
+  }
+
+  .team-right-img {
+    width: 160px;
+    right: 40px;
+    bottom: 40px;
+  }
+}
+
+/* ============================= */
+/* 🔹 768px */
+/* ============================= */
+@media (max-width: 768px) {
+
+  .team-page {
+    height: auto;
+    min-height: 100vh;
+    padding: 40px 0;
+  }
+
+  .team-title {
+    font-size: 30px;
+  }
+
+  .team-description {
+    font-size: 16px;
+  }
+
+  .team-left-img,
+  .team-right-img {
+    display: none;
+  }
+}
+
+/* ============================= */
+/* 🔹 425px */
+/* ============================= */
+@media (max-width: 425px) {
+
+  .team-title {
+    font-size: 24px;
+  }
+
+  .team-description {
+    font-size: 14px;
+  }
+
+  .team-logo {
+    width: 50px;
+  }
+}

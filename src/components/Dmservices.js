@@ -80,30 +80,30 @@ const services = [
 
 function ServicesSection() {
   return (
-    <section className="gd-services-section">
-      <h2 className="gd-services-heading">
+    <section className="dm-services-section">
+      <h2 className="dm-services-heading">
         Need for Digital Marketing Services for Your Business
       </h2>
 
-      <p className="gd-services-subtext">
+      <p className="dm-services-subtext">
         We create result-driven digital marketing campaigns that help businesses
         grow their online presence. Our strategies increase brand visibility,
         drive quality traffic, and generate more leads.
       </p>
 
-      <div className="gd-services-grid">
+      <div className="dm-services-grid">
         {services.map((service, index) => (
-          <div className="gd-service-card" key={index}>
-            <div className="gd-service-icon-wrap">
+          <div className="dm-service-card" key={index}>
+            <div className="dm-service-icon-wrap">
               <img
                 src={service.icon}
                 alt={service.title}
-                className="gd-service-icon"
+                className="dm-service-icon"
               />
             </div>
             <h3>{service.title}</h3>
             <p>{service.desc}</p>
-            <div className="gd-service-tags">
+            <div className="dm-service-tags">
               {service.tags.map((tag, i) => (
                 <span key={i}>{tag}</span>
               ))}

@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Public+Sans:wght@300;400;500;600&display=swap');
+
+/* 🔒 Scoped */
+.teamvalues-section *,
+.teamvalues-section *::before,
+.teamvalues-section *::after {
+  box-sizing: border-box;
+}
+
+/* 🔹 SECTION */
+.teamvalues-section {
+  width: 100%;
+  background: #E6F3FF;
+  padding: 80px 0; /* clean vertical rhythm */
+}
+
+/* 🔹 CONTAINER (PRO STANDARD) */
+.teamvalues-container {
+  width: 100%;
+  max-width: 1200px;   /* ✅ standard */
+  margin: 0 auto;
+  padding: 0 24px;     /* ✅ consistent across site */
+}
+
+/* =======================================
+   TOP AREA
+======================================= */
+
+.teamvalues-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 80px;
+}
+
+.teamvalues-left {
+  max-width: 560px;
+}
+
+/* TITLE */
+.teamvalues-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #123d87;
+  margin: 0;
+}
+
+/* SUBTEXT */
+.teamvalues-subtext {
+  margin-top: 20px;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #8A8787;
+}
+
+/* LOGO */
+.teamvalues-logo {
+  width: 110px;
+}
+
+/* =======================================
+   GRID
+======================================= */
+
+.teamvalues-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* CARD */
+.teamvalues-card {
+  text-align: center;
+  padding: 0 10px;
+  position: relative;
+}
+
+/* divider */
+.teamvalues-card-border::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 0;
+  width: 1px;
+  height: 90px;
+  background: rgba(17, 61, 135, 0.15);
+}
+
+/* ICON */
+.teamvalues-icon-wrap {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 18px;
+}
+
+.teamvalues-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* TITLE */
+.teamvalues-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #123d87;
+}
+
+/* DESCRIPTION */
+.teamvalues-description {
+  margin-top: 12px;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #8A8787;
+}
+
+/* =======================================
+   TABLET
+======================================= */
+
+@media (max-width: 1024px) {
+
+  .teamvalues-container {
+    padding: 0 20px;
+  }
+
+  .teamvalues-heading {
+    font-size: 38px;
+  }
+
+  .teamvalues-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .teamvalues-card:nth-child(2)::after {
+    display: none;
+  }
+}
+
+/* =======================================
+   MOBILE
+======================================= */
+
+@media (max-width: 768px) {
+
+  .teamvalues-top {
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  .teamvalues-heading {
+    font-size: 30px;
+  }
+
+  .teamvalues-subtext {
+    font-size: 16px;
+  }
+
+  .teamvalues-logo {
+    width: 90px;
+  }
+
+  .teamvalues-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .teamvalues-card::after {
+    display: none;
+  }
+}

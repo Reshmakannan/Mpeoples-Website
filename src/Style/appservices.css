@@ -4,225 +4,355 @@
 /* GLOBAL FIX */
 html,
 body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 /* SECTION */
 .appservices-services-section {
-    background-color: #F8FDFF;
+  background-color: #F8FDFF;
+  height: 100vh;
+  box-sizing: border-box;
 
-    height: 100vh;
-    box-sizing: border-box;
+  padding: 20px 40px;
 
-    padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* HEADING */
+.appservices-services-heading {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 600;
+  color: #263238;
+  font-family: "Inter", sans-serif;
+
+  margin: 0 0 6px 0;
+  line-height: 2;
+}
+
+/* SUBTEXT */
+.appservices-services-subtext {
+  text-align: center;
+  font-size: 13px;
+  color: #8A8787;
+
+  font-family: 'Public Sans', sans-serif;
+
+  margin: 0 0 14px 0;
+  max-width: 680px;
+  line-height: 1.5;
+}
+
+/* GRID */
+.appservices-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 10px;
+  width: 100%;
+  max-width: 900px;
+
+  flex: 1;
+}
+
+/* CARD */
+.appservices-service-card {
+  background: #FFFFFF;
+  border: 1px solid #B0C1D2;
+  border-radius: 10px;
+
+  padding: 12px;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ICON */
+.appservices-service-icon-wrap {
+  width: 34px;
+  height: 34px;
+
+  background: #e2eaee;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 6px;
+}
+
+.appservices-service-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* TITLE */
+.appservices-service-card h3 {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #082F6E;
+  line-height: 1;
+
+  font-family: 'Inter', sans-serif;
+
+  margin: 0 0 4px 0;
+}
+
+/* DESCRIPTION */
+.appservices-service-card p {
+  font-size: 11px;
+  color: #8A8787;
+
+  font-family: 'Public Sans', sans-serif;
+
+  line-height: 1.5;
+  margin: 0 0 6px 0;
+
+  flex-grow: 1;
+}
+
+/* TAGS */
+.appservices-service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.appservices-service-tags span {
+  font-size: 9px;
+  padding: 2px 6px;
+
+  font-family: 'Public Sans', sans-serif;
+
+  border-radius: 999px;
+  border: 1px solid #EDEDED;
+  background: #fff;
+}
+
+/* =========================
+   1024px PERFECT TABLET
+========================= */
+@media (max-width: 1024px) {
+
+  .appservices-services-section {
+    min-height: auto;
+    height: auto;
+
+    padding: 50px 32px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 
-    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-}
+    box-sizing: border-box;
+  }
 
-/* HEADING */
-.appservices-services-heading {
+  /* HEADING */
+  .appservices-services-heading {
+    font-size: 32px;
+    line-height: 1.3;
     text-align: center;
-    font-size: 36px;
-    font-weight: 600;
-    color: #263238;
-    font-family: "Inter", sans-serif;
 
-    margin: 0 0 6px 0;
-    line-height: 2;
-}
+    margin-bottom: 10px;
+  }
 
-/* SUBTEXT */
-.appservices-services-subtext {
+  /* SUBTEXT */
+  .appservices-services-subtext {
+    font-size: 14px;
+    line-height: 1.7;
+
+    max-width: 720px;
+
+    margin-bottom: 26px;
     text-align: center;
-    font-size: 13px;
-    color: #8A8787;
+  }
 
-    font-family: 'Public Sans', sans-serif;
-
-    margin: 0 0 14px 0;
-    max-width: 680px;
-    line-height: 1.5;
-}
-
-/* GRID */
-.appservices-services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 10px;
+  /* GRID */
+  .appservices-services-grid {
     width: 100%;
-    max-width: 900px;
+    max-width: 860px;
 
-    flex: 1;
-}
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 
-/* CARD */
-.appservices-service-card {
-    background: #FFFFFF;
-    border: 1px solid #B0C1D2;
-    border-radius: 10px;
+    gap: 18px;
+  }
 
-    padding: 12px;
-    min-height: 0;
+  /* CARD */
+  .appservices-service-card {
+    padding: 18px;
+    border-radius: 12px;
+
+    min-height: 220px;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-}
+    justify-content: flex-start;
+  }
 
-/* ICON */
-.appservices-service-icon-wrap {
-    width: 34px;
-    height: 34px;
+  /* ICON */
+  .appservices-service-icon-wrap {
+    width: 42px;
+    height: 42px;
 
-    background: #e2eaee;
-    border-radius: 8px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+  }
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .appservices-service-icon {
+    width: 20px;
+    height: 20px;
+  }
 
-    margin-bottom: 6px;
-}
+  /* TITLE */
+  .appservices-service-card h3 {
+    font-size: 16px;
+    line-height: 1.35;
 
-.appservices-service-icon {
-    width: 16px;
-    height: 16px;
-}
+    margin-bottom: 8px;
+  }
 
-/* TITLE */
-.appservices-service-card h3 {
-    font-size: 13.5px;
-    font-weight: 700;
-    color: #082F6E;
-    line-height: 1;
+  /* DESCRIPTION */
+  .appservices-service-card p {
+    font-size: 13px;
+    line-height: 1.7;
 
-    font-family: 'Inter', sans-serif;
-    /* ✅ added */
-
-    margin: 0 0 4px 0;
-}
-
-/* DESCRIPTION */
-.appservices-service-card p {
-    font-size: 11px;
-    color: #8A8787;
-
-    font-family: 'Public Sans', sans-serif;
-    /* ✅ added */
-
-    line-height: 1.5;
-    margin: 0 0 6px 0;
+    margin-bottom: 14px;
 
     flex-grow: 1;
-}
+  }
 
-/* TAGS */
-.appservices-service-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3px;
-}
+  /* TAGS */
+  .appservices-service-tags {
+    gap: 6px;
+  }
 
-.appservices-service-tags span {
-    font-size: 9px;
-    padding: 2px 6px;
-
-    font-family: 'Public Sans', sans-serif;
-    /* ✅ added */
-
-    border-radius: 999px;
-    border: 1px solid #EDEDED;
-    background: #fff;
-}
-
-/* =========================
-   1024px
-   ========================= */
-@media (max-width: 1024px) {
-    .appservices-services-section {
-        padding: 20px 30px;
-    }
-
-    .appservices-services-heading {
-        font-size: 30px;
-        line-height: 1.4;
-    }
-
-    .appservices-services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 800px;
-    }
+  .appservices-service-tags span {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
 }
 
 /* =========================
    768px
-   ========================= */
+========================= */
 @media (max-width: 768px) {
-    .appservices-services-section {
-        height: auto;
-        padding: 20px;
-    }
+  .appservices-services-section {
+    height: auto;
+    padding: 20px;
+  }
 
-    .appservices-services-heading {
-        font-size: 26px;
-        line-height: 1.3;
-    }
+  .appservices-services-heading {
+    font-size: 26px;
+    line-height: 1.3;
+  }
 
-    .appservices-services-subtext {
-        font-size: 12.5px;
-        max-width: 100%;
-    }
+  .appservices-services-subtext {
+    font-size: 12.5px;
+    max-width: 100%;
+  }
 
-    .appservices-services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
+  .appservices-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
 
-    .appservices-service-card {
-        padding: 14px;
-    }
+  .appservices-service-card {
+    padding: 14px;
+  }
 }
 
-/* =========================
-   420px
-   ========================= */
-@media (max-width: 420px) {
-    .appservices-services-heading {
-        font-size: 22px;
-    }
+@media (max-width: 425px) {
 
-    .appservices-services-subtext {
-        font-size: 12px;
-    }
+  .appservices-services-section {
+    height: auto;
+    padding: 30px 0 30px 16px; /* left padding only for scroll feel */
+  }
 
-    .appservices-services-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-    }
+  .appservices-services-heading {
+    font-size: 24px;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    text-align: center;
+    padding-right: 16px;
+  }
 
-    .appservices-service-card {
-        padding: 16px;
-    }
+  .appservices-services-subtext {
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    text-align: center;
+    padding-right: 16px;
+  }
 
-    .appservices-service-card h3 {
-        font-size: 14px;
-    }
+  .appservices-services-grid {
+    display: flex;                 /* ✅ horizontal layout */
+    flex-direction: row;
+    overflow-x: auto;              /* ✅ scroll enabled */
+    gap: 12px;
 
-    .appservices-service-card p {
-        font-size: 12px;
-    }
+    padding-right: 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
 
-    .appservices-service-tags span {
-        font-size: 10px;
-    }
+  /* hide scrollbar (clean UI) */
+  .appservices-services-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .appservices-service-card {
+    min-width: 260px;              /* ✅ card width */
+    max-width: 260px;
+    flex-shrink: 0;
+
+    padding: 16px;
+    border-radius: 12px;
+
+    scroll-snap-align: start;      /* ✅ smooth snapping */
+  }
+
+  .appservices-service-icon-wrap {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 10px;
+  }
+
+  .appservices-service-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .appservices-service-card h3 {
+    font-size: 15px;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+
+  .appservices-service-card p {
+    font-size: 12.5px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .appservices-service-tags {
+    gap: 6px;
+  }
+
+  .appservices-service-tags span {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
 }
-

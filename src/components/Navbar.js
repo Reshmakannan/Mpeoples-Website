@@ -19,7 +19,7 @@ function Navbar({ onNavigate }) {
   const handleNavigate = (path) => {
     handleClose();
     setTimeout(() => {
-      onNavigate(path); // 🔥 triggers transition from App.js
+      onNavigate(path);
     }, 450);
   };
 
@@ -31,7 +31,7 @@ function Navbar({ onNavigate }) {
             src={logo}
             alt="logo"
             className={`logo ${menuOpen ? "logo--white" : ""}`}
-            onClick={() => onNavigate("/")} // ✅ fixed
+            onClick={() => onNavigate("/")}
             style={{ cursor: "pointer" }}
           />
 
@@ -65,19 +65,49 @@ function Navbar({ onNavigate }) {
               <div className="link-column">
                 <h3 className="col-title">Services</h3>
                 <ul>
-                  <li onClick={() => handleNavigate("/uiux-design")}>UI / UX Design</li>
-                  <li onClick={() => handleNavigate("/web-development")}>Web Development</li>
-                  <li onClick={() => handleNavigate("/app-development")}>App Development</li>
-                  <li onClick={() => handleNavigate("/saas-development")}>Saas Development</li>
-                  <li onClick={() => handleNavigate("/digital-marketing")}>Digital Marketing</li>
-                  <li onClick={() => handleNavigate("/graphic-design")}>Graphic Design</li>
-                  <li onClick={() => handleNavigate("/video-editing")}>Video Editing</li>
+                  <li onClick={() => handleNavigate("/uiux-design")}>
+                    UI / UX Design
+                  </li>
+                  <li onClick={() => handleNavigate("/web-development")}>
+                    Web Development
+                  </li>
+                  <li onClick={() => handleNavigate("/app-development")}>
+                    App Development
+                  </li>
+                  <li onClick={() => handleNavigate("/saas-development")}>
+                    Saas Development
+                  </li>
+                  <li onClick={() => handleNavigate("/digital-marketing")}>
+                    Digital Marketing
+                  </li>
+                  <li onClick={() => handleNavigate("/graphic-design")}>
+                    Graphic Design
+                  </li>
+                  <li onClick={() => handleNavigate("/video-editing")}>
+                    Video Editing
+                  </li>
                 </ul>
 
                 <h3 className="col-title second-title">Our Product</h3>
                 <ul>
-                  <li>Look it</li>
-                  <li>Makkal nalkatti</li>
+                  <li
+                    onClick={() =>
+                      window.open("https://lookit.mpeoplesnet.com", "_blank")
+                    }
+                  >
+                    Look it
+                  </li>
+
+                  <li
+                    onClick={() =>
+                      window.open(
+                        "https://play.google.com/store/apps/details?id=com.makkal.calendar",
+                        "_blank",
+                      )
+                    }
+                  >
+                    Makkal nalkattai
+                  </li>
                   <li>HR Management</li>
                 </ul>
               </div>
@@ -85,15 +115,19 @@ function Navbar({ onNavigate }) {
               <div className="link-column">
                 <h3 className="col-title">Resources</h3>
                 <ul>
-                  <li>Case Study</li>
-                  <li>Blog</li>
+                  <li onClick={() => handleNavigate("/")}>Case Study</li>
+                  <li onClick={() => handleNavigate("/blogs-page")}>Blog</li>
                 </ul>
 
                 <h3 className="col-title second-title">Company</h3>
                 <ul>
-                  <li onClick={() => handleNavigate("/about-us")}>About Us</li>
-                  <li>Team</li>
-                  <li>Career</li>
+                  <li onClick={() => handleNavigate("/about-us")}>
+                    About Us
+                  </li>
+                  <li onClick={() => handleNavigate("/team-page")}>Team</li>
+                  <li onClick={() => handleNavigate("/career-page")}>
+                    Career
+                  </li>
                 </ul>
               </div>
             </div>

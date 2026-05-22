@@ -7,7 +7,16 @@ import trapLeft from "../assets/left-corner.png";
 import trapRight from "../assets/right-corner.png"; 
 
 import AboutUsOne from "../components/aboutusone";
+import AboutUsWay from "../components/aboutusway";
 import AboutWork from "../components/aboutwork";
+import AboutValue from "../components/aboutvalue";
+import AboutUsLeader from "../components/aboutusleader";
+import AboutUsBoard from "../components/aboutusboard";
+import OurTeam from "../components/Ourteam";
+import AddressSection from "../components/AddSection";
+import FormsSection from "../components/Forms";
+import BlogsSection from "../components/Ourblogs";
+import PageFooter from "../components/Pagefooter";
 
 function AboutusPage() {
   return (
@@ -40,7 +49,16 @@ function AboutusPage() {
       </section>
 
       <AboutUsOne />
+      <AboutUsWay />
       <AboutWork />
+      <AboutValue />
+      <AboutUsLeader />
+      <AboutUsBoard />
+      <OurTeam />
+      <AddressSection />
+      <FormsSection />
+      <BlogsSection />
+      <PageFooter />
 
       
     </>

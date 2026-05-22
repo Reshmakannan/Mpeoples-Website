@@ -18,13 +18,13 @@ const Appdevbenefits = [
     id: 2,
     image: scalability,
     title: 'Native App Development',
-    description: 'Native apps are built for each platform to deliver high performance and a smooth user experience while fully utilizing device features. ',
+    description: 'Native apps are built for each platform to deliver high performance and a smooth user experience while fully utilizing device features.',
   },
   {
     id: 3,
     image: deployment,
     title: 'Cross-Platform App Development',
-    description: 'We build cross-platform apps that run smoothly on both Android and iOS, reducing development time and cost. ',
+    description: 'We build cross-platform apps that run smoothly on both Android and iOS, reducing development time and cost.',
   },
   {
     id: 4,
@@ -38,15 +38,23 @@ const Appdevbenefits = [
     title: 'iOS App Development',
     description: 'We design and develop high-quality iOS applications for Apple devices, focusing on smooth performance, intuitive design, and seamless integration with the Apple ecosystem.',
   },
+  {
+    id: 6,
+    image: blue,
+    title: 'Windows App Development',
+    description: 'We also develop Windows-based applications tailored to enterprise environments.We also develop Windows-based applications tailored to enterprise and business environments, ensuring stable performance and seamless functionality.',
+  },
 ];
 
 const AppBenefits = () => {
   return (
     <section className="appdevbenefits-section">
       <div className="appdevbenefits-inner">
-        <h2 className="appdevbenefits-heading">How can your business get benefit from graphic designing?</h2>
+        <h2 className="appdevbenefits-heading">
+          Mobile App Development Service
+        </h2>
 
-        {/* Row 1 — 3 cards */}
+        {/* FIRST ROW */}
         <div className="appdevbenefits-row">
           {Appdevbenefits.slice(0, 3).map((item) => (
             <div className="appdevbenefits-card" key={item.id}>
@@ -59,15 +67,15 @@ const AppBenefits = () => {
           ))}
         </div>
 
-        {/* Row 2 — 2 cards */}
-        <div className="appdevbenefits-row appdevbenefits-row--2">
-          {Appdevbenefits.slice(3, 5).map((item) => (
+        {/* SECOND ROW */}
+        <div className="appdevbenefits-row">
+          {Appdevbenefits.slice(3, 6).map((item) => (
             <div className="appdevbenefits-card" key={item.id}>
               <div className="appdevbenefits-card__img-wrap">
                 <img src={item.image} alt={item.title} className="appdevbenefits-card__img" />
               </div>
-              {item.title && <h3 className="appdevbenefits-card__title">{item.title}</h3>}
-              {item.description && <p className="appdevbenefits-card__desc">{item.description}</p>}
+              <h3 className="appdevbenefits-card__title">{item.title}</h3>
+              <p className="appdevbenefits-card__desc">{item.description}</p>
             </div>
           ))}
         </div>

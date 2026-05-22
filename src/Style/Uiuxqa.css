@@ -213,3 +213,64 @@
     margin-top: 4px;
   }
 }
+
+/* ===============================
+   🔹 425px (Mobile Fine-Tune)
+================================= */
+@media (max-width: 425px) {
+
+  .qa-section {
+    padding: 32px 16px;
+  }
+
+  .qa-title {
+    font-size: 22px;
+    margin-bottom: 22px;
+    line-height: 1.3;
+  }
+
+  /* already stacked from 768px — just tighten spacing */
+  .qa-body {
+    gap: 22px;
+  }
+
+  /* image */
+  .qa-image-wrap {
+    height: 220px;
+    border-radius: 12px;
+  }
+
+  /* question row */
+  .qa-question {
+    padding: 12px 0;
+    gap: 10px;
+  }
+
+  .qa-question-text {
+    font-size: 13.5px;
+    line-height: 1.4;
+  }
+
+  /* answer */
+  .qa-answer {
+    font-size: 12.5px;
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  /* animation spacing fix */
+  .qa-answer-wrap {
+    transition: grid-template-rows 0.32s ease, opacity 0.25s ease;
+  }
+
+  /* divider */
+  .qa-divider {
+    margin-top: 2px;
+  }
+
+  /* icon size adjust */
+  .qa-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+}

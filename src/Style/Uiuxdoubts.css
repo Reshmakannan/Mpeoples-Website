@@ -266,3 +266,67 @@
     max-height: 220px;
   }
 }
+
+/* =========================
+   🔹 425px (Perfect Mobile)
+========================= */
+@media (max-width: 425px) {
+
+  .uiuxdoubt-section {
+    padding: 28px 14px;
+  }
+
+  .uiuxdoubt-container {
+    max-width: 100%;
+  }
+
+  /* 🔥 Title balanced */
+  .uiuxdoubt-title {
+    font-size: 26px;
+    line-height: 1.25;
+    margin-bottom: 22px;
+    text-align: center;
+  }
+
+  /* 🔥 FAQ item spacing */
+  .uiuxdoubt-faq-item {
+    padding: 12px 0;
+  }
+
+  /* 🔥 Perfect alignment row */
+  .uiuxdoubt-faq-question-row {
+    gap: 12px;
+    align-items: center;
+  }
+
+  /* 🔥 Question text fix */
+  .uiuxdoubt-faq-question {
+    font-size: 15px;
+    line-height: 1.4;
+    max-width: 78%;   /* prevents pushing icon */
+  }
+
+  /* 🔥 Icon button */
+  .uiuxdoubt-faq-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .uiuxdoubt-faq-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* 🔥 Answer animation clean */
+  .uiuxdoubt-faq-answer-wrapper.show {
+    max-height: 260px;
+    margin-top: 8px;
+  }
+
+  /* 🔥 Answer text readable */
+  .uiuxdoubt-faq-answer {
+    font-size: 13.5px;
+    line-height: 1.65;
+    max-width: 100%;
+  }
+}

@@ -20,10 +20,6 @@
   padding: 0 24px;
 }
 
-/* =========================================
-   COMMON CONTAINER
-========================================= */
-
 .uiux-stack-container {
   width: 100%;
   max-width: 1220px;
@@ -31,10 +27,6 @@
   padding: 0 32px;
   box-sizing: border-box;
 }
-
-/* =========================================
-   INFO SECTION
-========================================= */
 
 .uiux-stack-info {
   width: 100%;
@@ -82,10 +74,6 @@
   display: block;
 }
 
-/* =========================================
-   MARQUEE
-========================================= */
-
 .uiux-stack-marquee-outer {
   width: 100%;
   max-width: 1180px;
@@ -106,34 +94,35 @@
 
   animation: uiux-icon-step-scroll 13.6s infinite;
   animation-timing-function: linear;
+  animation-fill-mode: none;
 }
 
 @keyframes uiux-icon-step-scroll {
+  0%      { transform: translateX(0); }
+  8.82%   { transform: translateX(0); }
+  12.5%   { transform: translateX(-150px); }
 
-  0% { transform: translateX(0); }
-  8.82% { transform: translateX(0); }
-  12.5% { transform: translateX(-150px); }
+  21.32%  { transform: translateX(-150px); }
+  25%     { transform: translateX(-300px); }
 
-  21.32% { transform: translateX(-150px); }
-  25% { transform: translateX(-300px); }
+  33.82%  { transform: translateX(-300px); }
+  37.5%   { transform: translateX(-450px); }
 
-  33.82% { transform: translateX(-300px); }
-  37.5% { transform: translateX(-450px); }
+  46.32%  { transform: translateX(-450px); }
+  50%     { transform: translateX(-600px); }
 
-  46.32% { transform: translateX(-450px); }
-  50% { transform: translateX(-600px); }
+  58.82%  { transform: translateX(-600px); }
+  62.5%   { transform: translateX(-750px); }
 
-  58.82% { transform: translateX(-600px); }
-  62.5% { transform: translateX(-750px); }
+  71.32%  { transform: translateX(-750px); }
+  75%     { transform: translateX(-900px); }
 
-  71.32% { transform: translateX(-750px); }
-  75% { transform: translateX(-900px); }
+  83.82%  { transform: translateX(-900px); }
+  87.5%   { transform: translateX(-1050px); }
 
-  83.82% { transform: translateX(-900px); }
-  87.5% { transform: translateX(-1050px); }
-
-  96.32% { transform: translateX(-1050px); }
-  100% { transform: translateX(-1200px); }
+  96.32%  { transform: translateX(-1050px); }
+  99.99%  { transform: translateX(-1200px); }
+  100%    { transform: translateX(0); }
 }
 
 .uiux-stack-cell {
@@ -159,12 +148,6 @@
   margin: 0 42px;
 }
 
-/* ===============================
-   🔹 1024px
-================================= */
-/* ===============================
-   🔹 1024px (REFINED SPACING)
-================================= */
 @media (max-width: 1024px) {
 
   .uiux-stack-section {
@@ -182,15 +165,14 @@
     padding: 0 28px;
   }
 
-  /* 🔥 SUBTITLE WIDTH CONTROL */
   .uiux-stack-info {
     gap: 26px;
     margin-bottom: 32px;
-    max-width: 1000px;   /* 🔥 reduced from 1180 */
+    max-width: 1000px;
   }
 
   .uiux-stack-info-left {
-    max-width: 620px;    /* 🔥 tighter text width */
+    max-width: 620px;
   }
 
   .uiux-stack-info-heading {
@@ -207,24 +189,21 @@
     height: 95px;
   }
 
-  /* 🔥 TRACK WIDTH REDUCED */
   .uiux-stack-marquee-outer {
-    max-width: 1000px;   /* 🔥 tighter marquee */
+    max-width: 1000px;
   }
 
   .uiux-stack-icon {
     width: 52px;
     height: 52px;
-    margin: 0 26px;      /* 🔥 less spacing between icons */
+    margin: 0 26px;
   }
 
   .uiux-stack-divider {
     height: 44px;
   }
 }
-/* ===============================
-   🔹 768px
-================================= */
+
 @media (max-width: 768px) {
 
   .uiux-stack-section {
@@ -240,7 +219,6 @@
     padding: 0 20px;
   }
 
-  /* 🔥 Stack layout */
   .uiux-stack-info {
     flex-direction: column;
     align-items: center;
@@ -261,12 +239,11 @@
     line-height: 1.6;
   }
 
-  .uiux-stack-pie {
-    width: 80px;
-    height: 80px;
+  /* ✅ Pie icon removed */
+  .uiux-stack-info-right {
+    display: none;
   }
 
-  /* 🔥 Marquee tuning for mobile */
   .uiux-stack-icon {
     width: 46px;
     height: 46px;
@@ -277,8 +254,62 @@
     height: 40px;
   }
 
-  /* Optional: slow animation for readability */
   .uiux-stack-marquee-track {
     animation-duration: 18s;
+  }
+}
+
+/* ===============================
+   🔹 425px (Mobile Fine-Tune)
+================================= */
+@media (max-width: 425px) {
+
+  .uiux-stack-section {
+    padding: 32px 0 32px;
+  }
+
+  .uiux-stack-title {
+    font-size: 22px;
+    margin-bottom: 22px;
+    padding: 0 16px;
+    line-height: 1.3;
+  }
+
+  .uiux-stack-container {
+    padding: 0 16px;
+  }
+
+  .uiux-stack-info {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .uiux-stack-info-heading {
+    font-size: 14px;
+  }
+
+  .uiux-stack-info-desc {
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  /* marquee spacing refinement */
+  .uiux-stack-marquee-outer {
+    padding-left: 8px;
+  }
+
+  .uiux-stack-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 18px;
+  }
+
+  .uiux-stack-divider {
+    height: 34px;
+  }
+
+  /* smoother + slightly slower for mobile readability */
+  .uiux-stack-marquee-track {
+    animation-duration: 20s;
   }
 }

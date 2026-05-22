@@ -31,7 +31,7 @@ function DmPage() {
         <img src={trapRight} alt="" className="trap-right" />
 
         <div className="dm-overlay">
-          <img src={mpeoplesLogo} alt="MPeoples Logo" className="gd-logo" />
+          <img src={mpeoplesLogo} alt="MPeoples Logo" className="dm-logo" />
 
           <h1 className="dm-title">
             Strategic Digital Marketing for Business Growth

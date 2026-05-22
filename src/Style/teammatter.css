@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* 🔒 SCOPED BOX-SIZING */
+.teammatter-section *,
+.teammatter-section *::before,
+.teammatter-section *::after {
+  box-sizing: border-box;
+}
+
+.teammatter-section {
+  position: relative;
+  width: 100%;
+  background: #171d24;
+  overflow: hidden;
+  padding: 56px 5px 78px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.teammatter-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.teammatter-heading {
+  margin: 0;
+  text-align: center;
+  color: #8db3ff;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+}
+
+/* =========================================
+   GRID
+========================================= */
+
+.teammatter-grid {
+  margin-top: 74px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.teammatter-card {
+  text-align: center;
+}
+
+/* =========================================
+   ICON
+========================================= */
+
+.teammatter-icon-wrap {
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.teammatter-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* =========================================
+   COUNT
+========================================= */
+
+.teammatter-count {
+  margin: 0;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* =========================================
+   TITLE
+========================================= */
+
+.teammatter-title {
+  margin: 14px 0 0;
+  color: #d9d9d9;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.55;
+  white-space: pre-line;
+}
+
+/* =========================================
+   CORNER DESIGN
+========================================= */
+
+.teammatter-corner {
+  position: absolute;
+  right: -12px;
+  bottom: -10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  opacity: 0.25;
+}
+
+.teammatter-corner span {
+  width: 64px;
+  height: 12px;
+  border-radius: 20px;
+  background: #ffffff;
+  transform: rotate(-58deg);
+}
+
+.teammatter-corner span:nth-child(2) {
+  margin-left: 18px;
+}
+
+.teammatter-corner span:nth-child(3) {
+  margin-left: 36px;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+
+  .teammatter-section {
+    padding: 52px 40px 70px;
+  }
+
+  .teammatter-grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 60px;
+  }
+}
+
+/* =========================================
+   MOBILE — 768px (PERFECT VERSION)
+========================================= */
+@media (max-width: 768px) {
+
+  .teammatter-section {
+    padding: 44px 20px 60px; /* balanced spacing */
+  }
+
+  .teammatter-container {
+    max-width: 100%;
+  }
+
+  .teammatter-heading {
+    font-size: 28px;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  .teammatter-grid {
+    margin-top: 50px;
+
+    grid-template-columns: 1fr; /* single column */
+    gap: 45px;
+  }
+
+  .teammatter-card {
+    max-width: 320px;
+    margin: 0 auto; /* center cards perfectly */
+  }
+
+  .teammatter-icon-wrap {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 18px;
+  }
+
+  .teammatter-count {
+    font-size: 26px;
+  }
+
+  .teammatter-title {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* hide corner decoration on mobile */
+  .teammatter-corner {
+    display: none;
+  }
+}

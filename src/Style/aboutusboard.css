@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Public+Sans:wght@400;500&display=swap');
+
+.board-section {
+  width: 100%;
+  background: #E9ECEF;
+  padding: 60px 80px 80px;
+  box-sizing: border-box;
+}
+
+/* 🔹 TITLE */
+.board-title {
+  font-family: "Inter", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #2b2b2b;
+  margin-bottom: 40px;
+}
+
+/* 🔹 GRID */
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+/* 🔹 CARD */
+.board-card {
+  text-align: center;
+}
+
+/* 🔹 IMAGE */
+.board-img-wrapper {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #000;
+}
+
+.board-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 🔹 TEXT */
+.board-name {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.board-role {
+  font-family: "Public Sans", sans-serif;
+  font-size: 14px;
+  color: #7a7a7a;
+}
+
+/* 🔹 RESPONSIVE */
+@media (max-width: 1024px) {
+  .board-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .board-section {
+    padding: 40px 20px;
+  }
+
+  .board-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .board-img-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+}

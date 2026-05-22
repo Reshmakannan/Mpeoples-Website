@@ -287,3 +287,112 @@
     font-size: 15px;
   }
 }
+
+/* ===============================
+   🔹 425px (CENTERED PERFECT)
+================================= */
+@media (max-width: 425px) {
+
+  .ws-section {
+    padding: 36px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .ws-container {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 🔥 centers everything */
+  }
+
+  .ws-title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .ws-subtitle {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+
+  /* 🔥 CENTERED GRID */
+  .ws-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    width: 100%;
+    max-width: 320px; /* 🔥 KEY: keeps cards centered */
+  }
+
+  /* 🔥 CARD */
+  .ws-outer {
+    width: 100%;
+    border-radius: 14px;
+    padding: 8px;
+  }
+
+  .ws-inner {
+    padding: 16px 14px 18px;
+    min-height: 180px;
+  }
+
+  /* TEXT */
+  .ws-num {
+    font-size: 12.5px;
+    margin-bottom: 6px;
+  }
+
+  .ws-card-title {
+    font-size: 15px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .ws-card-text {
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  /* DECOR */
+  .ws-dot {
+    width: 12px;
+    height: 12px;
+    top: -6px;
+    left: calc(50% - 6px);
+  }
+
+  .ws-corner-img {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* FOOTER */
+  .ws-footer {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+    align-items: center;
+  }
+
+  .ws-btn {
+    width: 100%;
+    max-width: 240px;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .ws-consult {
+    font-size: 13px;
+    justify-content: center;
+  }
+
+  .ws-arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+}

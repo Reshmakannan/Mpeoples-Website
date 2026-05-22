@@ -176,4 +176,161 @@
   }
 }
 
+/* ============================= */
+/* ✅ 768px */
+/* ============================= */
+@media (max-width: 768px) {
 
+  .ob-section {
+    padding: 45px 24px;
+    min-height: auto;
+  }
+
+  /* ── Heading ── */
+  .ob-heading-wrap {
+    margin-bottom: 14px;
+  }
+
+  .ob-heading {
+    font-size: 30px;
+    gap: 5px;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .ob-heading-icon {
+    font-size: 22px;
+    transform: translateY(-2px);
+  }
+
+  /* ── Nav ── */
+  .ob-nav {
+    align-self: center;
+    margin-right: 0;
+    margin-bottom: 24px;
+    gap: 10px;
+  }
+
+  .ob-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  /* ── Cards ── */
+  .ob-cards {
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .ob-card {
+    flex: 0 0 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+    border-radius: 12px;
+  }
+
+  .ob-card-info {
+    padding: 16px 14px 12px;
+    gap: 5px;
+  }
+
+  .ob-category {
+    font-size: 10px;
+  }
+
+  .ob-title {
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  .ob-date {
+    font-size: 11px;
+  }
+
+  .ob-image {
+    height: 180px;
+  }
+}
+
+
+/* ============================= */
+/* ✅ 425px */
+/* ============================= */
+@media (max-width: 425px) {
+
+  .ob-section {
+    padding: 40px 16px;
+    min-height: auto;
+  }
+
+  /* ── Heading ── */
+  .ob-heading-wrap {
+    margin-bottom: 12px;
+  }
+
+  .ob-heading {
+    font-size: 24px;
+    gap: 4px;
+    line-height: 1.3;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .ob-heading-icon {
+    font-size: 18px;
+    transform: translateY(-1px);
+  }
+
+  /* ── Nav ── */
+  .ob-nav {
+    align-self: center;
+    margin-right: 0;
+    margin-bottom: 20px;
+    gap: 8px;
+  }
+
+  .ob-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+
+  /* ── Cards ── */
+  .ob-cards {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .ob-card {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 12px;
+  }
+
+  .ob-card-info {
+    padding: 14px 14px 10px;
+    gap: 5px;
+  }
+
+  .ob-category {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .ob-title {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .ob-date {
+    font-size: 11px;
+  }
+
+  .ob-image {
+    height: 190px;
+  }
+}

@@ -24,23 +24,23 @@ function WebPage() {
     <>
       {/* Hero Section */}
       <section
-        className="uiux-page"
+        className="web-page"
         style={{ backgroundImage: `url(${bgImage})` }}>
         <img src={trapLeft} alt="" className="trap-left" />
         <img src={trapRight} alt="" className="trap-right" />
         
-        <div className="uiux-overlay">
-          <img src={mpeoplesLogo} alt="MPeoples Logo" className="uiux-logo" />
+        <div className="web-overlay">
+          <img src={mpeoplesLogo} alt="MPeoples Logo" className="web-logo" />
 
-          <h1 className="uiux-title">
+          <h1 className="web-title">
             Crafting High-Quality Websites for Modern Businesses
           </h1>
 
-          <p className="uiux-description">
+          <p className="web-description">
             At MPeoples, we develop powerful websites that combine clean code, great performance, and seamless user experiences to help your business grow online.
           </p>
 
-          <button className="uiux-btn">
+          <button className="web-btn">
             Let’s Build Together <span>↗</span>
           </button>
         </div>

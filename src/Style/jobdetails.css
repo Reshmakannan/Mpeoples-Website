@@ -1,0 +1,501 @@
+/* =========================
+   GLOBAL WRAPPER
+========================= */
+.jd-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: #f8fdff;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================
+   HEADER
+========================= */
+.jd-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.jd-title {
+  font-size: 34px;
+  font-weight: 700;
+  color: #082f6e;
+  margin-bottom: 10px;
+}
+
+.jd-sub {
+  font-size: 14px;
+  color: #6b7280;
+  font-family: "Public Sans", sans-serif;
+}
+
+/* =========================
+   MAIN CARD
+========================= */
+.jd-card {
+  width: 100%;
+  max-width: 900px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* =========================
+   BLOCK SECTIONS
+========================= */
+.jd-block h2 {
+  font-size: 18px;
+  color: #082f6e;
+  margin-bottom: 10px;
+}
+
+.jd-block ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.jd-block li {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+/* =========================
+   APPLY SECTION
+========================= */
+.jd-apply {
+  background: #f3f7ff;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #dbeafe;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.jd-apply h3 {
+  font-size: 18px;
+  color: #082f6e;
+  margin: 0;
+  font-weight: 700;
+}
+
+.jd-upload-note {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* FILE UPLOAD BOX */
+.jd-file-label {
+  cursor: pointer;
+  display: block;
+}
+
+.jd-file-hidden {
+  display: none;
+}
+
+.jd-file-box {
+  border: 2px dashed #bfdbfe;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: #eff6ff;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.jd-file-box:hover {
+  border-color: #082f6e;
+  background: #dbeafe;
+}
+
+.jd-file-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #082f6e;
+}
+
+.jd-file-hint {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.jd-pdf-error {
+  font-size: 13px;
+  color: #dc2626;
+  margin: 0;
+  font-weight: 500;
+}
+
+.jd-pdf-success {
+  font-size: 13px;
+  color: #16a34a;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* APPLY BUTTON */
+.jd-btn {
+  background: #082f6e;
+  color: #ffffff;
+  border: none;
+  padding: 13px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+  align-self: flex-start;
+}
+
+.jd-btn:hover {
+  background: #0b3d91;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   NOT FOUND STATE
+========================= */
+.jd-notfound {
+  justify-content: center;
+  text-align: center;
+}
+
+.jd-notfound h2 {
+  color: #dc2626;
+  margin-bottom: 15px;
+}
+
+.jd-back-btn {
+  background: #082f6e;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* =========================
+   MODAL OVERLAY
+========================= */
+.jd-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.jd-modal {
+  background: #ffffff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* MODAL HEADER */
+.jd-modal-header {
+  padding: 24px 28px 18px;
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+}
+
+.jd-modal-header h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #082f6e;
+  margin: 0 0 4px;
+}
+
+.jd-modal-header p {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.jd-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  background: #f3f4f6;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.jd-modal-close:hover {
+  background: #e5e7eb;
+}
+
+/* MODAL BODY */
+.jd-modal-body {
+  padding: 24px 28px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.jd-form-section h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #082f6e;
+  margin: 0 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #dbeafe;
+}
+
+.jd-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.jd-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.jd-input-icon {
+  position: absolute;
+  left: 12px;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.jd-input {
+  width: 100%;
+  padding: 11px 12px 11px 38px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #111827;
+  background: #f9fafb;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  font-family: "Inter", sans-serif;
+}
+
+.jd-input:focus {
+  border-color: #082f6e;
+  background: #ffffff;
+}
+
+.jd-select {
+  appearance: none;
+  cursor: pointer;
+}
+
+/* CV ATTACHED NOTE */
+.jd-cv-attached {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #374151;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+
+/* MODAL FOOTER */
+.jd-modal-footer {
+  padding: 18px 28px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.jd-cancel-btn {
+  background: #f3f4f6;
+  color: #374151;
+  border: none;
+  padding: 11px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.jd-cancel-btn:hover {
+  background: #e5e7eb;
+}
+
+.jd-submit-btn {
+  background: #25d366;
+  color: #ffffff;
+  border: none;
+  padding: 11px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.jd-submit-btn:hover {
+  background: #1ebe5d;
+  transform: translateY(-1px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .jd-title {
+    font-size: 26px;
+  }
+  .jd-card {
+    padding: 20px;
+  }
+  .jd-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .jd-modal-body {
+    padding: 18px 18px;
+  }
+  .jd-modal-header {
+    padding: 18px 18px 14px;
+  }
+  .jd-modal-footer {
+    padding: 14px 18px;
+  }
+}
+
+@media (max-width: 425px) {
+  .jd-wrapper {
+    padding: 40px 14px;
+  }
+  .jd-title {
+    font-size: 22px;
+  }
+  .jd-card {
+    padding: 16px;
+  }
+  .jd-block h2 {
+    font-size: 16px;
+  }
+  .jd-block li {
+    font-size: 13px;
+  }
+  .jd-btn {
+    width: 100%;
+  }
+  .jd-submit-btn,
+  .jd-cancel-btn {
+    padding: 11px 14px;
+    font-size: 13px;
+  }
+}
+
+/* =========================
+   NEW ADDITIONS
+========================= */
+
+/* Disabled Apply Button */
+.jd-btn--disabled {
+  background: #9ca3af !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  opacity: 0.7;
+}
+
+.jd-btn-disabled-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-self: flex-start;
+}
+
+.jd-btn-hint {
+  font-size: 12px;
+  color: #ef4444;
+  font-weight: 500;
+}
+
+/* File box uploaded state */
+.jd-file-box--done {
+  border-color: #16a34a;
+  background: #f0fdf4;
+}
+
+/* Field wrapper for error messages */
+.jd-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Input error state */
+.jd-input--error {
+  border-color: #ef4444 !important;
+  background: #fff5f5 !important;
+}
+
+/* Field error message */
+.jd-field-error {
+  font-size: 11px;
+  color: #ef4444;
+  font-weight: 500;
+  padding-left: 4px;
+}
+
+/* Required note in section heading */
+.jd-required-note {
+  font-size: 12px;
+  font-weight: 400;
+  color: #ef4444;
+  margin-left: 6px;
+}
+
+/* Rupee icon styling */
+.jd-rupee-icon {
+  font-size: 15px;
+  font-weight: 600;
+  color: #6b7280;
+  font-style: normal;
+  left: 13px;
+}

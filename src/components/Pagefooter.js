@@ -2,6 +2,7 @@ import React from "react";
 import "../Style/Pagefooter.css";
 import logo from "../assets/Vector.png";
 
+
 const socials = [
   {
     label: "LinkedIn",

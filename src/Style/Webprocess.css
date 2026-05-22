@@ -1,6 +1,26 @@
 /* ============================================
-   Webprocess.css — 7 Slide Horizontal Scroll
+   Webprocess.css — 7 Slide Carousel
    ============================================ */
+
+/* ── Keyframes: Next (forward) ── */
+@keyframes wp-enter-next {
+  0%   { opacity: 0; clip-path: inset(0 0 0 100%); transform: translateX(40px); }
+  100% { opacity: 1; clip-path: inset(0 0 0 0%);   transform: translateX(0); }
+}
+@keyframes wp-exit-next {
+  0%   { opacity: 1; clip-path: inset(0 0% 0 0); transform: translateX(0); }
+  100% { opacity: 0; clip-path: inset(0 100% 0 0); transform: translateX(-40px); }
+}
+
+/* ── Keyframes: Prev (backward) ── */
+@keyframes wp-enter-prev {
+  0%   { opacity: 0; clip-path: inset(0 100% 0 0); transform: translateX(-40px); }
+  100% { opacity: 1; clip-path: inset(0 0% 0 0);   transform: translateX(0); }
+}
+@keyframes wp-exit-prev {
+  0%   { opacity: 1; clip-path: inset(0 0 0 0%);   transform: translateX(0); }
+  100% { opacity: 0; clip-path: inset(0 0 0 100%); transform: translateX(40px); }
+}
 
 .wp-outer {
   width: 100%;
@@ -9,23 +29,61 @@
   position: relative;
 }
 
-.wp-track {
-  display: flex;
-  width: 700%;           /* 7 slides */
+/* Stage replaces the old .wp-track */
+.wp-stage {
+  width: 100%;
   height: 100%;
-  transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1.000);
-  will-change: transform;
+  position: relative;
 }
 
 .wp-section {
-  width: calc(100% / 7); /* each = 100vw */
+  position: absolute;
+  inset: 0;
+  width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  position: relative;
-  flex-shrink: 0;
+  opacity: 0;
+  pointer-events: none;
+  will-change: clip-path, transform, opacity;
+}
+
+/* Resting visible state (no direction yet, first load) */
+.wp-visible {
+  opacity: 1;
+  pointer-events: all;
+  clip-path: inset(0 0 0 0%);
+  transform: translateX(0);
+}
+
+/* Enter from right (next) */
+.wp-enter-next {
+  opacity: 1;
+  pointer-events: all;
+  animation: wp-enter-next 0.65s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+/* Exit to left (next) */
+.wp-exit-next {
+  opacity: 1;
+  pointer-events: none;
+  animation: wp-exit-next 0.4s cubic-bezier(0.55, 0, 0.45, 1) forwards;
+}
+
+/* Enter from left (prev) */
+.wp-enter-prev {
+  opacity: 1;
+  pointer-events: all;
+  animation: wp-enter-prev 0.65s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+/* Exit to right (prev) */
+.wp-exit-prev {
+  opacity: 1;
+  pointer-events: none;
+  animation: wp-exit-prev 0.4s cubic-bezier(0.55, 0, 0.45, 1) forwards;
 }
 
 /* ── Slide Backgrounds ── */
@@ -161,6 +219,95 @@
   z-index: 1;
 }
 
+/* ── Navigation Arrows ── */
+.wp-nav-prev,
+.wp-nav-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(24, 58, 107, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.wp-nav-prev { left: 20px; }
+.wp-nav-next { right: 20px; }
+
+.wp-nav-prev:hover,
+.wp-nav-next:hover {
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.wp-nav-prev:disabled,
+.wp-nav-next:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.wp-nav-prev svg,
+.wp-nav-next svg {
+  width: 18px;
+  height: 18px;
+  stroke: #183a6b;
+  fill: none;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── Dot Indicators ── */
+.wp-dots {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 100;
+}
+
+.wp-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(24, 58, 107, 0.25);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  border: none;
+  padding: 0;
+}
+
+.wp-dot.wp-dot-active {
+  background: #183a6b;
+  transform: scale(1.4);
+}
+
+/* ── Slide Counter ── */
+.wp-slide-counter {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 100;
+  font-size: 11px;
+  font-weight: 700;
+  color: #183a6b;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(24, 58, 107, 0.15);
+  border-radius: 20px;
+  padding: 4px 10px;
+  letter-spacing: 0.5px;
+}
+
 /* ════════════════════════════
    SLIDE 7 — Stats
    ════════════════════════════ */
@@ -184,7 +331,6 @@
   margin: 0;
 }
 
-/* ── 4 stat cards ── */
 .wp-stats-grid {
   display: flex;
   justify-content: center;
@@ -199,7 +345,6 @@
   gap: 14px;
 }
 
-/* Blue gradient circle */
 .wp-stat-circle {
   width: 130px;
   height: 130px;
@@ -215,7 +360,7 @@
   width: 60px;
   height: 60px;
   object-fit: contain;
-  filter: brightness(0) invert(1); /* makes PNG white */
+  filter: brightness(0) invert(1);
 }
 
 .wp-stat-value {
@@ -230,7 +375,6 @@
   text-align: center;
 }
 
-/* ── CTA ── */
 .wp-stats-cta {
   display: flex;
   flex-direction: column;
@@ -263,123 +407,268 @@
   background: #0f2a52;
 }
 
-/* ── Responsive ── */
+/* ════════════════════════════
+   RESPONSIVE — 768px
+   ════════════════════════════ */
+@media (max-width: 768px) {
 
-/* ===============================
-   🔹 1024px
-================================= */
-@media (max-width: 1024px) {
-
-  .wp-outer {
-    height: auto;              /* 🔥 avoid vh issues */
-    min-height: 100vh;
-  }
-
-  .wp-section {
-    height: auto;
-    min-height: 100vh;
-    padding: 40px 0;
+  .wp-corner-left,
+  .wp-corner-right {
+    display: none;
   }
 
   .wp-container {
     width: 90%;
+    justify-content: center;
   }
 
-  /* ── Header ── */
+  .wp-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .wp-title h1 {
-    font-size: 34px;
+    font-size: 24px;
+    line-height: 1.3;
   }
 
   .wp-subtext {
-    width: 48%;
+    width: 100%;
+    padding-top: 0;
   }
 
   .wp-subtext p {
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.6;
   }
 
-  /* ── Content ── */
+  .wp-divider {
+    margin: 18px 0 20px 0;
+  }
+
   .wp-content {
-    gap: 30px;
+    flex-direction: column;
+    gap: 20px;
   }
 
   .wp-left {
-    width: 48%;
+    width: 100%;
   }
 
-  .wp-right {
-    width: 44%;
-    padding-top: 40px;
+  .wp-step-label {
+    font-size: 12px;
+    margin-bottom: 6px;
   }
 
   .wp-step-heading {
-    font-size: 20px;
+    font-size: 18px;
+    margin: 0 0 10px 0;
   }
 
   .wp-step-desc {
+    font-size: 13px;
+    line-height: 1.65;
+    max-width: 100%;
+  }
+
+  .wp-right {
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .wp-block-title {
     font-size: 13.5px;
+    margin: 0 0 8px 0;
   }
 
   .wp-block-list li {
-    font-size: 13px;
+    font-size: 12.5px;
+    margin-bottom: 7px;
+    line-height: 1.5;
   }
 
-  /* ── Corner decorations ── */
-  .wp-corner-left,
-  .wp-corner-right {
-    width: 120px;
+  .wp-small-divider {
+    width: 100%;
+    margin: 14px 0;
   }
 
-  /* ── Stats (Slide 7) ── */
   .wp-stats-container {
     width: 90%;
-    gap: 30px;
+    gap: 24px;
   }
 
   .wp-stats-heading {
-    font-size: 30px;
+    font-size: 20px;
+    line-height: 1.3;
   }
 
   .wp-stats-grid {
-    gap: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 20px;
+    justify-items: center;
   }
 
   .wp-stat-circle {
-    width: 110px;
-    height: 110px;
+    width: 80px;
+    height: 80px;
   }
 
   .wp-stat-icon {
-    width: 50px;
-    height: 50px;
+    width: 36px;
+    height: 36px;
   }
 
   .wp-stat-value {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .wp-stat-label {
     font-size: 12px;
   }
 
+  .wp-cta-text {
+    font-size: 13.5px;
+  }
+
   .wp-cta-btn {
-    padding: 12px 30px;
+    padding: 11px 26px;
     font-size: 13px;
   }
+
+  .wp-nav-prev { left: 10px; }
+  .wp-nav-next { right: 10px; }
 }
 
-@media (max-width: 768px) {
-  .wp-title h1 { font-size: 28px; }
-  .wp-content { flex-direction: column; gap: 24px; }
-  .wp-left, .wp-right { width: 100%; }
-  .wp-corner-left, .wp-corner-right { width: 100px; }
-  .wp-stats-heading { font-size: 24px; }
-  .wp-stats-grid { gap: 24px; flex-wrap: wrap; }
-  .wp-stat-circle { width: 90px; height: 90px; }
-  .wp-stat-icon { width: 40px; height: 40px; }
-  .wp-stat-value { font-size: 22px; }
-}
+/* ════════════════════════════
+   RESPONSIVE — 425px
+   ════════════════════════════ */
+@media (max-width: 425px) {
 
-@media (max-width: 420px) {
-  .wp-corner-left, .wp-corner-right { display: none; }
+  .wp-corner-left,
+  .wp-corner-right {
+    display: none;
+  }
+
+  .wp-container {
+    width: 88%;
+    justify-content: center;
+  }
+
+  .wp-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .wp-title h1 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .wp-subtext {
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .wp-subtext p {
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  .wp-divider {
+    margin: 14px 0 16px 0;
+  }
+
+  .wp-content {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .wp-left {
+    width: 100%;
+  }
+
+  .wp-step-label {
+    font-size: 11px;
+    margin-bottom: 5px;
+  }
+
+  .wp-step-heading {
+    font-size: 17px;
+    margin: 0 0 8px 0;
+  }
+
+  .wp-step-desc {
+    font-size: 12.5px;
+    line-height: 1.65;
+    max-width: 100%;
+  }
+
+  .wp-right {
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .wp-block-title {
+    font-size: 13px;
+    margin: 0 0 7px 0;
+  }
+
+  .wp-block-list li {
+    font-size: 12px;
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .wp-small-divider {
+    width: 100%;
+    margin: 12px 0;
+  }
+
+  .wp-stats-container {
+    width: 88%;
+    gap: 20px;
+  }
+
+  .wp-stats-heading {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  .wp-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 16px;
+    justify-items: center;
+  }
+
+  .wp-stat-circle {
+    width: 72px;
+    height: 72px;
+  }
+
+  .wp-stat-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .wp-stat-value {
+    font-size: 18px;
+  }
+
+  .wp-stat-label {
+    font-size: 11px;
+  }
+
+  .wp-cta-text {
+    font-size: 12.5px;
+  }
+
+  .wp-cta-btn {
+    padding: 10px 22px;
+    font-size: 12.5px;
+  }
+
+  .wp-nav-prev { left: 6px; }
+  .wp-nav-next { right: 6px; }
 }

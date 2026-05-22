@@ -143,7 +143,8 @@
 .menu-overlay {
   position: fixed;
   inset: 0;
-  background: linear-gradient(160deg, #0b1a35 0%, #0d2247 55%, #112b58 100%);
+ background: linear-gradient(90deg, #158CBE 0%, #073270 100%);
+
   z-index: 9999;
   display: flex;
   align-items: flex-start;
@@ -281,6 +282,30 @@
   margin: 0;
 }
 
+/* 🔹 Hover + Click (active) color */
+.link-column ul li {
+  transition: color 0.25s ease;
+}
+
+/* Hover */
+.link-column ul li:hover {
+  color: #F7DF1E;
+; /* professional soft yellow */
+}
+
+/* Click (active state) */
+.link-column ul li:active {
+  color:  #F7DF1E;
+;
+}
+
+/* Optional: bullet color also changes */
+.link-column ul li:hover::before,
+.link-column ul li:active::before {
+  color:#F7DF1E;
+;
+}
+
 @media (max-width: 1024px) {
 
   .navbar-container {
@@ -326,25 +351,53 @@
     font-size: 13px;
   }
 
+  /* ── OVERLAY ── */
+  .menu-overlay {
+    overflow-y: auto;
+  }
+
   .overlay-inner {
     flex-direction: column;
     padding: 100px 40px 40px 40px;
-    gap: 40px;
+    gap: 30px;
   }
 
-  .overlay-links {
-    flex-direction: column;
-    gap: 40px;
-  }
-
+  /* ── REMOVE RIGHT PANEL ── */
   .overlay-right {
+    display: none;
+  }
+
+  /* ── SIDE BY SIDE GRID ── */
+  .overlay-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* SIDE BY SIDE */
+    gap: 40px 60px;
     width: 100%;
   }
 
-  .team-photo {
-    height: 200px;
+  .link-column {
+    width: 100%;
   }
 
+  .col-title {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+
+  .second-title {
+    margin-top: 22px;
+  }
+
+  .link-column ul {
+    gap: 10px;
+  }
+
+  .link-column ul li {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* ── CLOSE + LOGO ── */
   .close-box {
     right: 40px;
     top: 24px;
@@ -354,86 +407,94 @@
     left: 40px;
     top: 24px;
   }
-
-  .col-title {
-    font-size: 20px;
-  }
-
-  .link-column ul li {
-    font-size: 14px;
-  }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 425px) {
 
   .navbar-container {
-    padding: 0 20px;
+    padding: 0 18px;
     height: 70px;
   }
 
   .logo {
-    width: 48px;
+    width: 44px;
     height: auto;
   }
 
   .menu-box {
-    height: 38px;
-    padding: 0 12px;
+    height: 36px;
+    padding: 0 10px;
+    gap: 8px;
   }
 
   .menu-text {
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 1px;
   }
 
   .menu-icon {
-    width: 16px;
+    width: 15px;
     height: 10px;
   }
 
+  /* ── OVERLAY ── */
+  .menu-overlay {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
   .overlay-inner {
-    padding: 90px 20px 30px 20px;
-    gap: 30px;
+    flex-direction: column;
+    padding: 80px 16px 30px 16px;
+    gap: 24px;
   }
 
-  .overlay-links {
-    gap: 30px;
-  }
-
-  .col-title {
-    font-size: 18px;
-  }
-
-  .link-column ul li {
-    font-size: 13px;
-  }
-
+  /* ── REMOVE RIGHT PANEL ── */
   .overlay-right {
+    display: none;
+  }
+
+  /* ── GRID LAYOUT FOR COLUMNS ── */
+  .overlay-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* SIDE BY SIDE */
+    gap: 24px 18px;
     width: 100%;
   }
 
-  .team-photo {
-    height: 160px;
+  .link-column {
+    width: 100%;
   }
 
-  .awards-row {
-    gap: 6px;
+  .col-title {
+    font-size: 16px;
+    margin-bottom: 12px;
   }
 
-  .award-single {
-    width: calc(33.33% - 4px);
+  .second-title {
+    margin-top: 18px;
   }
 
+  .link-column ul {
+    gap: 8px;
+  }
+
+  .link-column ul li {
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+
+  /* ── CLOSE + LOGO ── */
   .close-box {
-    right: 20px;
-    top: 20px;
-    height: 38px;
-    padding: 0 12px;
+    right: 14px;
+    top: 14px;
+    height: 36px;
+    padding: 0 10px;
   }
 
   .overlay-logo {
-    left: 20px;
-    top: 20px;
-    width: 48px;
+    left: 14px;
+    top: 14px;
+    width: 42px;
   }
 }

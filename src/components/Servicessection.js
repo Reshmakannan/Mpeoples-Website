@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import "../Style/Servicessection.css";
 
 import uiuxLogo    from "../assets/uiux logo.png";
@@ -121,60 +121,36 @@ const services = [
   },
 ];
 
+const CARD_HEIGHT = 480;
+
 const OurServices = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [visibleCards, setVisibleCards] = useState(new Set([0]));
-  const rightRef = useRef(null);
-  const cardRefs = useRef([]);
+  const viewportRef = useRef(null);
+  const isScrolling = useRef(false);
 
-  // Track which card is in view → highlight left label
+  // Sync active index when user swipes inside viewport (scroll-snap fires scrollend)
   useEffect(() => {
-    const container = rightRef.current;
-    if (!container) return;
+    const el = viewportRef.current;
+    if (!el) return;
 
-    const handleScroll = () => {
-      const scrollTop = container.scrollTop;
-      const containerHeight = container.clientHeight;
-
-      let closest = 0;
-      let minDist = Infinity;
-
-      cardRefs.current.forEach((card, i) => {
-        if (!card) return;
-        const cardTop = card.offsetTop - container.offsetTop;
-        const dist = Math.abs(scrollTop - cardTop + containerHeight * 0.1);
-        if (dist < minDist) {
-          minDist = dist;
-          closest = i;
-        }
-      });
-
-      setActiveIndex(closest);
-
-      // Mark next card as visible so its animation triggers
-      setVisibleCards((prev) => {
-        const next = new Set(prev);
-        next.add(closest);
-        if (closest + 1 < services.length) next.add(closest + 1);
-        return next;
-      });
+    const onScroll = () => {
+      if (isScrolling.current) return;
+      const index = Math.round(el.scrollTop / CARD_HEIGHT);
+      setActiveIndex(index);
     };
 
-    container.addEventListener("scroll", handleScroll, { passive: true });
-    return () => container.removeEventListener("scroll", handleScroll);
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Click left label → smooth scroll to that card
-  const scrollToCard = (i) => {
-    const container = rightRef.current;
-    const card = cardRefs.current[i];
-    if (!container || !card) return;
-    container.scrollTo({
-      top: card.offsetTop - container.offsetTop,
-      behavior: "smooth",
-    });
-    setActiveIndex(i);
-  };
+  // Programmatic navigation — arrow / dots / left label
+  const goTo = useCallback((i) => {
+    const next = Math.max(0, Math.min(i, services.length - 1));
+    setActiveIndex(next);
+    isScrolling.current = true;
+    viewportRef.current?.scrollTo({ top: next * CARD_HEIGHT, behavior: "smooth" });
+    setTimeout(() => { isScrolling.current = false; }, 700);
+  }, []);
 
   return (
     <section className="rs-container">
@@ -189,7 +165,7 @@ const OurServices = () => {
               <div
                 className={`rs-item ${activeIndex === index ? "rs-item--active" : ""}`}
                 key={index}
-                onClick={() => scrollToCard(index)}
+                onClick={() => goTo(index)}
               >
                 <div className="rs-indicator">
                   <div className="rs-dot" />
@@ -201,48 +177,63 @@ const OurServices = () => {
           </div>
         </div>
 
-        {/* ── RIGHT scrollable card stack ── */}
-        <div className="rs-right" ref={rightRef}>
-          {services.map((svc, index) => (
-            <div
-              className={`rs-card ${visibleCards.has(index) ? "rs-card--visible" : ""}`}
-              key={index}
-              ref={(el) => (cardRefs.current[index] = el)}
-            >
-              {/* Header */}
-              <div className="rs-header">
-                <img src={svc.logo} alt={svc.label} className="rs-logo" />
-                <span className="rs-heading">{svc.label}</span>
-              </div>
+        {/* ── RIGHT viewport — scroll-snap container ── */}
+        <div className="rs-right-wrap">
+          <div className="rs-viewport" ref={viewportRef}>
+            {services.map((svc, index) => (
+              <div className="rs-card" key={index}>
 
-              {/* Image */}
-              <div className="rs-image-wrap">
-                <img src={svc.image} alt={svc.label} className="rs-image" />
-              </div>
-
-              {/* Description */}
-              <div className="rs-desc">
-                <p>{svc.desc1}</p>
-                {svc.desc2 && <p>{svc.desc2}</p>}
-                {svc.desc3 && <p>{svc.desc3}</p>}
-              </div>
-
-              {/* Tags + Arrow */}
-              <div className="rs-bottom-row">
-                <div className="rs-tags">
-                  {svc.tags.map((tag, ti) => (
-                    <div className={`rs-tag ${tag.cls}`} key={ti}>
-                      <span className="rs-dot-sm" />
-                      {tag.label}
-                    </div>
-                  ))}
+                {/* Header */}
+                <div className="rs-header">
+                  <img src={svc.logo} alt={svc.label} className="rs-logo" />
+                  <span className="rs-heading">{svc.label}</span>
                 </div>
-                <div className="rs-arrow">
-                  <img src={arrowIcon} alt="arrow" />
+
+                {/* Image */}
+                <div className="rs-image-wrap">
+                  <img src={svc.image} alt={svc.label} className="rs-image" />
                 </div>
+
+                {/* Description */}
+                <div className="rs-desc">
+                  <p>{svc.desc1}</p>
+                  {svc.desc2 && <p>{svc.desc2}</p>}
+                  {svc.desc3 && <p>{svc.desc3}</p>}
+                </div>
+
+                {/* Tags + Arrow */}
+                <div className="rs-bottom-row">
+                  <div className="rs-tags">
+                    {svc.tags.map((tag, ti) => (
+                      <div className={`rs-tag ${tag.cls}`} key={ti}>
+                        <span className="rs-dot-sm" />
+                        {tag.label}
+                      </div>
+                    ))}
+                  </div>
+                  <div
+                    className="rs-arrow"
+                    onClick={() => goTo((index + 1) % services.length)}
+                  >
+                    <img src={arrowIcon} alt="arrow" />
+                  </div>
+                </div>
+
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Progress dots */}
+          <div className="rs-nav-dots">
+            {services.map((_, i) => (
+              <button
+                key={i}
+                className={`rs-nav-dot ${activeIndex === i ? "rs-nav-dot--active" : ""}`}
+                onClick={() => goTo(i)}
+                aria-label={`Go to ${services[i].label}`}
+              />
+            ))}
+          </div>
         </div>
 
       </div>

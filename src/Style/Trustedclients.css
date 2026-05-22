@@ -190,23 +190,19 @@
   }
 
   .logo-item img {
-    max-width: 120px;
+    max-width: 160px;
   }
 }
 
-/* =========================
-   768px
-========================= */
 @media (max-width: 768px) {
 
   .trusted-section {
     padding: 45px 16px 60px;
   }
 
+  /* ❌ REMOVE BACKGROUND TEXT */
   .bg-text {
-    font-size: 110px;
-    top: 45%;
-    transform: translate(-50%, -50%) scaleX(1);
+    display: none;
   }
 
   .trusted-section h2 {
@@ -234,44 +230,54 @@
   }
 
   .logo-item img {
-    max-width: 100px;
+    max-width: 140px;
   }
 }
 
-/* =========================
-   420px
-========================= */
-@media (max-width: 420px) {
+@media (max-width: 425px) {
 
   .trusted-section {
-    padding: 35px 12px 50px;
+    padding: 36px 14px 50px;
   }
 
+  /* ❌ REMOVE BACKGROUND TEXT */
   .bg-text {
-    font-size: 65px;
-    top: 46%;
+    display: none;
   }
 
   .trusted-section h2 {
-    font-size: 22px;
+    font-size: 24px;
+    margin-bottom: 12px;
   }
 
   .trusted-section p {
     font-size: 13px;
-    margin-bottom: 30px;
+    max-width: 100%;
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  .logo-slider {
+    margin-top: 14px;
+  }
+
+  /* cleaner edges */
+  .logo-slider::before,
+  .logo-slider::after {
+    width: 30px;
   }
 
   .logo-track {
-    margin-top: 20px;
-    animation-duration: 12s;
+    margin-top: 16px;
+    animation-duration: 14s;
   }
 
   .logo-item {
-    width: 140px;
+    width: 130px;
     padding: 10px;
   }
 
   .logo-item img {
-    max-width: 80px;
+    max-width: 120px;
   }
 }

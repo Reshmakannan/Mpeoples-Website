@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import "../Style/Webprocess.css";
 import trapLeft from "../assets/left-corner.png";
 import trapRight from "../assets/right-corner.png";
@@ -9,10 +9,10 @@ import icon3 from "../assets/experience-icon.png";
 import icon4 from "../assets/team-icon.png";
 
 const stats = [
-  { icon: icon1, value: "250+", label: "Projects" },
-  { icon: icon2, value: "50+",  label: "Satisfied Clients" },
-  { icon: icon3, value: "6+",   label: "Industry Experience" },
-  { icon: icon4, value: "20+",  label: "Development People's" },
+  { icon: icon1, value: 250, suffix: "+", label: "Projects" },
+  { icon: icon2, value: 50,  suffix: "+", label: "Satisfied Clients" },
+  { icon: icon3, value: 6,   suffix: "+", label: "Industry Experience" },
+  { icon: icon4, value: 20,  suffix: "+", label: "Development People's" },
 ];
 
 const slides = [
@@ -72,175 +72,126 @@ const slides = [
 
 const TOTAL = slides.length;
 
-const Webprocess = () => {
-  const [current, setCurrent] = useState(0);
-  const currentRef    = useRef(0);
-  const isAnimating   = useRef(false);
-  const outerRef      = useRef(null);
-  const lockedRef     = useRef(false);
-  const savedScrollY  = useRef(0);
+/* =========================
+   COUNT UP COMPONENT
+========================= */
+const CountUp = ({ end, suffix = "" }) => {
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    currentRef.current = current;
-  }, [current]);
+    let start = 0;
 
-  useEffect(() => {
-    const section = outerRef.current;
-    if (!section) return;
+    const duration = 1800;
+    const increment = end / (duration / 16);
 
-    const isSectionFullyVisible = () => {
-      const rect = section.getBoundingClientRect();
-      return (
-        rect.top    >= -2 && rect.top    <= 2 &&
-        rect.bottom >= window.innerHeight - 2 &&
-        rect.bottom <= window.innerHeight + 2
-      );
-    };
+    const counter = setInterval(() => {
+      start += increment;
 
-    const lockPage = () => {
-      if (lockedRef.current) return;
-      lockedRef.current    = true;
-      savedScrollY.current = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top      = `-${savedScrollY.current}px`;
-      document.body.style.left     = "0";
-      document.body.style.width    = "100%";
-    };
-
-    const unlockAndScrollTo = (targetY) => {
-      if (!lockedRef.current) return;
-      lockedRef.current = false;
-      document.body.style.position = "";
-      document.body.style.top      = "";
-      document.body.style.left     = "";
-      document.body.style.width    = "";
-      window.scrollTo({ top: savedScrollY.current, behavior: "instant" });
-      requestAnimationFrame(() => {
-        window.scrollTo({ top: targetY, behavior: "smooth" });
-      });
-    };
-
-    const handleWheel = (e) => {
-      // ── NOT locked yet ──────────────────────────────────────────
-      if (!lockedRef.current) {
-        // Only care if THIS section is fully visible
-        if (!isSectionFullyVisible()) return;
-        // First wheel on fully-visible section → lock, don't slide yet
-        e.preventDefault();
-        e.stopPropagation();
-        lockPage();
-        return;
+      if (start >= end) {
+        setCount(end);
+        clearInterval(counter);
+      } else {
+        setCount(Math.floor(start));
       }
+    }, 16);
 
-      // ── Locked: this section owns the scroll ────────────────────
-      e.preventDefault();
-      e.stopPropagation();
-
-      if (isAnimating.current) return;
-
-      const cur       = currentRef.current;
-      const goingDown = e.deltaY > 0;
-      const goingUp   = e.deltaY < 0;
-
-      // Exit up from slide 0
-      if (goingUp && cur === 0) {
-        isAnimating.current = true;
-        unlockAndScrollTo(savedScrollY.current - window.innerHeight);
-        setTimeout(() => { isAnimating.current = false; }, 1000);
-        return;
-      }
-
-      // Exit down from last slide
-      if (goingDown && cur === TOTAL - 1) {
-        isAnimating.current = true;
-        unlockAndScrollTo(savedScrollY.current + window.innerHeight);
-        setTimeout(() => { isAnimating.current = false; }, 1000);
-        return;
-      }
-
-      // Slide horizontally
-      isAnimating.current = true;
-      setCurrent((prev) => {
-        const next = goingDown
-          ? Math.min(prev + 1, TOTAL - 1)
-          : Math.max(prev - 1, 0);
-        currentRef.current = next;
-        return next;
-      });
-      setTimeout(() => { isAnimating.current = false; }, 950);
-    };
-
-    // ── Touch ───────────────────────────────────────────────────────
-    let touchStartY = 0;
-
-    const handleTouchStart = (e) => {
-      touchStartY = e.touches[0].clientY;
-    };
-
-    const handleTouchMove = (e) => {
-      if (!lockedRef.current) return;
-      e.preventDefault();
-
-      const deltaY    = touchStartY - e.touches[0].clientY;
-      if (Math.abs(deltaY) < 30) return;
-
-      if (isAnimating.current) return;
-
-      const cur       = currentRef.current;
-      const goingDown = deltaY > 0;
-      const goingUp   = deltaY < 0;
-
-      if (goingUp && cur === 0) {
-        unlockAndScrollTo(savedScrollY.current - window.innerHeight);
-        return;
-      }
-      if (goingDown && cur === TOTAL - 1) {
-        unlockAndScrollTo(savedScrollY.current + window.innerHeight);
-        return;
-      }
-
-      isAnimating.current = true;
-      setCurrent((prev) => {
-        const next = goingDown
-          ? Math.min(prev + 1, TOTAL - 1)
-          : Math.max(prev - 1, 0);
-        currentRef.current = next;
-        return next;
-      });
-      touchStartY = e.touches[0].clientY;
-      setTimeout(() => { isAnimating.current = false; }, 950);
-    };
-
-    // Use capture phase so this fires before other listeners
-    window.addEventListener("wheel",      handleWheel,      { passive: false, capture: true });
-    window.addEventListener("touchstart", handleTouchStart, { passive: true });
-    window.addEventListener("touchmove",  handleTouchMove,  { passive: false });
-
-    return () => {
-      window.removeEventListener("wheel",      handleWheel,      { capture: true });
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove",  handleTouchMove);
-      document.body.style.position = "";
-      document.body.style.top      = "";
-      document.body.style.left     = "";
-      document.body.style.width    = "";
-    };
-  }, []);
+    return () => clearInterval(counter);
+  }, [end]);
 
   return (
-    <div className="wp-outer" ref={outerRef}>
-      <div
-        className="wp-track"
-        style={{ transform: `translateX(-${current * (100 / TOTAL)}%)` }}
-      >
-        {slides.map((slide, i) =>
-          slide.isStats ? (
+    <>
+      {count}
+      {suffix}
+    </>
+  );
+};
 
-            <section key={i} className="wp-section wp-slide-7">
+const Webprocess = () => {
+  const [current, setCurrent]   = useState(0);
+  const [animDir, setAnimDir]   = useState(null);
+  const [exiting, setExiting]   = useState(false);
+
+  const isAnimating             = useRef(false);
+  const exitingIndex            = useRef(null);
+
+  const goTo = useCallback((nextIndex, direction) => {
+    if (isAnimating.current) return;
+    if (nextIndex === current) return;
+
+    isAnimating.current = true;
+    exitingIndex.current = current;
+    setAnimDir(direction);
+    setExiting(true);
+
+    setTimeout(() => {
+      setExiting(false);
+      setCurrent(nextIndex);
+      exitingIndex.current = null;
+
+      setTimeout(() => {
+        isAnimating.current = false;
+        setAnimDir(null);
+      }, 700);
+    }, 420);
+  }, [current]);
+
+  const goNext = useCallback(() => {
+    if (current < TOTAL - 1) goTo(current + 1, "next");
+  }, [current, goTo]);
+
+  const goPrev = useCallback(() => {
+    if (current > 0) goTo(current - 1, "prev");
+  }, [current, goTo]);
+
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") goNext();
+      if (e.key === "ArrowLeft"  || e.key === "ArrowUp")   goPrev();
+    };
+
+    window.addEventListener("keydown", handleKey);
+
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [goNext, goPrev]);
+
+  const getSlideClass = (i) => {
+    const classes = ["wp-section", slides[i].slideClass];
+
+    if (i === current && !exiting) {
+      classes.push(animDir ? `wp-enter-${animDir}` : "wp-visible");
+    }
+
+    if (exiting && i === exitingIndex.current) {
+      classes.push(`wp-exit-${animDir}`);
+    }
+
+    return classes.join(" ");
+  };
+
+  return (
+    <div className="wp-outer">
+
+      {/* Slides */}
+      <div className="wp-stage">
+        {slides.map((slide, i) => {
+
+          const isVisible = i === current;
+          const isExit = exiting && i === exitingIndex.current;
+
+          if (!isVisible && !isExit) return null;
+
+          return slide.isStats ? (
+
+            /* =========================
+               LAST STATS SLIDE
+            ========================= */
+            <section key={i} className={getSlideClass(i)}>
+
               <img src={trapLeft} alt="" className="wp-corner-left" />
               <img src={trapRight} alt="" className="wp-corner-right" />
 
               <div className="wp-stats-container">
+
                 <h2 className="wp-stats-heading">
                   Interesting Facts And Figures Of Our Success
                 </h2>
@@ -248,77 +199,178 @@ const Webprocess = () => {
                 <div className="wp-stats-grid">
                   {stats.map((stat, j) => (
                     <div key={j} className="wp-stat-item">
+
                       <div className="wp-stat-circle">
-                        <img src={stat.icon} alt={stat.label} className="wp-stat-icon" />
+                        <img
+                          src={stat.icon}
+                          alt={stat.label}
+                          className="wp-stat-icon"
+                        />
                       </div>
-                      <div className="wp-stat-value">{stat.value}</div>
-                      <div className="wp-stat-label">{stat.label}</div>
+
+                      {/* 🔥 COUNTING NUMBER */}
+                      <div className="wp-stat-value">
+                        {current === TOTAL - 1 && (
+                          <CountUp
+                            end={stat.value}
+                            suffix={stat.suffix}
+                          />
+                        )}
+                      </div>
+
+                      <div className="wp-stat-label">
+                        {stat.label}
+                      </div>
+
                     </div>
                   ))}
                 </div>
 
                 <div className="wp-stats-cta">
-                  <p className="wp-cta-text">Start Your Digital Transformation With Us</p>
-                  <button className="wp-cta-btn">Connect With Us</button>
+                  <p className="wp-cta-text">
+                    Start Your Digital Transformation With Us
+                  </p>
+
+                  <button className="wp-cta-btn">
+                    Connect With Us
+                  </button>
                 </div>
+
               </div>
             </section>
 
           ) : (
 
-            <section key={i} className={`wp-section ${slide.slideClass}`}>
+            /* =========================
+               NORMAL SLIDES
+            ========================= */
+            <section key={i} className={getSlideClass(i)}>
+
               <img src={trapLeft} alt="" className="wp-corner-left" />
               <img src={trapRight} alt="" className="wp-corner-right" />
 
               <div className="wp-container">
+
                 <div className="wp-header">
+
                   <div className="wp-title">
-                    <h1>Our Process from <br /> Design to Launch</h1>
+                    <h1>
+                      Our Process from <br />
+                      Design to Launch
+                    </h1>
                   </div>
+
                   <div className="wp-subtext">
                     <p>
-                      We infuse your essence into every pixel, seamlessly
-                      integrating technology to elevate your digital presence.
+                      We infuse your essence into every pixel,
+                      seamlessly integrating technology to elevate
+                      your digital presence.
                     </p>
                   </div>
+
                 </div>
 
                 <div className="wp-divider"></div>
 
                 <div className="wp-content">
+
                   <div className="wp-left">
-                    <span className="wp-step-label">{slide.step}</span>
-                    <h2 className="wp-step-heading">{slide.heading}</h2>
-                    <p className="wp-step-desc">{slide.desc}</p>
+
+                    <span className="wp-step-label">
+                      {slide.step}
+                    </span>
+
+                    <h2 className="wp-step-heading">
+                      {slide.heading}
+                    </h2>
+
+                    <p className="wp-step-desc">
+                      {slide.desc}
+                    </p>
+
                   </div>
 
                   <div className="wp-right">
+
                     <div className="wp-block">
-                      <h3 className="wp-block-title">Client Benefits</h3>
+
+                      <h3 className="wp-block-title">
+                        Client Benefits
+                      </h3>
+
                       <ul className="wp-block-list">
                         {slide.benefits.map((item, j) => (
                           <li key={j}>{item}</li>
                         ))}
                       </ul>
+
                     </div>
 
                     <div className="wp-small-divider"></div>
 
                     <div className="wp-block">
-                      <h3 className="wp-block-title">Our Approach</h3>
+
+                      <h3 className="wp-block-title">
+                        Our Approach
+                      </h3>
+
                       <ul className="wp-block-list">
                         {slide.approach.map((item, j) => (
                           <li key={j}>{item}</li>
                         ))}
                       </ul>
+
                     </div>
+
                   </div>
                 </div>
               </div>
             </section>
-          )
-        )}
+          );
+        })}
       </div>
+
+      {/* PREV BUTTON */}
+      <button
+        className="wp-nav-prev"
+        onClick={goPrev}
+        disabled={current === 0}
+        aria-label="Previous slide"
+      >
+        <svg viewBox="0 0 24 24">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+
+      {/* NEXT BUTTON */}
+      <button
+        className="wp-nav-next"
+        onClick={goNext}
+        disabled={current === TOTAL - 1}
+        aria-label="Next slide"
+      >
+        <svg viewBox="0 0 24 24">
+          <polyline points="9 6 15 12 9 18" />
+        </svg>
+      </button>
+
+      {/* DOTS */}
+      <div className="wp-dots">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            className={`wp-dot${i === current ? " wp-dot-active" : ""}`}
+            onClick={() => goTo(i, i > current ? "next" : "prev")}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* COUNTER */}
+      <div className="wp-slide-counter">
+        {String(current + 1).padStart(2, "0")} / {String(TOTAL).padStart(2, "0")}
+      </div>
+
     </div>
   );
 };

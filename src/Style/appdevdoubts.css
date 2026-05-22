@@ -94,32 +94,47 @@
   max-width: 92%;
 }
 
-/* Tablet */
-
+/* =========================================
+   🔹 1024px PERFECT TABLET
+========================================= */
 @media (max-width: 1024px) {
 
   .appdoubts-section {
-    height: auto;               /* 🔥 important fix */
     min-height: auto;
-    padding: 45px 40px;
+    height: auto;
+
+    padding: 40px 32px;
+
+    overflow: hidden;
   }
 
   .appdoubts-container {
-    max-width: 900px;
-    transform: scale(0.96);     /* slight scale instead of full */
+    width: 100%;
+    max-width: 1000px;
+
+    transform: none;
   }
 
   .appdoubts-title {
     font-size: 42px;
-    margin-bottom: 32px;
+    line-height: 1.2;
+
+    margin-bottom: 26px;
   }
 
   .appdoubts-faq-item {
     padding: 14px 0;
   }
 
+  .appdoubts-faq-question-row {
+    gap: 20px;
+  }
+
   .appdoubts-faq-question {
-    font-size: 19px;
+    font-size: 20px;
+    line-height: 1.45;
+
+    max-width: 88%;
   }
 
   .appdoubts-faq-btn {
@@ -132,56 +147,65 @@
     height: 38px;
   }
 
-  .appdoubts-faq-answer {
-    font-size: 15px;
-    max-width: 95%;
+  .appdoubts-faq-answer-wrapper.show {
+    max-height: 160px;
+    margin-top: 10px;
   }
 
-  .appdoubts-faq-answer-wrapper.show {
-    max-height: 110px; /* slightly more space */
+  .appdoubts-faq-answer {
+    font-size: 15px;
+    line-height: 1.7;
+
+    max-width: 96%;
   }
 }
 
-@media (max-width: 992px) {
+/* =========================================
+   🔹 768px PERFECT TABLET
+========================================= */
+@media (max-width: 768px) {
+
   .appdoubts-section {
-    height: auto;
     min-height: auto;
-    padding: 40px 30px;
+    height: auto;
+
+    padding: 36px 22px;
+
+    overflow: hidden;
   }
 
   .appdoubts-container {
-    transform: scale(1);
+    width: 100%;
+
+    transform: none;
   }
 
   .appdoubts-title {
-    margin-bottom: 35px;
+    font-size: 32px;
+    line-height: 1.2;
+
+    margin-bottom: 28px;
+  }
+
+  .appdoubts-faq-item {
+    padding: 13px 0;
+  }
+
+  .appdoubts-faq-question-row {
+    gap: 16px;
+    align-items: center;
   }
 
   .appdoubts-faq-question {
-    font-size: 20px;
+    font-size: 17px;
+    line-height: 1.5;
+
+    max-width: 82%;
   }
 
-  .appdoubts-faq-answer-wrapper.show {
-    max-height: 120px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .appdoubts-section {
-    height: auto;
-    min-height: auto;
-    padding: 35px 20px;
-  }
-
-  .appdoubts-title {
-    font-size: 34px;
-    margin-bottom: 30px;
-  }
-
-  .appdoubts-faq-question {
-    font-size: 16px;
-    max-width: 80%;
+  .appdoubts-faq-btn {
+    width: 36px;
+    height: 36px;
   }
 
   .appdoubts-faq-icon {
@@ -189,12 +213,87 @@
     height: 36px;
   }
 
+  .appdoubts-faq-answer-wrapper.show {
+    max-height: 220px;
+    margin-top: 10px;
+  }
+
   .appdoubts-faq-answer {
-    max-width: 100%;
     font-size: 14px;
+    line-height: 1.7;
+
+    max-width: 100%;
+  }
+}
+
+/* =========================================
+   🔹 425px PERFECT MOBILE
+========================================= */
+@media (max-width: 425px) {
+
+  .appdoubts-section {
+    min-height: auto;
+    height: auto;
+
+    padding: 32px 16px;
+
+    overflow: hidden;
+  }
+
+  .appdoubts-container {
+    width: 100%;
+
+    transform: none;
+  }
+
+  .appdoubts-title {
+    font-size: 28px;
+    line-height: 1.2;
+
+    margin-bottom: 24px;
+  }
+
+  .appdoubts-faq-list {
+    width: 100%;
+  }
+
+  .appdoubts-faq-item {
+    padding: 12px 0;
+  }
+
+  .appdoubts-faq-question-row {
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .appdoubts-faq-question {
+    font-size: 15px;
+    line-height: 1.5;
+
+    max-width: 82%;
+  }
+
+  .appdoubts-faq-btn {
+    width: 32px;
+    height: 32px;
+
+    margin-top: 2px;
+  }
+
+  .appdoubts-faq-icon {
+    width: 32px;
+    height: 32px;
   }
 
   .appdoubts-faq-answer-wrapper.show {
-    max-height: 150px;
+    max-height: 260px;
+    margin-top: 10px;
+  }
+
+  .appdoubts-faq-answer {
+    font-size: 13px;
+    line-height: 1.7;
+
+    max-width: 100%;
   }
 }

@@ -293,3 +293,102 @@
   }
 }
 
+/* ===============================
+   🔹 425px (FINAL CLEAN UI)
+================================= */
+@media (max-width: 425px) {
+
+  .cf-section {
+    padding: 36px 14px 28px;
+    min-height: auto;
+  }
+
+  .cf-heading {
+    font-size: 24px;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+
+  /* 🔥 NAV PERFECT CENTER */
+  .cf-nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 0 18px 0;
+    gap: 14px;
+  }
+
+  .cf-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  /* 🔥 CAROUSEL STRUCTURE */
+  .cf-cards {
+    display: flex;
+    gap: 14px;
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+    padding: 6px 4px 14px;
+  }
+
+  .cf-cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 🔥 PERFECT CARD ALIGNMENT */
+  .cf-card {
+    flex: 0 0 88%;
+    max-width: 88%;
+
+    scroll-snap-align: center;
+
+    padding: 16px;
+    border-radius: 14px;
+
+    background: #E6F0FF;
+  }
+
+  /* 🔥 CONTENT BALANCE */
+  .cf-card-name {
+    font-size: 13px;
+  }
+
+  .cf-bubble {
+    padding: 10px;
+  }
+
+  .cf-bubble-text {
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  .cf-reaction-img {
+    width: 30px;
+  }
+
+  .cf-avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cf-footer-name {
+    font-size: 12.5px;
+  }
+
+  .cf-footer-handle {
+    font-size: 10px;
+  }
+
+  .cf-quote {
+    font-size: 13px;
+    margin-top: 22px;
+    line-height: 1.6;
+    padding: 0 4px;
+  }
+}

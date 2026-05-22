@@ -431,30 +431,164 @@
   }
 }
 
-/* =========================
-   SMALL MOBILE
-========================= */
+/* =========================================
+   🔹 425px PERFECT MOBILE
+========================================= */
+@media (max-width: 425px) {
 
-@media (max-width: 480px) {
+  .appdevprocess-section {
+    padding: 50px 16px;
+  }
+
+  .appdevprocess-container {
+    width: 100%;
+  }
+
+  /* TITLE */
   .appdevprocess-title {
-    font-size: 24px;
+    font-size: 26px;
+    line-height: 1.25;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .appdevprocess-subtitle {
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 34px;
+    text-align: center;
+  }
+
+  /* MAIN CONTENT */
+  .appdevprocess-content {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 28px;
+
+    text-align: center;
+  }
+
+  /* 🔥 REMOVE STEP NUMBERS/TITLE */
+  .appdevprocess-steps {
+    display: none;
+  }
+
+  /* IMAGE CENTER */
+  .appdevprocess-image-wrapper {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    order: 1;
+  }
+
+  .appdevprocess-image-frame {
+    width: 170px;
+    height: 340px;
+
+    border-radius: 28px;
+    border: 4px solid #ffffff;
+
+    margin: 0 auto;
+  }
+
+  .appdevprocess-moving-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* DETAILS */
+  .appdevprocess-details {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 18px;
+
+    text-align: center;
+
+    order: 2;
   }
 
   .appdevprocess-details-title {
-    font-size: 20px;
+    font-size: 22px;
+    line-height: 1.3;
+
+    text-align: center;
   }
 
   .appdevprocess-description-box {
     font-size: 14px;
+    line-height: 1.8;
+
+    text-align: center;
+
+    max-width: 100%;
+  }
+
+  /* BUTTONS BELOW */
+  .appdevprocess-cta {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 4px;
+  }
+
+  .appdevprocess-btn-primary,
+  .appdevprocess-btn-ghost {
+    width: 100%;
+    max-width: 280px;
+
+    height: 44px;
+
+    justify-content: center;
+
+    font-size: 13px;
+    padding: 0 16px;
+  }
+
+  /* SLIDER */
+  .appdevprocess-slider {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 8px;
   }
 
   .appdevprocess-nav-btn {
     width: 38px;
     height: 38px;
+
+    font-size: 16px;
   }
 
-  .appdevprocess-image-frame {
-    width: 115px;
-    height: 230px;
+  .appdevprocess-dots {
+    gap: 7px;
+  }
+
+  .appdevprocess-dot {
+    width: 10px;
+    height: 10px;
   }
 }

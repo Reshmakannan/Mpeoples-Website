@@ -198,7 +198,7 @@
   }
 
   .webdoubt-title {
-    font-size: 42px; /* balanced for tablet */
+    font-size: 40px; /* balanced for tablet */
     margin-bottom: 26px;
   }
 
@@ -239,7 +239,7 @@
   }
 
   .webdoubt-title {
-    font-size: 34px;
+    font-size: 32px;
 
     margin-bottom: 30px;
   }
@@ -266,3 +266,85 @@
   }
 }
 
+/* =========================
+   🔹 425px PERFECT MOBILE
+========================= */
+@media (max-width: 425px) {
+
+  .webdoubt-section {
+    padding: 28px 14px;
+    overflow: hidden;
+  }
+
+  .webdoubt-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* TITLE */
+  .webdoubt-title {
+    font-size: 26px;
+    line-height: 1.2;
+
+    margin-bottom: 24px;
+
+    text-align: center;
+  }
+
+  /* FAQ LIST */
+  .webdoubt-faq-list {
+    width: 100%;
+  }
+
+  /* FAQ ITEM */
+  .webdoubt-faq-item {
+    padding: 12px 0;
+  }
+
+  /* QUESTION ROW */
+  .webdoubt-faq-question-row {
+    gap: 12px;
+    align-items: center;
+  }
+
+  /* QUESTION */
+  .webdoubt-faq-question {
+    font-size: 14px;
+    line-height: 1.45;
+
+    max-width: 82%;
+
+    font-weight: 700;
+  }
+
+  /* BUTTON */
+  .webdoubt-faq-btn {
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+  }
+
+  /* ICON */
+  .webdoubt-faq-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* ANSWER WRAPPER */
+  .webdoubt-faq-answer-wrapper.show {
+    max-height: 260px;
+
+    margin-top: 8px;
+  }
+
+  /* ANSWER */
+  .webdoubt-faq-answer {
+    font-size: 13px;
+    line-height: 1.65;
+
+    max-width: 100%;
+
+    color: #5f6673;
+  }
+}

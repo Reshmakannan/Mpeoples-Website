@@ -4,17 +4,11 @@
    SECTION
    =========================== */
 .appdevbenefits-section {
-  background: #f0f4f8;
-  height: 100vh;
-  max-height: 100vh;
-  overflow: hidden;
+  background: #F8FDFF;
 
+  padding: 40px 60px;
   display: flex;
-  align-items: center;
   justify-content: center;
-
-  padding: 20px 60px;
-  box-sizing: border-box;
 }
 
 /* ===========================
@@ -22,7 +16,7 @@
    =========================== */
 .appdevbenefits-inner {
   width: 100%;
-  max-width: 1050px;
+  max-width: 1100px;
 }
 
 /* ===========================
@@ -30,185 +24,149 @@
    =========================== */
 .appdevbenefits-heading {
   font-family: 'Inter', sans-serif;
-  font-size: 26px;
-  font-weight: 800;
-  color: #0f1f4b;
+  font-size: 32px;
+  font-weight: 600;
+  color: #263238;
+
   text-align: center;
-  line-height: 1.25;
-  max-width: 750px;
-  margin: 0 auto 16px auto;
+  margin-bottom: 30px;
 }
 
 /* ===========================
-   ROWS
+   GRID ROWS
    =========================== */
 .appdevbenefits-row {
-  display: flex;
-  gap: 16px;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.appdevbenefits-row--2 {
-  justify-content: flex-start;
-  margin-bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
 }
 
 /* ===========================
    CARD
    =========================== */
 .appdevbenefits-card {
-  flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.appdevbenefits-row--2 .appdevbenefits-card {
-  flex: 0 0 calc(33.333% - 11px);
-  max-width: calc(33.333% - 11px);
-}
-
 /* ===========================
-   IMAGE WRAP
+   IMAGE
    =========================== */
 .appdevbenefits-card__img-wrap {
   width: 100%;
-  height: 120px;
-  border-radius: 10px;
+  height: 160px;
+  border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .appdevbenefits-card__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 /* ===========================
-   CARD TITLE
+   TEXT
    =========================== */
 .appdevbenefits-card__title {
   font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: #1a56c4;
-  margin: 0 0 4px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color:  #082F6E;
+
+  margin-bottom: 6px;
 }
 
-/* ===========================
-   CARD DESC
-   =========================== */
 .appdevbenefits-card__desc {
   font-family: 'Public Sans', sans-serif;
-  font-size: 11px;
-  color: #3a3a4a;
+  font-size: 14px;
+  color:  #8A8787;
+  font-weight: 200px;
   line-height: 1.5;
-  margin: 0;
 }
 
 /* ===========================
    1024px
    =========================== */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .appdevbenefits-section {
-    padding: 20px 40px;
-  }
-
-  .appdevbenefits-heading {
-    font-size: 22px;
-    margin-bottom: 14px;
+@media (max-width: 1024px) {
+  .appdevbenefits-row {
+    gap: 18px;
   }
 
   .appdevbenefits-card__img-wrap {
-    height: 110px;
-  }
-
-  .appdevbenefits-card__title {
-    font-size: 12px;
-  }
-
-  .appdevbenefits-card__desc {
-    font-size: 11px;
+    height: 140px;
   }
 }
 
 /* ===========================
-   768px
+   768px (KEEP 3 CARDS)
    =========================== */
-@media (min-width: 431px) and (max-width: 768px) {
+@media (max-width: 768px) {
+
   .appdevbenefits-section {
-    height: auto;
-    max-height: none;
-    overflow: visible;
     padding: 40px 24px;
   }
 
-  .appdevbenefits-heading {
-    font-size: 22px;
-    margin-bottom: 20px;
-  }
-
   .appdevbenefits-row {
+    grid-template-columns: repeat(3, 1fr) !important;
     gap: 16px;
   }
 
   .appdevbenefits-card__img-wrap {
-    height: 120px;
+    height: 130px;
   }
 
   .appdevbenefits-card__title {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .appdevbenefits-card__desc {
-    font-size: 11px;
-  }
-
-  .appdevbenefits-row--2 .appdevbenefits-card {
-    flex: 0 0 calc(33.333% - 11px);
-    max-width: calc(33.333% - 11px);
+    font-size: 13px;
   }
 }
 
 /* ===========================
-   425px
+   425px (2-2-2 PERFECT GRID)
    =========================== */
 @media (max-width: 425px) {
+
   .appdevbenefits-section {
-    height: auto;
-    max-height: none;
-    overflow: visible;
-    padding: 30px 16px 40px;
+    padding: 30px 16px;
   }
 
   .appdevbenefits-heading {
-    font-size: 20px;
-    margin-bottom: 20px;
+    font-size: 22px;
+    margin-bottom: 24px;
+    text-align: center;
   }
 
-  .appdevbenefits-row,
-  .appdevbenefits-row--2 {
-    flex-direction: column !important;
-    gap: 20px !important;
+  /* 🔥 STRICT 2 COLUMN GRID */
+  .appdevbenefits-row {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px;
   }
 
-  .appdevbenefits-card,
-  .appdevbenefits-row--2 .appdevbenefits-card {
-    flex: 1 1 100% !important;
+  /* 🔥 ENSURE EACH CARD FITS */
+  .appdevbenefits-card {
+    width: 100% !important;
     max-width: 100% !important;
   }
 
+  /* IMAGE SIZE */
   .appdevbenefits-card__img-wrap {
-    height: 180px;
+    height: 110px;
   }
 
+  /* TEXT */
   .appdevbenefits-card__title {
     font-size: 14px;
   }
 
   .appdevbenefits-card__desc {
     font-size: 12px;
+    line-height: 1.4;
   }
 }

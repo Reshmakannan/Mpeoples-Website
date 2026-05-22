@@ -15,6 +15,7 @@ import GdBenefits from "../components/Gdbenefits";
 import GdStack from "../components/Gdstack";
 import DigitalWorks from "../components/Gdworks";
 import Forms from "../components/Forms";
+import DoubtsSection from "../components/gddoubts";
 import FeedbackSection from "../components/Clientfeedback";
 import FooterSection from "../components/Pagefooter";
 
@@ -57,6 +58,7 @@ function GdPage() {
       <DigitalWorks />
       <GdStack />
       <Forms />
+      <DoubtsSection />
       <FeedbackSection />
       <FooterSection />
       {/* <Gdworks /> */}

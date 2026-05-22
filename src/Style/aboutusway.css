@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Public+Sans:wght@300;400;500&display=swap');
+
+.aboutway-section {
+  width: 100%;
+  background: #E6F3FF;
+  padding: 44px 60px 52px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* MAIN LAYOUT — single block, logo is absolute */
+.aboutway-container {
+  display: block;
+  position: relative;
+}
+
+/* RIGHT IMAGE — absolutely pinned to top-right of section */
+.aboutway-right {
+  position: absolute;
+  top: -32px;
+  right: 0;
+}
+
+.aboutway-right img {
+  width: 100px;
+  height: auto;
+  display: block;
+}
+
+/* LEFT SIDE — full width */
+.aboutway-left {
+  width: 100%;
+}
+
+.aboutway-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #082F6E;
+  margin: 0 0 14px 0;
+}
+
+.aboutway-subtitle {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 14.5px;
+  color: #8A8787;
+  font-weight: 400;
+  margin: 0 0 36px 0;
+}
+
+/* GRID — no padding-right, grid spans full width naturally */
+.aboutway-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 36px;
+  column-gap: 48px;
+  padding-right: 0;
+}
+
+/* CARD */
+.aboutway-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.aboutway-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 10px;
+  object-fit: contain;
+}
+
+.aboutway-card-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #082F6E;
+  margin: 0 0 6px 0;
+}
+
+.aboutway-card-desc {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 13px;
+  color: #8A8787;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ===============================
+   1024px
+================================= */
+@media (max-width: 1024px) {
+  .aboutway-section {
+    padding: 40px 40px 48px;
+  }
+
+  .aboutway-grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 36px;
+    row-gap: 32px;
+  }
+
+  .aboutway-right img {
+    width: 85px;
+  }
+
+  .aboutway-right {
+    top: -28px;
+  }
+}
+
+/* ===============================
+   768px
+================================= */
+@media (max-width: 768px) {
+  .aboutway-section {
+    padding: 36px 24px 44px;
+  }
+
+  .aboutway-right {
+    position: static;
+    margin-bottom: 20px;
+    text-align: right;
+  }
+
+  .aboutway-right img {
+    width: 65px;
+    margin-left: auto;
+  }
+
+  .aboutway-subtitle {
+    margin-bottom: 28px;
+  }
+
+  .aboutway-grid {
+    grid-template-columns: 1fr;
+    row-gap: 28px;
+  }
+}

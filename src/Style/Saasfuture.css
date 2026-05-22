@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Public+Sans:wght@400;500;600&display=swap');
 
+/* =========================================
+   SAASFUTURE FULL UPDATED CSS
+========================================= */
+
 .saasfuture-main-section {
   width: 100%;
   min-height: 100vh;
@@ -57,7 +61,7 @@
   font-family: 'Public Sans', sans-serif;
 }
 
-/* Grid */
+/* GRID */
 .saasfuture-card-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -65,14 +69,14 @@
   width: 100%;
 }
 
-/* Common Card */
+/* CARD */
 .saasfuture-service-card {
   padding: 18px 14px;
   box-sizing: border-box;
   min-height: 135px;
 }
 
-/* Top row */
+/* TOP ROW */
 .saasfuture-service-card:nth-child(1) {
   grid-column: span 2;
   border-right: 1px solid #9ca3af;
@@ -90,7 +94,7 @@
   border-bottom: 1px solid #9ca3af;
 }
 
-/* Bottom row */
+/* BOTTOM ROW */
 .saasfuture-card-bottom-left {
   grid-column: 2 / span 2;
   border-right: 1px solid #9ca3af;
@@ -100,7 +104,7 @@
   grid-column: 4 / span 2;
 }
 
-/* Header */
+/* HEADER */
 .saasfuture-card-header {
   display: flex;
   align-items: flex-start;
@@ -108,17 +112,18 @@
   margin-bottom: 14px;
 }
 
+/* ICON */
 .saasfuture-card-icon {
   width: 38px;
   height: 38px;
   object-fit: contain;
 }
 
-/* Card Title */
+/* CARD TITLE */
 .saasfuture-card-title {
   font-size: clamp(18px, 1.5vw, 22px);
   font-weight: 700;
-  color:  #263238;
+  color: #263238;
 
   margin: 0;
   line-height: 1.3;
@@ -126,157 +131,317 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* Card Text */
+/* CARD TEXT */
 .saasfuture-card-text {
   font-size: clamp(13px, 1vw, 16px);
   line-height: 1.6;
-  color:  #8A8787;
+  color: #8A8787;
 
   margin: 0;
 
   font-family: 'Public Sans', sans-serif;
 }
 
-@media (max-width: 1024px) {
+/* =========================================
+   🔹 1024px
+========================================= */
+@media screen and (max-width: 1024px) {
 
   .saasfuture-main-section {
-    padding: 20px 30px;
+    padding: 28px 26px 20px;
+    min-height: auto;
   }
 
-  /* ❌ REMOVE SCALING (this was breaking your layout feel) */
   .saasfuture-main-container {
-    transform: none;
     width: 100%;
-    max-width: 1200px;
+    max-width: 100%;
+    transform: scale(1);
   }
 
-  /* KEEP EXACT SAME GRID (NO CHANGE) */
-  .saasfuture-card-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 0;
-  }
-
-  /* ONLY SMALL SPACE REDUCTION */
-  .saasfuture-service-card {
-    padding: 14px 12px;
-    min-height: 120px;
-  }
-
-  /* TEXT SLIGHT ADJUSTMENT ONLY */
+  /* TITLE CENTERED */
   .saasfuture-main-title {
-    font-size: 48px;
+    font-size: 44px;
+    text-align: center;
+    margin-bottom: 18px;
   }
 
   .saasfuture-subtitle-label {
     font-size: 20px;
+    margin-bottom: 12px;
   }
 
   .saasfuture-main-description {
-    font-size: 16px;
-    margin-bottom: 28px;
-  }
-
-  .saasfuture-card-icon {
-    width: 36px;
-    height: 36px;
-  }
-
-  .saasfuture-card-title {
-    font-size: 20px;
-  }
-
-  .saasfuture-card-text {
     font-size: 15px;
+    line-height: 1.8;
+    max-width: 100%;
+    margin-bottom: 32px;
   }
 
-  /* KEEP GRID POSITIONS EXACTLY SAME */
-  .saasfuture-service-card:nth-child(1),
-  .saasfuture-service-card:nth-child(2),
+  /* KEEP SAME GRID */
+  .saasfuture-card-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    width: 100%;
+  }
+
+  .saasfuture-service-card {
+    padding: 18px 14px;
+    min-height: 150px;
+  }
+
+  /* TOP ROW */
+  .saasfuture-service-card:nth-child(1) {
+    grid-column: span 2;
+    border-right: 1px solid #9ca3af;
+    border-bottom: 1px solid #9ca3af;
+  }
+
+  .saasfuture-service-card:nth-child(2) {
+    grid-column: span 2;
+    border-right: 1px solid #9ca3af;
+    border-bottom: 1px solid #9ca3af;
+  }
+
   .saasfuture-service-card:nth-child(3) {
     grid-column: span 2;
+    border-bottom: 1px solid #9ca3af;
   }
 
+  /* BOTTOM */
   .saasfuture-card-bottom-left {
     grid-column: 2 / span 2;
+    border-right: 1px solid #9ca3af;
   }
 
   .saasfuture-card-bottom-right {
     grid-column: 4 / span 2;
   }
-}
 
-@media (max-width: 768px) {
-
-  .saasfuture-main-section {
-    padding: 30px 20px;
-    height: auto;
-    min-height: auto;
+  .saasfuture-card-icon {
+    width: 34px;
+    height: 34px;
   }
 
-  /* no scaling */
-  .saasfuture-main-container {
-    transform: none;
-    width: 100%;
-  }
-
-  /* title */
-  .saasfuture-main-title {
-    font-size: 36px;
-  }
-
-  /* subtitle */
-  .saasfuture-subtitle-label {
+  .saasfuture-card-title {
     font-size: 18px;
   }
 
-  /* description */
-  .saasfuture-main-description {
+  .saasfuture-card-text {
     font-size: 14px;
-    margin-bottom: 22px;
+  }
+}
+
+/* =========================================
+   🔹 768px EXACT DESIGN
+========================================= */
+@media screen and (max-width: 768px) {
+
+  .saasfuture-main-section {
+    padding: 24px 16px 20px;
+    overflow: hidden;
   }
 
-  /* ⚠️ keep structure but allow wrapping if needed */
+  .saasfuture-main-container {
+    width: 100%;
+    max-width: 100%;
+    transform: none !important;
+  }
+
+  /* TITLE CENTERED */
+  .saasfuture-main-title {
+    font-size: 38px;
+    line-height: 1.12;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+
+  /* SUBTITLE */
+  .saasfuture-subtitle-label {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  /* DESCRIPTION */
+  .saasfuture-main-description {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    max-width: 100%;
+  }
+
+  /* EXACT GRID */
   .saasfuture-card-grid {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 0;
-    overflow-x: hidden;
+    display: grid !important;
+    grid-template-columns: repeat(6, 1fr) !important;
+    gap: 0 !important;
+    width: 100%;
   }
 
-  /* cards slightly compact */
+  /* CARD */
   .saasfuture-service-card {
-    padding: 14px 10px;
-    min-height: 110px;
+    padding: 16px 10px;
+    min-height: 155px;
+    background: transparent;
   }
 
-  /* icon */
+  /* TOP ROW */
+  .saasfuture-service-card:nth-child(1) {
+    grid-column: span 2 !important;
+    border-right: 1px solid #9ca3af;
+    border-bottom: 1px solid #9ca3af;
+  }
+
+  .saasfuture-service-card:nth-child(2) {
+    grid-column: span 2 !important;
+    border-right: 1px solid #9ca3af;
+    border-bottom: 1px solid #9ca3af;
+  }
+
+  .saasfuture-service-card:nth-child(3) {
+    grid-column: span 2 !important;
+    border-bottom: 1px solid #9ca3af;
+  }
+
+  /* BOTTOM */
+  .saasfuture-card-bottom-left {
+    grid-column: 2 / span 2 !important;
+    border-right: 1px solid #9ca3af;
+  }
+
+  .saasfuture-card-bottom-right {
+    grid-column: 4 / span 2 !important;
+  }
+
+  /* HEADER */
+  .saasfuture-card-header {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* ICON */
   .saasfuture-card-icon {
     width: 32px;
     height: 32px;
   }
 
-  /* text */
+  /* CARD TITLE */
   .saasfuture-card-title {
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 1.3;
   }
 
+  /* CARD TEXT */
   .saasfuture-card-text {
     font-size: 13px;
-    line-height: 1.5;
+    line-height: 1.65;
+  }
+}
+
+/* =========================================
+   🔹 425px PERFECT MOBILE FIX
+========================================= */
+@media screen and (max-width: 425px) {
+
+  .saasfuture-main-section {
+    width: 100%;
+    padding: 22px 14px 24px;
+    overflow: hidden;
+    min-height: auto;
   }
 
-  /* keep same layout positions but allow better fit */
+  .saasfuture-main-container {
+    width: 100%;
+    max-width: 100%;
+    transform: none !important;
+  }
+
+  /* TITLE CENTERED */
+  .saasfuture-main-title {
+    font-size: 30px;
+    line-height: 1.15;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+
+  /* SUBTITLE */
+  .saasfuture-subtitle-label {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  /* DESCRIPTION */
+  .saasfuture-main-description {
+    width: 100%;
+    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+
+  /* MOBILE STACK */
+  .saasfuture-card-grid {
+    display: flex !important;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+  }
+
+  /* CARD */
+  .saasfuture-service-card,
+  .saasfuture-card-bottom-left,
+  .saasfuture-card-bottom-right {
+    width: 100%;
+    min-height: auto;
+    padding: 18px 16px;
+    box-sizing: border-box;
+
+    border: 1px solid #d1d5db !important;
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    grid-column: unset !important;
+  }
+
+  /* REMOVE DESKTOP BORDERS */
   .saasfuture-service-card:nth-child(1),
   .saasfuture-service-card:nth-child(2),
-  .saasfuture-service-card:nth-child(3) {
-    grid-column: span 2;
-  }
-
-  .saasfuture-card-bottom-left {
-    grid-column: 2 / span 2;
-  }
-
+  .saasfuture-service-card:nth-child(3),
+  .saasfuture-card-bottom-left,
   .saasfuture-card-bottom-right {
-    grid-column: 4 / span 2;
+    border-right: 1px solid #d1d5db !important;
+    border-bottom: 1px solid #d1d5db !important;
+  }
+
+  /* HEADER */
+  .saasfuture-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* ICON */
+  .saasfuture-card-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  /* CARD TITLE */
+  .saasfuture-card-title {
+    font-size: 16px;
+    line-height: 1.3;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  /* CARD TEXT */
+  .saasfuture-card-text {
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 0;
   }
 }

@@ -53,50 +53,50 @@ const services = [
 
 const Webfuture = () => {
   return (
-    <section className="uxfuture-main-section">
-      <div className="uxfuture-main-container">
+    <section className="gdfuture-main-section">
+      <div className="gdfuture-main-container">
 
         {/* Heading */}
-        <h1 className="uxfuture-main-title">The Power of Creative Graphic Design</h1>
+        <h1 className="gdfuture-main-title">The Power of Creative Graphic Design</h1>
 
         {/* Delivered by */}
-        <p className="uxfuture-subtitle-label">Delivered by MPeoples</p>
+        <p className="gdfuture-subtitle-label">Delivered by MPeoples</p>
 
         {/* Description */}
-        <p className="uxfuture-main-description">
+        <p className="gdfuture-main-description">
           Graphic design is more than just visuals — it is the creative language that communicates your brand’s story. At MPeoples, we combine creativity, strategy, and modern design tools to create impactful visuals that help businesses attract customers, build strong brand identity, and stand out in a competitive market.
         </p>
 
         {/* Cards Grid */}
-        <div className="uxfuture-card-grid">
+        <div className="gdfuture-card-grid">
           {/* Top row — 3 cards */}
           {services.filter(s => s.row === 'top').map(service => (
-            <div key={service.id} className="uxfuture-service-card">
-              <div className="uxfuture-card-header">
-                <img src={service.icon} alt={service.alt} className="uxfuture-card-icon" />
-                <h3 className="uxfuture-card-title">{service.title}</h3>
+            <div key={service.id} className="gdfuture-service-card">
+              <div className="gdfuture-card-header">
+                <img src={service.icon} alt={service.alt} className="gdfuture-card-icon" />
+                <h3 className="gdfuture-card-title">{service.title}</h3>
               </div>
-              <p className="uxfuture-card-text">{service.text}</p>
+              <p className="gdfuture-card-text">{service.text}</p>
             </div>
           ))}
 
           {/* Bottom row — 2 cards */}
-          <div className="uxfuture-service-card uxfuture-card-bottom-left">
-            <div className="uxfuture-card-header">
-              <img src={cimage} alt="Mobile-First & Responsive Design" className="uxfuture-card-icon" />
-              <h3 className="uxfuture-card-title">Creative Advertising  Graphics</h3>
+          <div className="gdfuture-service-card gdfuture-card-bottom-left">
+            <div className="gdfuture-card-header">
+              <img src={cimage} alt="Mobile-First & Responsive Design" className="gdfuture-card-icon" />
+              <h3 className="gdfuture-card-title">Creative Advertising  Graphics</h3>
             </div>
-            <p className="uxfuture-card-text">
+            <p className="gdfuture-card-text">
               High-quality advertising visuals help capture attention, increase engagement, and support successful marketing campaigns.
             </p>
           </div>
 
-          <div className="uxfuture-service-card uxfuture-card-bottom-right">
-            <div className="uxfuture-card-header">
-              <img src={uimage} alt="Usability Testing & Optimization" className="uxfuture-card-icon" />
-              <h3 className="uxfuture-card-title">Modern Design Solutions</h3>
+          <div className="gdfuture-service-card gdfuture-card-bottom-right">
+            <div className="gdfuture-card-header">
+              <img src={uimage} alt="Usability Testing & Optimization" className="gdfuture-card-icon" />
+              <h3 className="gdfuture-card-title">Modern Design Solutions</h3>
             </div>
-            <p className="uxfuture-card-text">
+            <p className="gdfuture-card-text">
               Using modern design trends and tools, we create clean, professional, and visually appealing graphics that enhance your brand presence.
             </p>
           </div>
