@@ -7,6 +7,7 @@ import trapLeft from "../assets/left-corner.png";
 import trapRight from "../assets/right-corner.png"; 
 
 import ServicesSection from "../components/videoservices";
+import VideosbsServices from "../components/videosbs";
 import GifSection from "../components/videogif";
 import VideoProvide from "../components/videoprovide";
 import VideoBenefits from "../components/videobenefits";
@@ -48,6 +49,7 @@ function VideoPage() {
       </section>
 
       <ServicesSection />
+      <VideosbsServices />
        <GifSection />
        <VideoProvide />
        <VideoBenefits />

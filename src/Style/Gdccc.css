@@ -331,3 +331,181 @@
   }
 }
 
+@media (max-width: 425px) {
+
+  .gdccc {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    padding: 28px 14px 32px;
+  }
+
+  .gdccc-container {
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+    overflow: visible;
+    text-align: center;
+  }
+
+  .gdccc-title {
+    font-size: 18px;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .gdccc-subtitle {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  /* ===========================
+     TOP ROW → 2-col grid
+     =========================== */
+  .gdccc-row.top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 12px;
+    margin-bottom: 0;
+  }
+
+  /* 3rd card in top row spans full width */
+  .gdccc-row.top .gdccc-card:nth-child(3) {
+    grid-column: 1 / -1;
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  
+
+  /* ===========================
+     BOTTOM ROW → 2-col grid
+     =========================== */
+  .gdccc-row.bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    justify-content: unset;
+    margin-bottom: 0;
+  }
+
+  /* ===========================
+     CARD
+     =========================== */
+  .gdccc-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px 10px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+
+    opacity: 0;
+    transform: translateY(20px);
+    animation: cardFadeUp 0.5s ease forwards;
+  }
+
+  /* Staggered delays */
+  .gdccc-row.top .gdccc-card:nth-child(1) { animation-delay: 0.1s; }
+  .gdccc-row.top .gdccc-card:nth-child(2) { animation-delay: 0.2s; }
+  .gdccc-row.top .gdccc-card:nth-child(3) { animation-delay: 0.3s; }
+  .gdccc-row.bottom .gdccc-card:nth-child(1) { animation-delay: 0.4s; }
+  .gdccc-row.bottom .gdccc-card:nth-child(2) { animation-delay: 0.5s; }
+
+  @keyframes cardFadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ===========================
+     ICON
+     =========================== */
+  .gdccc-card img {
+    width: 32px;
+    margin: 0 auto 8px;
+  }
+
+  /* ===========================
+     CARD TITLE
+     =========================== */
+  .gdccc-card h3 {
+    font-size: 11px;
+    margin-bottom: 5px;
+    line-height: 1.4;
+  }
+
+  /* ===========================
+     CARD DESC
+     =========================== */
+  .gdccc-card p {
+    font-size: 10px;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ===========================
+     REMOVE ALL PSEUDO LINES
+     =========================== */
+  .gdccc-card::after,
+  .gdccc-row.top .gdccc-card:nth-child(1)::after,
+  .gdccc-row.top .gdccc-card:nth-child(2)::after,
+  .gdccc-row.bottom .gdccc-card:first-child::after {
+    display: none !important;
+  }
+
+  /* ===========================
+     DIVIDER
+     =========================== */
+  .gdccc-divider {
+    width: 0%;
+    margin: 12px 0;
+  }
+
+  /* ===========================
+     CTA
+     =========================== */
+  .gdccc-cta {
+    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    animation: cardFadeUp 0.5s ease forwards;
+    animation-delay: 0.6s;
+  }
+
+  .gdccc-btn {
+    width: 100%;
+    max-width: 220px;
+    font-size: 12px;
+    padding: 10px 14px;
+  }
+
+  .gdccc-free {
+    font-size: 12px;
+    justify-content: center;
+  }
+
+  .gdccc-circle {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* ===========================
+     TRAPEZOIDS
+     =========================== */
+  .trap-left,
+  .trap-right {
+    width: 55px;
+    opacity: 0.3;
+  }
+}

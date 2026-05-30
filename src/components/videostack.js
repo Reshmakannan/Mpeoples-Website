@@ -53,7 +53,7 @@ export default function VideoStack() {
             <img
               src={pieImg}
               alt="Tech stack chart"
-              className="video-stack-pie"
+              className="video-stack-control"
             />
           </div>
         </div>

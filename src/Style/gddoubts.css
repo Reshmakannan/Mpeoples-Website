@@ -110,7 +110,7 @@
   }
 
   .Gddoubts-title {
-    font-size: 42px;
+    font-size: 40px;
     margin-bottom: 32px;
   }
 
@@ -152,7 +152,7 @@
   }
 
   .Gddoubts-title {
-    font-size: 34px;
+    font-size: 32px;
     margin-bottom: 30px;
   }
 
@@ -173,5 +173,90 @@
 
   .Gddoubts-faq-answer-wrapper.show {
     max-height: 150px;
+  }
+}
+
+@media (max-width: 425px) {
+
+  /* ===========================
+     SECTION
+     =========================== */
+  .Gddoubts-section {
+    height: auto;
+    min-height: auto;
+    padding: 28px 14px 40px;
+    overflow: visible;
+    align-items: flex-start;
+  }
+
+  /* ===========================
+     CONTAINER (IMPORTANT FIX)
+     remove scaling issue on mobile
+     =========================== */
+  .Gddoubts-container {
+    width: 100%;
+    max-width: 100%;
+    transform: none;
+  }
+
+  /* ===========================
+     TITLE
+     =========================== */
+  .Gddoubts-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  /* ===========================
+     FAQ ITEM
+     =========================== */
+  .Gddoubts-faq-item {
+    padding: 14px 0;
+  }
+
+  /* ===========================
+     QUESTION ROW FIX
+     =========================== */
+  .Gddoubts-faq-question-row {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .Gddoubts-faq-question {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    max-width: 85%;
+  }
+
+  /* ===========================
+     BUTTON / ICON
+     =========================== */
+  .Gddoubts-faq-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .Gddoubts-faq-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* ===========================
+     ANSWER TEXT
+     =========================== */
+  .Gddoubts-faq-answer {
+    font-size: 13px;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  /* ===========================
+     ANIMATION FIX
+     =========================== */
+  .Gddoubts-faq-answer-wrapper.show {
+    max-height: 220px;
+    margin-top: 8px;
   }
 }

@@ -27,7 +27,7 @@ const tools = [
   { src: dartImg, alt: "Adobe" },
 ];
 
-export default function UiuxStack() {
+export default function DmStack() {
   const items = [...tools, ...tools];
 
   return (

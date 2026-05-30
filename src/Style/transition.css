@@ -35,17 +35,17 @@
 
 /* Colors */
 .layer-black {
-  background: linear-gradient(90deg, #072E6D 0%, #168FC0 100%);
+  background: #072E6D;
 
 }
 
 .layer-gold {
-  background: #E6F3FF;
+  background: #168FC0;
 
 }
 
 .layer-white {
-  background: #F8FDFF;
+  background: #D6ECF5;
 }
 
 /* ACTIVE STATE */

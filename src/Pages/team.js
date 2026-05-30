@@ -11,6 +11,7 @@ import TeamMem from "../components/teammem";
 import TeamValue from "../components/teamvalue";
 import Teampic from "../components/teampic.";
 import Howwework from "../components/Howwework";
+import TeamBuild from "../components/teambuild";
 import Teammatter from "../components/teammatter";
 import AddressSection from "../components/AddSection";
 import FormsSection from "../components/Forms";
@@ -48,6 +49,7 @@ function TeamPage() {
       <TeamValue />
       <Teampic />
       <Howwework />
+      <TeamBuild />
       <Teammatter />
       <AddressSection />
       <FormsSection />

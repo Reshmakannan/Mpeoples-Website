@@ -1,0 +1,126 @@
+/* =========================
+   SECTION
+========================= */
+
+.teambuild-section {
+  width: 100%;
+  background: #f4f7f9;
+  padding: 60px 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* 🚫 IMPORTANT: no scroll */
+  overflow: hidden;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.teambuild-container {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.teambuild-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1f2a37;
+  line-height: 1.4;
+  margin-bottom: 18px;
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.teambuild-description {
+  font-size: 15px;
+  color: #5f6673;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+/* =========================
+   POINTS LIST
+========================= */
+
+.teambuild-points {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* =========================
+   ITEM
+========================= */
+
+.teambuild-item h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2a37;
+  margin-bottom: 6px;
+}
+
+.teambuild-item p {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .teambuild-section {
+    padding: 40px 16px;
+  }
+
+  .teambuild-title {
+    font-size: 22px;
+  }
+
+  .teambuild-description {
+    font-size: 14px;
+  }
+
+  .teambuild-item h3 {
+    font-size: 15px;
+  }
+
+  .teambuild-item p {
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 425px) {
+
+  .teambuild-section {
+    padding: 32px 14px;
+  }
+
+  .teambuild-title {
+    font-size: 20px;
+  }
+
+  .teambuild-description {
+    font-size: 13.5px;
+  }
+
+  .teambuild-item h3 {
+    font-size: 14px;
+  }
+
+  .teambuild-item p {
+    font-size: 13px;
+  }
+}

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "../Style/Uiuxservice.css";
 import "../Style/Uiux.css";
 import "../Style/Uiuxdesign.css";
+import "../Style/Uiuxservice.css";
 
 import icon1 from "../assets/icon1.png";
 import icon2 from "../assets/icon2.png";
@@ -49,14 +50,59 @@ const uiuxServices = [
   },
 ];
 
+const CARD_BASE_DELAY = 0.15;
+const CARD_STAGGER    = 0.10;
+
 function UiuxServicesSection() {
+  const sectionRef  = useRef(null);
+  const headingRef  = useRef(null);
+  const subtextRef  = useRef(null);
+  const cardRefs    = useRef([]);
+
+  useEffect(() => {
+    const targets = [
+      headingRef.current,
+      subtextRef.current,
+      ...cardRefs.current,
+    ].filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const sectionVisible = entries.some((e) => e.isIntersecting);
+
+        if (sectionVisible) {
+          // Remove class first (reset), then re-add on next frame
+          // so CSS animation fires fresh every scroll-in
+          targets.forEach((el) => el.classList.remove("uiux-animate-in"));
+
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              targets.forEach((el) => el.classList.add("uiux-animate-in"));
+            });
+          });
+        } else {
+          // Section left viewport — strip class so it resets for next entry
+          targets.forEach((el) => el.classList.remove("uiux-animate-in"));
+        }
+      },
+      {
+        root: null,
+        threshold: 0.15, // trigger when 15% of section is visible
+      }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="uiux-services-section">
-      <h2 className="uiux-services-heading">
+    <section className="uiux-services-section" ref={sectionRef}>
+      <h2 className="uiux-services-heading" ref={headingRef}>
         Experience-Led Digital Design Solutions
       </h2>
 
-      <p className="uiux-services-subtext">
+      <p className="uiux-services-subtext" ref={subtextRef}>
         From research and strategy to scalable design systems, we deliver
         end-to-end UI/UX solutions that help businesses build intuitive,
         high-performing digital products.
@@ -64,7 +110,14 @@ function UiuxServicesSection() {
 
       <div className="uiux-services-grid">
         {uiuxServices.map((service, index) => (
-          <div className="uiux-service-card" key={index}>
+          <div
+            className="uiux-service-card"
+            key={index}
+            ref={(el) => (cardRefs.current[index] = el)}
+            style={{
+              animationDelay: `${CARD_BASE_DELAY + index * CARD_STAGGER}s`,
+            }}
+          >
             <div className="uiux-service-icon-wrap">
               <img
                 src={service.icon}

@@ -9,6 +9,7 @@ import trapRight from "../assets/right-corner.png";
 import ServicesSection from "../components/Dmservices";
 import RecSection from "../components/Dmrec";
 import Dmfuturee from "../components/Dmfuture";
+import Dmprocess from "../components/Dmprocess";
 import DmBenefits from "../components/Dmbenefits";
 import Dmstack from "../components/Dmstack";
 import DigitalWorks from "../components/Dmworks";
@@ -53,6 +54,7 @@ function DmPage() {
       <ServicesSection />
       <RecSection />
       <Dmfuturee />
+      <Dmprocess />
       <DmBenefits />
       <Dmstack />
       <DigitalWorks />

@@ -213,78 +213,152 @@
    768px
    =========================== */
 @media (min-width: 431px) and (max-width: 768px) {
+
+  /* ===========================
+     SECTION
+     =========================== */
   .gdi-section {
     height: auto;
     max-height: none;
-    padding: 50px 50px 100px 60px;
+    padding: 40px 24px 70px;
     overflow: visible;
   }
 
-  .gdi-inner {
-    z-index: 2;
-  }
-
+  /* ===========================
+     HEADING
+     =========================== */
   .gdi-heading {
-    font-size: 24px;
-    margin-bottom: 24px;
+    font-size: 26px;
+    margin-bottom: 26px;
   }
 
-  .gdi-row--3 {
-    justify-content: space-between;
-    flex-wrap: nowrap;
-  }
-
+  /* ===========================
+     ROW FIX (IMPORTANT)
+     keep layout but allow wrap safely
+     =========================== */
+  .gdi-row--3,
   .gdi-row--2 {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 22px;
   }
 
+  /* ===========================
+     CARD FIX (MAIN FIX)
+     prevent squeezing
+     =========================== */
   .gdi-card {
-    position: relative;
-    flex: 1;
-    padding: 0 16px 0 16px;
-    max-width: none;
+    flex: 0 0 calc(50% - 22px);
+    max-width: 320px;
+    padding: 0 14px;
+    box-sizing: border-box;
   }
 
-  .gdi-row--3 .gdi-card:first-child {
-    padding-left: 0;
-  }
-
+  /* ===========================
+     3-CARD ROW SPECIAL FIX
+     (center last card properly)
+     =========================== */
   .gdi-row--3 .gdi-card:last-child {
-    padding-right: 0;
+    flex: 0 0 100%;
+    max-width: 320px;
   }
 
+  /* ===========================
+     2-CARD ROW FIX
+     =========================== */
   .gdi-row--2 .gdi-card {
-    max-width: 280px;
-    padding: 0 24px 0 24px;
+    flex: 0 0 calc(50% - 22px);
+    max-width: 320px;
   }
 
-  .gdi-row--2 .gdi-card:first-child {
-    padding-left: 0;
-  }
-
-  .gdi-row--2 .gdi-card:last-child {
-    padding: 0 0 0 24px;
-  }
-
+  /* ===========================
+     REMOVE DIVIDER ISSUES
+     =========================== */
   .gdi-vline {
-    display: block;
+    display: none;
   }
 
+  .gdi-hline {
+    width: 88%;
+    margin: 20px auto;
+  }
+
+  /* ===========================
+     TYPOGRAPHY (balanced scale)
+     =========================== */
   .gdi-card__title {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .gdi-card__desc {
-    font-size: 11px;
+    font-size: 12px;
+    line-height: 1.55;
   }
 
   .gdi-card__icon {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
   }
 }
+
 /* ===========================
-   420px
+   768px ANIMATION FIX (ALL CARDS)
+   =========================== */
+
+@keyframes gdi-768-fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Heading */
+.gdi-heading {
+  animation: gdi-768-fadeUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+/* ALL cards animate (no missing cards now) */
+.gdi-card {
+  opacity: 0;
+  animation: gdi-768-fadeUp 0.6s ease forwards;
+}
+
+/* Smooth stagger effect across ALL cards */
+.gdi-card:nth-child(1) { animation-delay: 0.05s; }
+.gdi-card:nth-child(2) { animation-delay: 0.15s; }
+.gdi-card:nth-child(3) { animation-delay: 0.25s; }
+.gdi-card:nth-child(4) { animation-delay: 0.35s; }
+.gdi-card:nth-child(5) { animation-delay: 0.45s; }
+.gdi-card:nth-child(6) { animation-delay: 0.55s; }
+
+/* Divider animation */
+.gdi-hline {
+  opacity: 0;
+  animation: gdi-768-fadeUp 0.6s ease forwards;
+  animation-delay: 0.2s;
+}
+/* ===========================
+   KEYFRAME ANIMATION
+   =========================== */
+@keyframes gdi-fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   425px
    =========================== */
 @media (max-width: 425px) {
   .gdi-section {
@@ -297,14 +371,16 @@
   .gdi-heading {
     font-size: 22px;
     margin-bottom: 20px;
+    opacity: 0;
+    animation: gdi-fadeSlideUp 0.5s ease forwards 0.1s;
   }
 
   .gdi-row,
   .gdi-row--3,
   .gdi-row--2 {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 20px !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
   }
 
   .gdi-card,
@@ -312,22 +388,31 @@
   .gdi-row--2 .gdi-card:first-child,
   .gdi-row--2 .gdi-card:last-child,
   .gdi-row--3 .gdi-card:first-child {
-    max-width: 100% !important;
-    flex: 1 1 100% !important;
-    padding: 0 0 16px 0 !important;
-    border-bottom: 1px solid rgba(100, 100, 140, 0.15);
-  }
+    max-width: 100%;
+    flex: 1 1 100%;
+    padding: 14px 16px;
+    box-sizing: border-box;
 
-  .gdi-card:last-child {
-    border-bottom: none;
+    /* Box / border card styling */
+    background: #ffcdcd;
+    border: 1px solid #D9E3EC;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(8, 47, 110, 0.06);
+
+    /* Animation */
+    opacity: 0;
+    animation: gdi-fadeSlideUp 0.6s ease forwards 0.2s;
   }
 
   .gdi-vline {
-    display: none !important;
+    display: none;
   }
 
   .gdi-hline {
     margin: 4px 0;
+    width: 100%;
+    opacity: 0;
+    animation: gdi-fadeSlideUp 0.5s ease forwards 0.15s;
   }
 
   .gdi-card__icon {
@@ -341,5 +426,6 @@
 
   .gdi-card__desc {
     font-size: 12px;
+    line-height: 1.6;
   }
 }

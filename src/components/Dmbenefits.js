@@ -11,30 +11,30 @@ const benefits = [
   {
     id: 1,
     image: brand,
-    title: "Strong Brand Identity",
+    title: "Strong Online Brand Presence",
     description:
-      "Professional graphic design builds a unique brand identity and creates memorable visuals that earn customer trust.",
+      "Effective digital marketing builds a strong brand presence across search engines and platforms like Instagram and Facebook, increasing visibility and customer trust.",
   },
   {
     id: 2,
     image: scalability,
-    title: "Scalability & Flexibility",
+    title: "Better Customer Reach",
     description:
-      "Custom web applications easily adapt to business growth by allowing new features, integrations, and scalable cloud resources.",
+      "Digital marketing helps businesses reach the right audience through SEO, social media campaigns, and targeted ads on Google Ads.",
   },
   {
     id: 3,
     image: deployment,
-    title: "Easy Deployment & Updates",
+    title: "Increased Customer Engagement",
     description:
-      "Web applications can be accessed through a URL and updated centrally, ensuring all users always use the latest version.",
+      "Engaging content and targeted campaigns help businesses connect with customers and build strong, long-term relationships with their audience. ",
   },
   {
     id: 4,
     image: business,
-    title: "Enhanced Business Operations",
+    title: "Competitive Business Growth",
     description:
-      "Web-based systems improve collaboration, automate workflows, and increase productivity while reducing operational costs.",
+      "A strong digital marketing strategy increases brand visibility, generates leads, and drives sustainable business growth.",
   },
   {
     id: 5,
@@ -49,7 +49,7 @@ const Dmbenefits = () => {
     <section className="dmbenefits-section">
       <div className="dmbenefits-inner">
         <h2 className="dmbenefits-heading">
-          How can your business get benefit from graphic designing?
+          How Can Your Business Benefit from Digital Marketing?
         </h2>
 
         {/* Row 1 — 3 cards */}

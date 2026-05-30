@@ -129,64 +129,94 @@
   object-fit: contain;
 }
 
-/* ---------- Responsive ---------- */
-
-@media screen and (max-width: 768px) {
-
-  .companyabout-row {
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 20px;
-    align-items: stretch !important;
-  }
-
-  .companyabout-vision-row {
-    flex-direction: column-reverse;
-  }
-
-  .companyabout-image-box {
-    width: 100% !important;
-    height: auto !important;
-    border-radius: 20px !important;
-  }
-
-  .companyabout-image {
-    height: 240px;
-  }
-
-  .companyabout-text-box {
-    padding: 24px 10px;
-    text-align: center;
-  }
-}
-
-/* ---------- Mobile ---------- */
-
-@media screen and (max-width: 576px) {
+/* =====================================
+   🔹 1024px (FIXED PADDING VERSION)
+===================================== */
+@media (max-width: 1024px) {
 
   .companyabout-section {
-    padding: 55px 16px;
+    padding: 60px 24px;   /* ✅ reduced + balanced */
+  }
+
+  .companyabout-wrapper {
+    max-width: 860px;
+  }
+
+  /* ---------- HEADER ---------- */
+
+  .companyabout-header {
+    margin-bottom: 44px;
   }
 
   .companyabout-title {
-    font-size: 30px;
+    font-size: 34px;
+    margin-bottom: 10px;
   }
 
   .companyabout-subtitle {
-    font-size: 13px;
+    max-width: 620px;
+    font-size: 14px;
     line-height: 1.7;
   }
 
+  /* ---------- ROW ---------- */
+
+  .companyabout-row {
+    display: flex;
+  }
+
+  .companyabout-mission-row {
+    align-items: flex-end;
+  }
+
+  .companyabout-vision-row {
+    align-items: flex-start;
+  }
+
+  /* ---------- IMAGE ---------- */
+
+  .companyabout-mission-row .companyabout-image-box,
+  .companyabout-vision-row .companyabout-image-box {
+    width: 50%;
+    height: 300px;
+  }
+
+  .companyabout-mission-row .companyabout-image-box {
+    border-radius: 26px 26px 0 26px;
+  }
+
+  .companyabout-vision-row .companyabout-image-box {
+    border-radius: 0 26px 26px 26px;
+  }
+
+  /* ---------- TEXT BOX (KEY FIX) ---------- */
+
+  .companyabout-text-box {
+    padding: 28px 30px;   /* ✅ FIXED: not too wide, not cramped */
+  }
+
+  /* tighten text alignment with image */
+  .companyabout-mission-row .companyabout-text-box {
+    padding-left: 34px;
+    padding-right: 22px;
+  }
+
+  .companyabout-vision-row .companyabout-text-box {
+    padding-left: 22px;
+    padding-right: 34px;
+  }
+
+  /* ---------- TEXT ---------- */
+
   .companyabout-card-title {
     font-size: 18px;
+    margin-bottom: 12px;
   }
 
   .companyabout-description {
-    font-size: 13px;
+    font-size: 13.5px;
     line-height: 1.8;
   }
-
-  .companyabout-image {
-    height: 220px;
-  }
 }
+
+  
